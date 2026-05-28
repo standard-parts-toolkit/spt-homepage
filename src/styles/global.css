@@ -1,0 +1,224 @@
+@import "tailwindcss";
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/space-grotesk";
+
+@theme {
+  /* === SPT Brand Tokens === */
+
+  /* Primary — deep industrial green */
+  --color-brand-50:  #f0fdf4;
+  --color-brand-100: #dcfce7;
+  --color-brand-200: #bbf7d0;
+  --color-brand-300: #86efac;
+  --color-brand-400: #4ade80;
+  --color-brand-500: #22c55e;
+  --color-brand-600: #16a34a;
+  --color-brand-700: #15803d;
+  --color-brand-800: #166534;
+  --color-brand-900: #14532d;
+  --color-brand-950: #052e16;
+
+  /* Accent — safety orange (CTAs) */
+  --color-accent-50:  #fff7ed;
+  --color-accent-100: #ffedd5;
+  --color-accent-200: #fed7aa;
+  --color-accent-300: #fdba74;
+  --color-accent-400: #fb923c;
+  --color-accent-500: #f97316;
+  --color-accent-600: #ea580c;
+  --color-accent-700: #c2410c;
+  --color-accent-800: #9a3412;
+  --color-accent-900: #7c2d12;
+
+  /* Tertiary — amber/yellow highlights */
+  --color-spark-50:  #fffbeb;
+  --color-spark-100: #fef3c7;
+  --color-spark-200: #fde68a;
+  --color-spark-300: #fcd34d;
+  --color-spark-400: #fbbf24;
+  --color-spark-500: #f59e0b;
+  --color-spark-600: #d97706;
+
+  /* Warm neutrals (stone family) */
+  --color-ink-50:  #fafaf9;
+  --color-ink-100: #f5f5f4;
+  --color-ink-200: #e7e5e4;
+  --color-ink-300: #d6d3d1;
+  --color-ink-400: #a8a29e;
+  --color-ink-500: #78716c;
+  --color-ink-600: #57534e;
+  --color-ink-700: #44403c;
+  --color-ink-800: #292524;
+  --color-ink-900: #1c1917;
+  --color-ink-950: #0c0a09;
+
+  /* Typography */
+  --font-sans:    "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono:    ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  /* Radii */
+  --radius-xl: 0.875rem;
+}
+
+/* === Base layer === */
+@layer base {
+  :root {
+    color-scheme: light;
+
+    --bg:           var(--color-ink-50);
+    --surface:      #ffffff;
+    --surface-2:    var(--color-ink-100);
+    --text:         var(--color-ink-900);
+    --text-muted:   var(--color-ink-600);
+    --text-subtle:  var(--color-ink-500);
+    --border:       var(--color-ink-200);
+    --border-strong:var(--color-ink-300);
+
+    --primary:      var(--color-brand-700);
+    --primary-hover:var(--color-brand-800);
+    --primary-soft: var(--color-brand-100);
+    --primary-fg:   #ffffff;
+
+    --action:       var(--color-accent-600);
+    --action-hover: var(--color-accent-700);
+    --action-soft:  var(--color-accent-100);
+    --action-fg:    #ffffff;
+
+    --spark:        var(--color-spark-500);
+    --spark-soft:   var(--color-spark-100);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+
+      --bg:           var(--color-ink-950);
+      --surface:      var(--color-ink-900);
+      --surface-2:    var(--color-ink-800);
+      --text:         var(--color-ink-50);
+      --text-muted:   var(--color-ink-300);
+      --text-subtle:  var(--color-ink-400);
+      --border:       var(--color-ink-800);
+      --border-strong:var(--color-ink-700);
+
+      --primary:      var(--color-brand-400);
+      --primary-hover:var(--color-brand-300);
+      --primary-soft: color-mix(in srgb, var(--color-brand-900) 60%, transparent);
+      --primary-fg:   var(--color-ink-950);
+
+      --action:       var(--color-accent-500);
+      --action-hover: var(--color-accent-400);
+      --action-soft:  color-mix(in srgb, var(--color-accent-900) 60%, transparent);
+      --action-fg:    var(--color-ink-950);
+
+      --spark:        var(--color-spark-400);
+      --spark-soft:   color-mix(in srgb, var(--color-spark-900) 60%, transparent);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+
+    --bg:           var(--color-ink-950);
+    --surface:      var(--color-ink-900);
+    --surface-2:    var(--color-ink-800);
+    --text:         var(--color-ink-50);
+    --text-muted:   var(--color-ink-300);
+    --text-subtle:  var(--color-ink-400);
+    --border:       var(--color-ink-800);
+    --border-strong:var(--color-ink-700);
+
+    --primary:      var(--color-brand-400);
+    --primary-hover:var(--color-brand-300);
+    --primary-soft: color-mix(in srgb, var(--color-brand-900) 60%, transparent);
+    --primary-fg:   var(--color-ink-950);
+
+    --action:       var(--color-accent-500);
+    --action-hover: var(--color-accent-400);
+    --action-soft:  color-mix(in srgb, var(--color-accent-900) 60%, transparent);
+    --action-fg:    var(--color-ink-950);
+
+    --spark:        var(--color-spark-400);
+    --spark-soft:   color-mix(in srgb, var(--color-spark-900) 60%, transparent);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-sans);
+    font-feature-settings: "cv11", "ss01", "ss03";
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-display);
+    letter-spacing: -0.015em;
+  }
+
+  ::selection {
+    background: var(--primary-soft);
+    color: var(--text);
+  }
+
+  a { color: var(--primary); }
+}
+
+/* === Reusable component classes === */
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold transition-colors;
+  }
+  .btn-primary {
+    background: var(--action);
+    color: var(--action-fg);
+  }
+  .btn-primary:hover { background: var(--action-hover); }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border-strong);
+  }
+  .btn-secondary:hover {
+    background: var(--surface-2);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--primary);
+  }
+  .btn-ghost:hover {
+    background: var(--primary-soft);
+  }
+
+  .tag {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold uppercase tracking-wider;
+    background: var(--surface-2);
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+  }
+  .tag-primary { background: var(--primary-soft); color: var(--primary); border-color: color-mix(in srgb, var(--primary) 25%, transparent); }
+  .tag-action  { background: var(--action-soft); color: var(--action); border-color: color-mix(in srgb, var(--action) 30%, transparent); }
+  .tag-spark   { background: var(--spark-soft); color: var(--spark); border-color: color-mix(in srgb, var(--spark) 30%, transparent); }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    padding: 1.5rem;
+  }
+
+  .section {
+    @apply mx-auto max-w-7xl px-6 py-20 sm:px-8;
+  }
+
+  .lede { color: var(--text-muted); font-size: 1.0625rem; line-height: 1.6; }
+
+  .focus-ring {
+    @apply outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+    --tw-ring-color: var(--primary);
+  }
+}

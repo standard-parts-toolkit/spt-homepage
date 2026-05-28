@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="That page doesn't fit — SPT"
+  description="The page you're looking for doesn't exist. Try the homepage, features, integrations, or contact us."
+>
+
+  <section class="section pt-12 sm:pt-20">
+    <p class="text-xs font-semibold uppercase tracking-[0.18em]" style="color: var(--action)">404</p>
+    <h1 class="mt-3 max-w-3xl text-5xl font-extrabold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl" style="color: var(--text)">
+      That page doesn't fit.
+    </h1>
+    <p class="lede mt-5 max-w-2xl">
+      We couldn't find what you were looking for. Try one of these instead.
+    </p>
+
+    <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {[
+        ['/',                       'Homepage',       'Start at the top.'],
+        ['/features/',              'Features',       'Everything SPT does inside Shopify.'],
+        ['/integrations/',          'Integrations',   'ACES/PIES, ShowMeTheParts, CSV.'],
+        ['/merchant-of-record/',    'Merchant of Record', 'Sales tax handled for you.'],
+        ['/pricing/',               'Pricing',        'Free and Pro — two tiers, no surprises.'],
+        ['/blog/',                  'Blog',           'Notes from the parts-on-Shopify trenches.'],
+      ].map(([href, title, body]) => (
+        <a href={href} class="card focus-ring group block transition-shadow hover:shadow-lg">
+          <h2 class="text-base font-bold" style="color: var(--text)">{title}</h2>
+          <p class="mt-1 text-sm" style="color: var(--text-muted)">{body}</p>
+          <span class="mt-3 inline-flex items-center gap-1 text-sm font-semibold transition-colors group-hover:gap-2" style="color: var(--primary)">
+            Go <span aria-hidden="true">→</span>
+          </span>
+        </a>
+      ))}
+    </div>
+
+    <p class="mt-10 text-sm" style="color: var(--text-subtle)">
+      We promise our fitment search is more reliable than our URL routing.
+    </p>
+  </section>
+
+</BaseLayout>

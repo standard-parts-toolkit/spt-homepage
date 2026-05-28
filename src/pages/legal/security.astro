@@ -1,0 +1,75 @@
+---
+import LegalLayout from '../../layouts/LegalLayout.astro';
+---
+
+<LegalLayout
+  title="Security & Data Handling"
+  description="How SPT handles merchant catalogs, customer order data, and supplier feeds — hosting, encryption, access, sub-processors, backups, and incident response."
+  effective="[DATE]"
+>
+
+  <p>
+    We work with merchant catalogs, customer order data, and supplier feeds. Here's how we handle them.
+  </p>
+
+  <h2>Hosting and data residency</h2>
+  <p>
+    The SPT service runs on <strong>[PROVIDER]</strong> in <strong>[REGION(S)]</strong>. Customer data is stored in
+    <strong>[REGION]</strong> unless we've agreed otherwise in writing.
+  </p>
+
+  <h2>Encryption</h2>
+  <ul>
+    <li><strong>In transit:</strong> All connections to the service and between the service and Shopify use TLS 1.2 or higher.</li>
+    <li><strong>At rest:</strong> Data at rest is encrypted using <strong>[AES-256 or provider-managed equivalent]</strong>.</li>
+  </ul>
+
+  <h2>Authentication and access</h2>
+  <ul>
+    <li>Merchant access is via Shopify's OAuth flow; we don't store Shopify passwords.</li>
+    <li>Internal access to production systems is restricted to a small number of engineers and requires SSO with MFA.</li>
+    <li>We log production access and review the logs periodically.</li>
+  </ul>
+
+  <h2>Customer data</h2>
+  <ul>
+    <li>We process catalog data, fitment data, price/inventory data, and order data on behalf of the merchant.</li>
+    <li>We do not sell customer data.</li>
+    <li>We do not use customer data to train machine-learning models.</li>
+  </ul>
+
+  <h2>Third-party processors</h2>
+  <p>We use the following sub-processors:</p>
+  <ul>
+    <li><strong>[Hosting provider]</strong> — infrastructure</li>
+    <li><strong>[Database provider]</strong> — managed database</li>
+    <li><strong>Google Analytics 4</strong> — website analytics (marketing site only, not the app)</li>
+    <li><strong>Formspree</strong> — marketing site form submissions</li>
+    <li><em>[Add others as applicable]</em></li>
+  </ul>
+
+  <h2>Backups and disaster recovery</h2>
+  <ul>
+    <li>Encrypted backups are taken <strong>[daily]</strong> with a <strong>[N-day]</strong> retention window.</li>
+    <li>We test restore procedures <strong>[quarterly]</strong>.</li>
+  </ul>
+
+  <h2>Vulnerability management</h2>
+  <ul>
+    <li>Dependencies are monitored continuously and patched on a defined cadence based on severity.</li>
+    <li>Production infrastructure is scanned <strong>[monthly]</strong>; findings are tracked to resolution.</li>
+  </ul>
+
+  <h2>Incident response</h2>
+  <p>
+    We maintain an incident response process. In the event of a confirmed incident affecting customer data, we
+    notify affected merchants without undue delay and follow up with a written summary.
+  </p>
+
+  <h2>Questions or coordinated disclosure</h2>
+  <ul>
+    <li>General: <a href="mailto:security@standardpartstoolkit.com">security@standardpartstoolkit.com</a></li>
+    <li>Coordinated vulnerability disclosure: <a href="mailto:security@standardpartstoolkit.com">security@standardpartstoolkit.com</a> — please give us a reasonable window to respond before any public disclosure.</li>
+  </ul>
+
+</LegalLayout>

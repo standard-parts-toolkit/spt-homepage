@@ -14,11 +14,11 @@
     --text-subtle: #64748b;
     --border: #e2e8f0;
     --border-strong: #cbd5e1;
-    --primary: #1e3a8a;
-    --primary-soft: #e0e7ff;
+    --primary: #15803D;
+    --primary-soft: #dcfce7;
     --primary-fg: #ffffff;
-    --accent: #d97706;
-    --accent-soft: #fef3c7;
+    --accent: #ea580c;
+    --accent-soft: #ffedd5;
     --success: #047857;
     --success-soft: #d1fae5;
     --warn: #b45309;
@@ -43,11 +43,11 @@
       --text-subtle: #7e8ba1;
       --border: #1f2a44;
       --border-strong: #2a3856;
-      --primary: #93b4ff;
-      --primary-soft: #1a2547;
+      --primary: #4ade80;
+      --primary-soft: #14361f;
       --primary-fg: #0b1220;
-      --accent: #fbbf24;
-      --accent-soft: #2a210e;
+      --accent: #fb923c;
+      --accent-soft: #2a1810;
       --success: #34d399;
       --success-soft: #102b22;
       --warn: #fbbf24;
@@ -661,11 +661,12 @@
         <div class="card"><h4>Raw CSV</h4><p>The fastest path for small or custom catalogs.</p></div>
       </div>
 
-      <div class="callout warn" style="margin-top: 1.5rem;">
-        <div class="icon">!</div>
+      <div class="callout info" style="margin-top: 1.5rem;">
+        <div class="icon">i</div>
         <div>
-          <p><strong>Positioning shift vs. the current site.</strong> The live <code>standardpartstoolkit.com</code> positions the product as <em>a Shopify integration powered by ShowMeTheParts</em>. The new site repositions as <em>data-source agnostic</em> and adds modules not on the current site (CSV, P&amp;I sync, order export, multi-vehicle garage, multi-store).</p>
-          <p><strong>Every capability beyond the current site must be operational at launch, or framed as "coming soon."</strong> Misalignment between marketing copy and shipping product is the biggest launch risk.</p>
+          <p><strong>Positioning shift vs. the current site.</strong> The live <code>standardpartstoolkit.com</code> positions the product as <em>a Shopify integration powered by ShowMeTheParts</em>. The new site repositions as <em>data-source agnostic</em> and adds modules not on the current site (CSV, P&amp;I sync, order export, multi-vehicle garage).</p>
+          <p><strong>Single-store model.</strong> SPT is one install per merchant, per Shopify store — not a data-syndication platform. The manufacturer audience pitch is <em>direct-to-consumer Shopify</em>, not pushing data into dealer stores. Never use "multi-store," "syndicate," or "every storefront" language.</p>
+          <p><strong>Capability scope at launch: everything ships.</strong> All six app modules + MoR claimed as live. Owner committed to closing operational gaps within the launch window.</p>
         </div>
       </div>
     </section>
@@ -679,7 +680,7 @@
         <div class="card">
           <span class="tag primary">Primary</span>
           <h4 style="margin-top:0.5rem">Enterprise parts manufacturers</h4>
-          <p>Maintain ACES/PIES feeds. Want their catalog on Shopify storefronts (theirs or dealers') without a custom build. Care about syndication, scale, security review, SLA.</p>
+          <p>Maintain ACES/PIES feeds. Want to sell direct-to-consumer on their own Shopify store without a custom build. Care about catalog fidelity, security review, SLA. One install per store — not a syndication play.</p>
         </div>
         <div class="card">
           <span class="tag">Secondary</span>
@@ -740,11 +741,12 @@
       <h2><span class="num">04</span> Site map &amp; navigation</h2>
 
       <h3>Global header</h3>
-      <pre><code>Logo | Features ▾ | Integrations | Merchant of Record | Pricing | Customers | Blog | Knowledge Base ↗ | About    [Book a Demo] [Install on Shopify]</code></pre>
+      <pre><code>Logo | Products ▾ | Features ▾ | Integrations | Why Shopify | Pricing | Blog | About    [Book a Demo] [Install on Shopify]</code></pre>
       <ul class="clean">
-        <li><strong>Features dropdown</strong> lists six sub-pages: YMM Search, Catalog Sync, PDP, <strong>In-Cart Fitment</strong>, P&amp;I Sync, Order Export.</li>
-        <li><strong>Merchant of Record</strong> is its own top-nav item — a distinct service line, not a Shopify-app module.</li>
-        <li><strong>Knowledge Base</strong> is an external link (<code>↗</code>) to <code>https://kb.standardpartstoolkit.com</code>. We don't build new docs; we link to the existing KB.</li>
+        <li><strong>Products dropdown</strong> lists the two product offerings, each with a short tagline: <strong>SPT for Shopify</strong> → <code>/features/</code>, and <strong>Merchant of Record</strong> → <code>/merchant-of-record/</code>.</li>
+        <li><strong>Features dropdown</strong> lists the six modules within SPT for Shopify: YMM Search, Catalog Sync, PDP, In-Cart Fitment, P&amp;I Sync, Order Export.</li>
+        <li><strong>Customers and Knowledge Base are intentionally NOT in the top nav.</strong> Both URLs stay; links live in the footer only.</li>
+        <li>The Knowledge Base footer link goes to <code>https://kb.standardpartstoolkit.com</code> (external). We don't build new docs; we link to the existing KB.</li>
       </ul>
 
       <h3>Page inventory</h3>
@@ -794,8 +796,8 @@
           <p>Wordmark "SPT" + optional "SPT" monogram for favicon/app icon. SVG sources, light + dark variants.</p>
         </div>
         <div class="card">
-          <h4>Color system</h4>
-          <p><strong>Primary:</strong> industrial blue (~<code>#1E3A8A</code>). <strong>Accent:</strong> warm amber / safety-orange for CTAs. <strong>Neutrals:</strong> graphite/steel grey. Implement as Tailwind tokens mirrored to CSS variables so dark mode swaps cleanly.</p>
+          <h4>Color system <span class="tag accent">Confirmed</span></h4>
+          <p><strong>Primary — Green</strong> (deep industrial, ~<code>#15803D</code> / <code>#166534</code>). Brand mark, headings accents, primary surfaces. <strong>Secondary — Orange</strong> (~<code>#F97316</code> / <code>#EA580C</code>) for CTAs — orange-on-green is high-contrast and reads as urgent. <strong>Tertiary — Yellow</strong>, used sparingly for highlights and "new" badges. <strong>Neutrals:</strong> warm <code>stone</code> greys. Avoid all three primaries at equal weight (reads fast-food). Lead green, action orange, spice yellow.</p>
         </div>
         <div class="card">
           <h4>Typography</h4>
@@ -883,39 +885,36 @@
     <section id="open-items">
       <h2><span class="num">09</span> Open items before kickoff</h2>
       <p class="lede">Owner must confirm or override these before implementation begins.</p>
-      <h4 style="margin-top: 0.5rem;">Infrastructure &amp; accounts</h4>
+      <h4 style="margin-top: 0.5rem;">Confirmed at kickoff <span class="tag success">decided</span></h4>
+      <ul class="clean">
+        <li><strong>Capability scope:</strong> Everything ships at launch. No "coming soon" labels.</li>
+        <li><strong>Deployment:</strong> Preview URL first (GH Pages on <code>*.github.io</code> or staging subdomain), DNS cutover to <code>standardpartstoolkit.com</code> after owner review.</li>
+        <li><strong>Pricing:</strong> Free (100 searches/month, no P&amp;I or Order Export) + Pro $300/month (everything). MoR sold separately, transaction-based.</li>
+        <li><strong>Brand palette:</strong> Green primary, Orange CTAs, Yellow accent. Implementer picks shades.</li>
+        <li><strong>Identity:</strong> "A product of No Fixed Plans." ShowMeTheParts (operated by Vertical Development) is a data source, not a partner.</li>
+        <li><strong>Product name:</strong> SPT (canonical) with "Standard Parts Toolkit" preserved in establishing mentions, legal, and customer quotes.</li>
+      </ul>
+
+      <h4>Still needed (can be supplied during the build)</h4>
       <ul class="checklist">
-        <li>Final domain name for CNAME (assumes new site replaces current at the same domain)</li>
-        <li><strong>Migration plan</strong> for cutting over from current site to new Astro site (DNS swap, redirect map for deep links)</li>
         <li>Shopify App Store install URL (placeholder until listed)</li>
         <li>Formspree project / endpoint IDs (Contact, Demo, Newsletter)</li>
         <li>GA4 measurement ID</li>
-      </ul>
-
-      <h4>Product positioning &amp; capability</h4>
-      <ul class="checklist">
-        <li><strong>Capability alignment</strong> — every module beyond what is on the current site (CSV, direct ACES/PIES, multi-vehicle garage, P&amp;I sync, order export, multi-store) must be operational at launch or framed as "coming soon"</li>
-        <li>BigCommerce support — the current MoR page lists BigCommerce alongside Shopify. Is MoR multi-platform while the app is Shopify-only?</li>
-        <li>Pricing model — published tiers or "Contact for pricing"; also: MoR pricing model</li>
-      </ul>
-
-      <h4>Brand, identity &amp; assets</h4>
-      <ul class="checklist">
-        <li>Confirm "a product of No Fixed Plans" as canonical About/footer phrasing (ShowMeTheParts is a data source, not a partner)</li>
-        <li>Confirm usage rights for the real Luke Smith / Momentum USA testimonial</li>
-        <li>Confirm <code>https://carmenspartdepot.com</code> stays publicly accessible (used as "View Demo Site")</li>
-        <li>Confirm <code>https://kb.standardpartstoolkit.com</code> stays live and is OK to link from top nav</li>
-        <li>Real company address confirmed: <code>1449 S Michigan Ave STE 13288, Chicago, IL 60605</code></li>
-      </ul>
-
-      <h4>SEO &amp; compliance</h4>
-      <ul class="checklist">
-        <li>Include RSS feeds for blog + changelog? <span class="tag accent">recommended yes</span></li>
-        <li>Include OG cards + JSON-LD despite not being in original selection? <span class="tag accent">recommended yes</span></li>
-        <li>Cookie consent banner (effectively required with GA4 + EU/UK traffic)</li>
+        <li>BigCommerce question on the MoR page — multi-platform service while app is Shopify-only?</li>
+        <li>Redirect map for any deep links from current site (current <code>/blog</code> posts, <code>/merchant-of-record</code>, <code>/privacy-policy</code>)</li>
         <li>Email addresses: <code>hello@</code>, <code>support@</code>, <code>privacy@</code>, <code>legal@</code>, <code>security@</code></li>
-        <li>Existing <code>/blog</code> posts — port to new MDX-based blog, or launch with placeholders only?</li>
-        <li>Preserve existing <code>/privacy-policy</code> content as starting point for the new policy</li>
+        <li>Existing <code>/blog</code> posts — port to new MDX, or launch with placeholders only?</li>
+        <li>Confirm <code>https://carmenspartdepot.com</code> stays publicly accessible</li>
+        <li>Confirm <code>https://kb.standardpartstoolkit.com</code> stays live</li>
+        <li>Confirm usage rights for the real Luke Smith / Momentum USA testimonial</li>
+      </ul>
+
+      <h4>Implementer defaults (will ship unless overridden)</h4>
+      <ul class="clean">
+        <li>RSS feeds for blog + changelog</li>
+        <li>Open Graph + Twitter card meta + JSON-LD structured data</li>
+        <li>Cookie consent banner that defers GA4 until acceptance</li>
+        <li>Preserve existing <code>/privacy-policy</code> content as starting draft for the new policy</li>
       </ul>
     </section>
 
@@ -994,7 +993,7 @@
       <h3>Hero</h3>
       <div class="copy-preview">
         <div class="eyebrow">Built for automotive parts on Shopify</div>
-        <div class="headline">Your fitment data, live on every Shopify storefront that sells your parts.</div>
+        <div class="headline">Run a real automotive parts store on Shopify.</div>
         <p class="subhead"><strong>SPT</strong> — the Standard Parts Toolkit — turns ACES/PIES, ShowMeTheParts, or CSV data into a fast, configurable Year-Make-Model search, an enriched product catalog, in-cart fitment that follows the shopper to checkout, and the price, inventory, and order plumbing your business already runs on. Built to reduce "didn't fit" returns and increase buyer confidence.</p>
         <div class="btn-row">
           <span class="btn primary">Book a Demo</span>
@@ -1006,8 +1005,9 @@
       <h3>Compatibility badge row</h3>
       <p style="color: var(--text-muted); font-size: 0.9rem;">A thin band immediately under the hero:</p>
       <div class="card" style="text-align: center; padding: 0.85rem;">
-        <strong>Shopify Online Store 2.0 compatible</strong> · <strong>No custom dev work required</strong> · <strong>Powered by ShowMeTheParts (1,000+ supplier brands)</strong>
+        <strong>Shopify Online Store 2.0 compatible</strong> · <strong>No custom dev work required</strong> · <strong>One install per store — yours</strong>
       </div>
+      <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem;">Note: do not name ShowMeTheParts in this badge row. SPT is positioned as data-source agnostic on the homepage; ShowMeTheParts is one of three sources called out in the dedicated Data Sources section below.</p>
 
       <h3>Trust strip</h3>
       <p style="color: var(--text-muted);"><em>Trusted by manufacturers and retailers selling automotive parts on Shopify.</em> Eight placeholder logos (grayscale silhouettes until real ones land).</p>
@@ -1022,10 +1022,41 @@
         <div class="card"><h4>Price &amp; Inventory Sync</h4><p>Pull P&amp;I updates from FTP drops or email attachments on the schedule you already use.</p></div>
         <div class="card"><h4>Order Export</h4><p>Push orders to Email, FTP, or API destinations. Same format your warehouse, ERP, or 3PL already expects.</p></div>
       </div>
-      <div class="card" style="background: var(--primary-soft); border-color: color-mix(in srgb, var(--primary) 25%, transparent); margin-top: 0.75rem;">
-        <h4 style="color: var(--primary)">Bring your own data</h4>
-        <p style="color: var(--text)">ACES/PIES XML · ShowMeTheParts API · CSV upload. Swap sources later without rebuilding your storefront.</p>
+      <h3>Data Sources section <span class="tag spark">Dedicated section</span></h3>
+      <p style="color: var(--text-muted); font-size: 0.95rem;"><strong>Headline:</strong> Bring the data you already have.<br/><strong>Subhead:</strong> SPT speaks three industry-standard parts-data formats. Pick the one that matches how you already operate today — switch later without rebuilding your storefront.</p>
+      <div class="grid cols-3" style="margin-top: 0.75rem;">
+        <div class="card">
+          <span class="tag primary">Manufacturer-grade</span>
+          <h4 style="margin-top: 0.5rem;">ACES / PIES XML</h4>
+          <p>The industry-standard XML formats from the AutoCare Association. ACES describes which vehicles each part fits; PIES describes the parts themselves.</p>
+          <ul class="clean" style="margin-top: 0.5rem; font-size: 0.85rem;">
+            <li>ACES 3.x and 4.x fitment</li>
+            <li>PIES 6.x and 7.x product information</li>
+            <li>Full + incremental updates</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="tag">API-driven</span>
+          <h4 style="margin-top: 0.5rem;">ShowMeTheParts</h4>
+          <p>Connect your ShowMeTheParts account and SPT will sync the parts, vehicles, and fitment your store needs — without maintaining an ACES/PIES feed of your own.</p>
+          <ul class="clean" style="margin-top: 0.5rem; font-size: 0.85rem;">
+            <li>Daily incremental sync</li>
+            <li>VIN + license-plate lookup</li>
+            <li>On-demand re-sync</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="tag">Lightweight</span>
+          <h4 style="margin-top: 0.5rem;">CSV</h4>
+          <p>A spreadsheet is enough. If you have a CSV of parts, vehicles, and fitment, you have everything SPT needs.</p>
+          <ul class="clean" style="margin-top: 0.5rem; font-size: 0.85rem;">
+            <li>Combined or separate files</li>
+            <li>Configurable column mapping</li>
+            <li>Validation report on each upload</li>
+          </ul>
+        </div>
       </div>
+      <p style="color: var(--text-subtle); font-size: 0.9rem; margin-top: 0.75rem;">Closing line: All three connect into the same configuration — your YMM widget, PDP blocks, and admin settings carry over if you switch sources later.</p>
 
       <h3>Reduce-returns band</h3>
       <div class="copy-preview" style="border-left-color: var(--accent);">
@@ -1037,7 +1068,7 @@
       <div class="grid cols-2">
         <div class="card">
           <span class="tag primary">For parts manufacturers</span>
-          <p style="margin-top:0.6rem">You already maintain a clean catalog in ACES/PIES. SPT gets it onto Shopify — yours or your dealers' — without a custom development project. Sync at the cadence you control, syndicate to multiple stores from one source, and export orders back to the systems you already run.</p>
+          <p style="margin-top:0.6rem">You already maintain a clean catalog in ACES/PIES. SPT gets that catalog onto your own direct-to-consumer Shopify store — accurately, on the cadence you control, with orders exported back to the systems you already run. Sell direct without a custom build and without rebuilding your data infrastructure.</p>
           <p style="color: var(--primary); font-weight: 600; margin-top: 0.5rem;">See it for manufacturers →</p>
         </div>
         <div class="card">
@@ -1049,10 +1080,11 @@
 
       <h3>By the numbers</h3>
       <div class="grid cols-3">
-        <div class="stat-card"><div class="label">Part brands available</div><div class="value">1,000+</div></div>
-        <div class="stat-card"><div class="label">Data updates</div><div class="value">24/7</div></div>
+        <div class="stat-card"><div class="label">Data sources, your choice</div><div class="value">3</div></div>
+        <div class="stat-card"><div class="label">Updates from your data feed</div><div class="value">24/7</div></div>
         <div class="stat-card"><div class="label">Hours you spend managing fitment data</div><div class="value">0</div></div>
       </div>
+      <p style="color: var(--text-subtle); font-size: 0.85rem;">Note: the "1,000+ part brands" stat from the current site is ShowMeTheParts-specific. Moved to <code>/integrations/showmetheparts/</code>; not used on the homepage to preserve data-source-agnostic positioning.</p>
 
       <h3>Real testimonial</h3>
       <blockquote>
@@ -1160,7 +1192,7 @@
             <li><strong>First sync duration?</strong> A [100,000-SKU] catalog without image hosting completes in [under an hour]; with image hosting, bound by Shopify's upload throughput.</li>
             <li><strong>Will it overwrite manual edits?</strong> Only fields configured as source-wins.</li>
             <li><strong>SKU disappears from source?</strong> Configurable: archive, draft, mark out-of-stock, or no-op.</li>
-            <li><strong>Multi-store / Shopify Plus?</strong> Yes. One source can drive multiple stores with per-store overrides.</li>
+            <li><strong>Shopify Plus?</strong> Yes — SPT runs on Shopify, Advanced Shopify, and Shopify Plus. One install per store; SPT is sold per merchant, per store (not a multi-store sync platform).</li>
           </ul>
         </div>
       </details>
@@ -1400,58 +1432,76 @@
     <section id="content-pricing">
       <h2><span class="num">C6</span> Pricing</h2>
       <div class="copy-preview">
-        <div class="headline">Pricing that scales with your catalog, not with your sales.</div>
-        <p class="subhead">Pick the plan that matches your data source and catalog size. Switch any time. All plans include the full toolkit — modules aren't sold separately.</p>
+        <div class="headline">Two tiers. No surprises.</div>
+        <p class="subhead">Start free, upgrade when you need automatic price/inventory sync and order export. Every plan includes the same YMM search, catalog sync, PDP enrichment, and in-cart fitment.</p>
       </div>
 
-      <div class="grid cols-3" style="margin-top: 1.5rem;">
+      <div class="grid cols-2" style="margin-top: 1.5rem;">
         <div class="card">
-          <span class="tag">Starter</span>
-          <h4 style="margin-top: 0.5rem;">$[X] / month</h4>
-          <p>For single-store retailers piloting YMM search.</p>
+          <span class="tag">Free</span>
+          <h4 style="margin-top: 0.5rem;">$0 / month</h4>
+          <p>For trying SPT, piloting a small catalog, or a low-traffic store.</p>
           <ul class="clean" style="margin-top: 0.75rem;">
-            <li>CSV data source</li>
-            <li>YMM Fitment Search</li>
-            <li>Catalog sync (manual + scheduled)</li>
-            <li>PDP enrichment</li>
-            <li>Up to [N] SKUs</li>
+            <li>YMM Fitment Search + VIN Lookup</li>
+            <li>Catalog Parts Sync (manual)</li>
+            <li>PDP Enrichment (incl. Buyer's Guide)</li>
+            <li>In-Cart Fitment &amp; Fulfillment Handoff</li>
+            <li>ACES/PIES, ShowMeTheParts, or CSV data source</li>
+            <li><strong>Capped at 100 searches/month</strong></li>
+            <li>— No automatic Price &amp; Inventory sync</li>
+            <li>— No Order Export</li>
             <li>Email support</li>
           </ul>
+          <div class="btn-row" style="margin-top: 0.85rem;"><span class="btn secondary">Install on Shopify (free)</span></div>
         </div>
         <div class="card" style="border: 2px solid var(--primary);">
-          <span class="tag primary">Growth · Most popular</span>
-          <h4 style="margin-top: 0.5rem;">$[X] / month</h4>
-          <p>For multi-channel retailers and small manufacturers.</p>
+          <span class="tag primary">Pro · All features</span>
+          <h4 style="margin-top: 0.5rem;">$300 / month</h4>
+          <p>For stores that need automation and run any real volume.</p>
           <ul class="clean" style="margin-top: 0.75rem;">
-            <li>ShowMeTheParts or CSV</li>
-            <li>Everything in Starter</li>
-            <li>Price &amp; inventory sync</li>
-            <li>Order export (1 destination)</li>
-            <li>Up to [N] SKUs</li>
-            <li>Priority email support</li>
+            <li>Everything in Free</li>
+            <li><strong>Unlimited searches</strong></li>
+            <li><strong>Automatic Price &amp; Inventory sync</strong> (FTP / email)</li>
+            <li><strong>Order Export</strong> (Email / FTP / API)</li>
+            <li>Priority support</li>
+            <li>Unlimited order-export destinations (Email + FTP + API in any combination)</li>
           </ul>
+          <div class="btn-row" style="margin-top: 0.85rem;"><span class="btn primary">Book a Demo</span><span class="btn secondary">Install on Shopify</span></div>
         </div>
-        <div class="card">
-          <span class="tag accent">Manufacturer</span>
-          <h4 style="margin-top: 0.5rem;">Contact us</h4>
-          <p>For parts manufacturers and large multi-store operations.</p>
-          <ul class="clean" style="margin-top: 0.75rem;">
-            <li>ACES/PIES data source</li>
-            <li>Everything in Growth</li>
-            <li>Multi-store / multi-destination order export</li>
-            <li>Unlimited SKUs</li>
-            <li>Dedicated onboarding</li>
-            <li>SLA, named contact, security review</li>
-          </ul>
-        </div>
+      </div>
+
+      <h3>Side-by-side comparison</h3>
+      <table>
+        <thead><tr><th>Feature</th><th>Free</th><th>Pro · $300/mo</th></tr></thead>
+        <tbody>
+          <tr><td>YMM Fitment Search + VIN Lookup</td><td>✓</td><td>✓</td></tr>
+          <tr><td>Catalog Parts Sync</td><td>✓</td><td>✓</td></tr>
+          <tr><td>PDP Enrichment (incl. Buyer's Guide)</td><td>✓</td><td>✓</td></tr>
+          <tr><td>In-Cart Fitment &amp; Fulfillment Handoff</td><td>✓</td><td>✓</td></tr>
+          <tr><td>Data sources (ACES/PIES, ShowMeTheParts, CSV)</td><td>✓</td><td>✓</td></tr>
+          <tr><td>Monthly searches</td><td>100 cap</td><td>Unlimited</td></tr>
+          <tr><td>Automatic Price &amp; Inventory sync</td><td>—</td><td>✓</td></tr>
+          <tr><td>Order Export (Email / FTP / API)</td><td>—</td><td>✓</td></tr>
+          <tr><td>Multiple order-export destinations</td><td>—</td><td>✓</td></tr>
+          <tr><td>Support</td><td>Email</td><td>Priority</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Merchant of Record callout</h3>
+      <div class="card" style="border-left: 3px solid var(--accent);">
+        <span class="tag accent">Sold separately</span>
+        <h4 style="margin-top: 0.5rem;">Need sales tax handled, too?</h4>
+        <p>The SPT Merchant of Record service is sold separately — pricing is transaction-based and quoted per merchant.</p>
+        <p style="color: var(--primary); font-weight: 600; margin-top: 0.5rem;">Talk to us → /merchant-of-record</p>
       </div>
 
       <h3>Pricing FAQ</h3>
       <ul class="clean">
-        <li><strong>Do you charge per SKU?</strong> No. SKU counts gate tiers but no per-SKU usage fee.</li>
-        <li><strong>What's included in onboarding?</strong> Data source config, dry-run catalog sync, working YMM search on a staging store before go-live.</li>
-        <li><strong>Can I switch tiers?</strong> Yes, any time, prorated.</li>
-        <li><strong>Free trial?</strong> Yes on Starter and Growth. Manufacturer tier sold with an onboarding engagement.</li>
+        <li><strong>What counts as a "search"?</strong> Every Y/M/M, VIN, or license-plate lookup performed by a shopper. Page loads don't count.</li>
+        <li><strong>What happens if I hit 100 searches?</strong> Search continues to work; we prompt you to upgrade. We never silently break your store.</li>
+        <li><strong>Free trial of Pro?</strong> Pro is straightforward — install and go. Book a demo if you want to test on a dev store first.</li>
+        <li><strong>Do you charge per SKU?</strong> No. SKU counts don't gate either tier.</li>
+        <li><strong>Can I switch tiers?</strong> Yes, any time. Pro is prorated.</li>
       </ul>
     </section>
 
@@ -1696,7 +1746,7 @@ draft: false
         <li>Knowledge Base — confirm <code>https://kb.standardpartstoolkit.com</code> stays live and is the canonical help destination</li>
         <li>Real customer names and case study facts</li>
         <li>Real version numbers and release dates (changelog uses illustrative 1.2.0 / 1.1.0)</li>
-        <li>Any stat written as <code>[N]</code> or <code>[X]</code> confirmed or removed (1,000+ brands &amp; 24/7 stats are safe — from current site)</li>
+        <li>Any stat written as <code>[N]</code> or <code>[X]</code> confirmed or removed. The "1,000+ part brands" stat is ShowMeTheParts-specific and lives on <code>/integrations/showmetheparts/</code>, not the homepage.</li>
         <li>Trademark line in footer (confirm attribution with counsel)</li>
         <li>Demo promise — confirm operational readiness to "run a sample of your data" in every demo before launching that wording</li>
         <li>Existing <code>/blog</code> posts — port to new MDX-based blog, or launch with placeholders only?</li>

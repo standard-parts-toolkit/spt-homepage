@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import DualCTA from '../../components/DualCTA.astro';
+---
+
+<BaseLayout
+  title="ACES & PIES on Shopify — SPT"
+  description="Drop ACES (fitment) and PIES (product information) XML files onto FTP and SPT handles parsing, validation, and sync to Shopify products, variants, and metafields."
+>
+
+  <section class="section pt-12 sm:pt-20">
+    <p class="text-xs font-semibold uppercase tracking-[0.18em]" style="color: var(--action)">Integration · ACES / PIES</p>
+    <h1 class="mt-3 max-w-4xl text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl" style="color: var(--text)">
+      ACES and PIES, on Shopify, without a custom build.
+    </h1>
+    <p class="lede mt-5 max-w-3xl">
+      Drop your ACES (fitment) and PIES (product information) files onto FTP, and SPT handles parsing, validation,
+      and sync to Shopify products, variants, and metafields.
+    </p>
+    <div class="mt-8"><DualCTA variant="inline" /></div>
+  </section>
+
+  <section style="background: var(--surface-2)">
+    <div class="section">
+      <div class="grid gap-10 lg:grid-cols-12">
+        <div class="lg:col-span-7">
+          <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">What's supported</h2>
+          <ul class="mt-6 space-y-3">
+            {[
+              'ACES 3.x and 4.x fitment',
+              'PIES 6.x and 7.x product information, including descriptions, attributes, packaging, and digital assets',
+              'Full and incremental updates',
+              'File-level and record-level error reporting',
+              'Mapping overrides for non-standard PCdb or PAdb usage',
+            ].map((s) => (
+              <li class="flex items-start gap-3">
+                <span class="mt-1 inline-block h-2 w-2 flex-none rounded-full" style="background: var(--primary)"></span>
+                <span style="color: var(--text)">{s}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <aside class="lg:col-span-5">
+          <div class="card" style="background: var(--primary-soft); border-color: color-mix(in srgb, var(--primary) 25%, transparent)">
+            <span class="tag tag-primary">Who this fits</span>
+            <p class="mt-3 text-sm" style="color: var(--text)">
+              Parts manufacturers and large retailers who already maintain ACES/PIES feeds. If you publish to
+              AutoCare's standards, you can publish to your own Shopify storefront with SPT.
+            </p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">A quick primer</h2>
+    <div class="mt-6 grid gap-6 sm:grid-cols-2">
+      <div class="card">
+        <h3 class="text-base font-bold" style="color: var(--text)">ACES</h3>
+        <p class="mt-2 text-sm" style="color: var(--text-muted)">
+          Aftermarket Catalog Exchange Standard. An XML format that ties part numbers to vehicle applications using
+          the AutoCare Association's VCdb and PCdb vocabularies. Answers: <em>which vehicles does this part fit?</em>
+        </p>
+      </div>
+      <div class="card">
+        <h3 class="text-base font-bold" style="color: var(--text)">PIES</h3>
+        <p class="mt-2 text-sm" style="color: var(--text-muted)">
+          Product Information Exchange Standard. The companion format to ACES. Describes the part itself —
+          attributes, packaging, digital assets, marketing copy, hazmat flags. Answers: <em>what is this part?</em>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <DualCTA headline="Book a demo against your ACES/PIES file." />
+
+</BaseLayout>

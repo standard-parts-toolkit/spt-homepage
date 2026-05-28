@@ -1,0 +1,200 @@
+---
+import Logo from './Logo.astro';
+import ThemeToggle from './ThemeToggle.astro';
+
+const products = [
+  {
+    href: '/features/',
+    label: 'SPT for Shopify',
+    body: 'YMM search, catalog sync, PDP enrichment, in-cart fitment, P&I sync, order export.',
+  },
+  {
+    href: '/merchant-of-record/',
+    label: 'Merchant of Record',
+    body: 'Sales tax collected, remitted, and reported on your behalf.',
+  },
+];
+
+const features = [
+  { href: '/features/ymm-search/',           label: 'YMM Fitment Search + VIN Lookup' },
+  { href: '/features/catalog-sync/',         label: 'Catalog Parts Sync' },
+  { href: '/features/pdp-enrichment/',       label: 'PDP Enrichment' },
+  { href: '/features/in-cart-fitment/',      label: 'In-Cart Fitment & Fulfillment Handoff' },
+  { href: '/features/price-inventory-sync/', label: 'Price & Inventory Sync' },
+  { href: '/features/order-export/',         label: 'Order Export' },
+];
+
+const navLinks = [
+  ['/integrations/', 'Integrations'],
+  ['/why-shopify/',  'Why Shopify'],
+  ['/pricing/',      'Pricing'],
+  ['/blog/',         'Blog'],
+  ['/about/',        'About'],
+];
+---
+
+<header
+  class="sticky top-0 z-40 border-b backdrop-blur"
+  style="border-color: var(--border); background: color-mix(in srgb, var(--surface) 88%, transparent)"
+>
+  <div class="mx-auto flex max-w-7xl items-center gap-6 px-6 py-3 sm:px-8">
+    <a href="/" class="focus-ring rounded-lg" aria-label="SPT home">
+      <Logo variant="full" />
+    </a>
+
+    <nav class="hidden flex-1 items-center justify-center gap-1 lg:flex" aria-label="Primary">
+
+      <!-- Products dropdown -->
+      <div class="relative" data-dropdown>
+        <button
+          type="button"
+          class="focus-ring inline-flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium transition-colors hover:bg-[var(--surface-2)]"
+          style="color: var(--text)"
+          aria-haspopup="true"
+          aria-expanded="false"
+          data-dropdown-trigger
+        >
+          Products
+          <svg class="h-3.5 w-3.5" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2.5 4.5L6 8l3.5-3.5"/></svg>
+        </button>
+        <div
+          class="invisible absolute left-0 top-full mt-2 w-80 rounded-xl border p-2 opacity-0 shadow-lg transition-all"
+          style="background: var(--surface); border-color: var(--border)"
+          data-dropdown-menu
+        >
+          {products.map((p) => (
+            <a
+              href={p.href}
+              class="block rounded-lg px-3 py-2.5 transition-colors hover:bg-[var(--surface-2)]"
+            >
+              <div class="text-sm font-semibold" style="color: var(--text)">{p.label}</div>
+              <div class="mt-0.5 text-xs" style="color: var(--text-muted)">{p.body}</div>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Features dropdown -->
+      <div class="relative" data-dropdown>
+        <button
+          type="button"
+          class="focus-ring inline-flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium transition-colors hover:bg-[var(--surface-2)]"
+          style="color: var(--text)"
+          aria-haspopup="true"
+          aria-expanded="false"
+          data-dropdown-trigger
+        >
+          Features
+          <svg class="h-3.5 w-3.5" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2.5 4.5L6 8l3.5-3.5"/></svg>
+        </button>
+        <div
+          class="invisible absolute left-0 top-full mt-2 w-72 rounded-xl border p-2 opacity-0 shadow-lg transition-all"
+          style="background: var(--surface); border-color: var(--border)"
+          data-dropdown-menu
+        >
+          {features.map((f) => (
+            <a
+              href={f.href}
+              class="block rounded-lg px-3 py-2 text-sm transition-colors hover:bg-[var(--surface-2)]"
+              style="color: var(--text)"
+            >
+              {f.label}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      {navLinks.map(([href, label]) => (
+        <a
+          href={href}
+          class="focus-ring rounded-lg px-3 py-2 text-sm font-medium transition-colors hover:bg-[var(--surface-2)]"
+          style="color: var(--text)"
+        >{label}</a>
+      ))}
+    </nav>
+
+    <div class="ml-auto flex items-center gap-2">
+      <ThemeToggle />
+      <a href="/demo/" class="btn btn-secondary hidden sm:inline-flex">Book a Demo</a>
+      <a href="#install-on-shopify" class="btn btn-primary">Install on Shopify</a>
+
+      <button
+        type="button"
+        class="focus-ring inline-flex h-9 w-9 items-center justify-center rounded-lg border lg:hidden"
+        style="border-color: var(--border-strong); color: var(--text)"
+        aria-label="Open menu"
+        data-mobile-trigger
+      >
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div
+    class="hidden border-t lg:hidden"
+    style="border-color: var(--border); background: var(--surface)"
+    data-mobile-menu
+  >
+    <nav class="mx-auto max-w-7xl px-6 py-4 sm:px-8" aria-label="Mobile">
+      <div class="mb-3 text-xs font-semibold uppercase tracking-wider" style="color: var(--text-subtle)">Products</div>
+      <div class="mb-4 space-y-1">
+        {products.map((p) => (
+          <a href={p.href} class="block rounded-lg px-3 py-2" style="color: var(--text)">
+            <div class="text-sm font-semibold">{p.label}</div>
+            <div class="text-xs" style="color: var(--text-muted)">{p.body}</div>
+          </a>
+        ))}
+      </div>
+
+      <div class="mb-3 text-xs font-semibold uppercase tracking-wider" style="color: var(--text-subtle)">Features</div>
+      <div class="mb-4 space-y-1">
+        {features.map((f) => (
+          <a href={f.href} class="block rounded-lg px-3 py-2 text-sm" style="color: var(--text)">{f.label}</a>
+        ))}
+      </div>
+
+      <div class="space-y-1 border-t pt-3" style="border-color: var(--border)">
+        {navLinks.map(([href, label]) => (
+          <a href={href} class="block rounded-lg px-3 py-2 text-sm font-medium" style="color: var(--text)">{label}</a>
+        ))}
+      </div>
+
+      <div class="mt-4 flex flex-col gap-2 sm:hidden">
+        <a href="/demo/" class="btn btn-secondary w-full">Book a Demo</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script is:inline>
+  // Dropdowns (Products + Features)
+  document.querySelectorAll('[data-dropdown]').forEach((root) => {
+    const trigger = root.querySelector('[data-dropdown-trigger]');
+    const menu    = root.querySelector('[data-dropdown-menu]');
+    if (!trigger || !menu) return;
+    let open = false;
+    const setOpen = (v) => {
+      open = v;
+      trigger.setAttribute('aria-expanded', String(v));
+      menu.classList.toggle('opacity-100', v);
+      menu.classList.toggle('visible', v);
+      menu.classList.toggle('invisible', !v);
+      menu.classList.toggle('opacity-0', !v);
+    };
+    trigger.addEventListener('click', (e) => { e.stopPropagation(); setOpen(!open); });
+    root.addEventListener('mouseenter', () => setOpen(true));
+    root.addEventListener('mouseleave', () => setOpen(false));
+    document.addEventListener('click', (e) => {
+      if (!root.contains(e.target)) setOpen(false);
+    });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
+  });
+
+  // Mobile menu
+  const mobileTrigger = document.querySelector('[data-mobile-trigger]');
+  const mobileMenu    = document.querySelector('[data-mobile-menu]');
+  if (mobileTrigger && mobileMenu) {
+    mobileTrigger.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+  }
+</script>

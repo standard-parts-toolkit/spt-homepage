@@ -1,0 +1,289 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import DualCTA from '../components/DualCTA.astro';
+
+interface Cell { label: string; tone?: 'good' | 'mixed' | 'bad'; }
+interface Row { dimension: string; spt: Cell; custom: Cell; magento: Cell; bigcommerce: Cell; }
+
+const rows: Row[] = [
+  {
+    dimension: 'Time to launch',
+    spt:         { label: 'Days to weeks',     tone: 'good' },
+    custom:      { label: '6–12+ months',      tone: 'bad' },
+    magento:     { label: '3–9 months',        tone: 'mixed' },
+    bigcommerce: { label: 'Days to weeks',     tone: 'good' },
+  },
+  {
+    dimension: 'Up-front cost',
+    spt:         { label: '$0 – low',                       tone: 'good' },
+    custom:      { label: 'Six figures and up',             tone: 'bad' },
+    magento:     { label: 'Tens to hundreds of thousands',  tone: 'bad' },
+    bigcommerce: { label: '$0 – low',                       tone: 'good' },
+  },
+  {
+    dimension: 'Hosting + scaling',
+    spt:         { label: 'Managed by Shopify',     tone: 'good' },
+    custom:      { label: 'On you (and your team)', tone: 'bad' },
+    magento:     { label: 'Self-managed or Adobe Commerce Cloud', tone: 'mixed' },
+    bigcommerce: { label: 'Managed by BigCommerce', tone: 'good' },
+  },
+  {
+    dimension: 'Security & PCI compliance',
+    spt:         { label: 'PCI Level 1 included',  tone: 'good' },
+    custom:      { label: 'Your responsibility',   tone: 'bad' },
+    magento:     { label: 'Your responsibility (or Adobe Commerce Cloud)', tone: 'mixed' },
+    bigcommerce: { label: 'PCI Level 1 included', tone: 'good' },
+  },
+  {
+    dimension: 'Talent & agency pool',
+    spt:         { label: 'Largest in commerce',   tone: 'good' },
+    custom:      { label: 'Generic dev market',    tone: 'mixed' },
+    magento:     { label: 'Smaller, specialized, shrinking', tone: 'mixed' },
+    bigcommerce: { label: 'Healthy but smaller than Shopify', tone: 'mixed' },
+  },
+  {
+    dimension: 'App / extension marketplace',
+    spt:         { label: '8,000+ apps',           tone: 'good' },
+    custom:      { label: 'Build or integrate',    tone: 'bad' },
+    magento:     { label: '4,000+ extensions',     tone: 'mixed' },
+    bigcommerce: { label: 'Hundreds of apps',      tone: 'mixed' },
+  },
+  {
+    dimension: 'Store editor & themes',
+    spt:         { label: 'OS 2.0 visual editor',  tone: 'good' },
+    custom:      { label: 'Build your own CMS',    tone: 'bad' },
+    magento:     { label: 'Dev-heavy, limited GUI', tone: 'mixed' },
+    bigcommerce: { label: 'Stencil + Page Builder', tone: 'good' },
+  },
+  {
+    dimension: 'Checkout',
+    spt:         { label: 'Shop Pay — highest-converting checkout in commerce', tone: 'good' },
+    custom:      { label: 'Build or integrate (Stripe, Adyen, etc.)', tone: 'mixed' },
+    magento:     { label: 'Native checkout, often replaced', tone: 'mixed' },
+    bigcommerce: { label: 'Built-in checkout',     tone: 'good' },
+  },
+  {
+    dimension: 'AI shopping tools',
+    spt:         { label: 'Shopify Magic, Sidekick, Semantic Search — built in', tone: 'good' },
+    custom:      { label: 'DIY (OpenAI, etc.)',    tone: 'bad' },
+    magento:     { label: 'Adobe Sensei',          tone: 'mixed' },
+    bigcommerce: { label: 'Limited native AI',     tone: 'mixed' },
+  },
+  {
+    dimension: 'Fitment-aware parts UX',
+    spt:         { label: 'Built in via SPT',      tone: 'good' },
+    custom:      { label: 'Build it yourself',     tone: 'bad' },
+    magento:     { label: 'Plugin or custom',      tone: 'mixed' },
+    bigcommerce: { label: 'Plugin or custom',      tone: 'mixed' },
+  },
+  {
+    dimension: 'Ongoing dev team size',
+    spt:         { label: 'Often zero',            tone: 'good' },
+    custom:      { label: 'Permanent in-house team', tone: 'bad' },
+    magento:     { label: 'Specialized devs needed', tone: 'bad' },
+    bigcommerce: { label: 'Light',                 tone: 'good' },
+  },
+  {
+    dimension: 'Vendor lock-in',
+    spt:         { label: 'Moderate (your catalog is yours; storefront is Shopify)', tone: 'mixed' },
+    custom:      { label: 'None',                  tone: 'good' },
+    magento:     { label: 'Moderate to high',      tone: 'mixed' },
+    bigcommerce: { label: 'Moderate',              tone: 'mixed' },
+  },
+];
+
+const advantages = [
+  {
+    eyebrow: 'Ecosystem',
+    title: 'The largest ecommerce ecosystem on the planet.',
+    body: '8,000+ apps in the Shopify App Store, tens of thousands of certified agencies and Partners, and a global pool of developers and theme designers. Need a tax integration, a 3PL connector, a CRM, a fitment toolkit (hi 👋), a B2B portal? It already exists.',
+  },
+  {
+    eyebrow: 'Modern tooling',
+    title: 'AI-native and built for the way buyers actually shop.',
+    body: 'Shopify Magic for content generation, Sidekick as your in-admin co-pilot, semantic search that understands intent rather than keywords, and Shop Pay — the highest-converting checkout in commerce. None of this requires a custom build.',
+  },
+  {
+    eyebrow: 'Scale + ease',
+    title: 'Enterprise-grade infrastructure with a designer-friendly editor.',
+    body: 'PCI Level 1, edge CDN, near-perfect uptime, and a managed platform that scales from 100 SKUs to 100,000+ without an engineering team. Online Store 2.0 lets your marketing team rearrange the storefront without filing a ticket.',
+  },
+];
+
+const honestCallouts = [
+  {
+    title: 'Highly bespoke B2B with deep contract pricing',
+    body: 'If your business runs on negotiated price books, multi-tier approval workflows, and integrated ERP transactions per order, Adobe Commerce or NetSuite SuiteCommerce can have an edge. Shopify Plus is closing the gap fast, but the legacy enterprise B2B leaders still win some of these RFPs.',
+  },
+  {
+    title: 'Storefronts that look nothing like a store',
+    body: 'If your "product page" is actually a configurator with thousands of branching decisions, or your "checkout" routes through a quote workflow rather than a cart, a custom build (or a headless Shopify deployment with a bespoke front end) is still the right answer.',
+  },
+  {
+    title: 'You already have a working investment elsewhere',
+    body: "If you've already paid the integration tax on another platform and it's earning revenue, replatforming is rarely the win. The right move is usually to extend what works, not start over.",
+  },
+];
+
+const dimToneColor: Record<string, string> = {
+  good:  'color: var(--primary)',
+  mixed: 'color: var(--spark)',
+  bad:   'color: var(--text-subtle)',
+};
+const dimToneBg: Record<string, string> = {
+  good:  'background: var(--primary-soft); border-left: 3px solid var(--primary)',
+  mixed: 'background: var(--spark-soft); border-left: 3px solid var(--spark)',
+  bad:   'background: var(--surface-2); border-left: 3px solid var(--border-strong)',
+};
+---
+
+<BaseLayout
+  title="Why Shopify (and SPT) for automotive parts — SPT"
+  description="An honest comparison of Shopify + SPT against custom builds, Adobe Commerce / Magento, and BigCommerce for automotive parts ecommerce. Ecosystem, cost, talent, AI tooling, and fitment UX."
+>
+
+  <!-- HERO -->
+  <section class="section pt-12 sm:pt-20">
+    <p class="text-xs font-semibold uppercase tracking-[0.18em]" style="color: var(--action)">
+      For merchants comparing platforms
+    </p>
+    <h1 class="mt-3 max-w-4xl text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl" style="color: var(--text)">
+      Why Shopify? And where does SPT fit in?
+    </h1>
+    <p class="lede mt-5 max-w-3xl">
+      If you're standing up a new automotive parts store — or thinking about replatforming the one you've got — the
+      first question isn't "which app?" It's "which platform?" Here's an honest comparison of
+      <strong style="color: var(--text)">Shopify + SPT</strong> against the three alternatives most parts merchants
+      actually evaluate: a custom build, Adobe Commerce (Magento), and BigCommerce.
+    </p>
+    <div class="mt-8"><DualCTA variant="inline" /></div>
+  </section>
+
+  <!-- THREE ADVANTAGES -->
+  <section style="background: var(--surface-2)">
+    <div class="section">
+      <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Why Shopify wins for most parts stores</h2>
+      <p class="lede mt-3 max-w-3xl">
+        Three things that are very hard for any other option to match — including a custom build with unlimited
+        engineering budget.
+      </p>
+      <div class="mt-10 grid gap-5 lg:grid-cols-3">
+        {advantages.map((a) => (
+          <article class="card">
+            <p class="text-xs font-semibold uppercase tracking-[0.18em]" style="color: var(--action)">{a.eyebrow}</p>
+            <h3 class="mt-3 text-xl font-bold leading-tight tracking-tight" style="color: var(--text)">{a.title}</h3>
+            <p class="mt-3 text-sm" style="color: var(--text-muted)">{a.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARISON TABLE -->
+  <section class="section">
+    <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Side-by-side comparison</h2>
+    <p class="lede mt-3 max-w-3xl">
+      Order-of-magnitude numbers, not promises. Your mileage varies — but if you're at a planning meeting and someone
+      asks "what would it really take to launch on each of these?", this is the conversation.
+    </p>
+
+    <div class="mt-8 overflow-x-auto rounded-2xl border" style="border-color: var(--border); background: var(--surface)">
+      <table class="w-full min-w-[760px] text-left text-sm">
+        <thead>
+          <tr style="background: var(--surface-2)">
+            <th class="px-5 py-4 text-xs font-semibold uppercase tracking-wider" style="color: var(--text-subtle)">Dimension</th>
+            <th class="px-5 py-4 text-xs font-bold uppercase tracking-wider" style="color: var(--primary)">Shopify + SPT</th>
+            <th class="px-5 py-4 text-xs font-semibold uppercase tracking-wider" style="color: var(--text-subtle)">Custom build</th>
+            <th class="px-5 py-4 text-xs font-semibold uppercase tracking-wider" style="color: var(--text-subtle)">Adobe Commerce (Magento)</th>
+            <th class="px-5 py-4 text-xs font-semibold uppercase tracking-wider" style="color: var(--text-subtle)">BigCommerce</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((r, i) => (
+            <tr style={i % 2 === 1 ? 'background: var(--surface-2)' : undefined}>
+              <td class="px-5 py-4 font-semibold" style="color: var(--text)">{r.dimension}</td>
+              <td class="px-5 py-4">
+                <span class="inline-block rounded-md px-2.5 py-1" style={dimToneBg[r.spt.tone ?? 'mixed']}>
+                  <span style={dimToneColor[r.spt.tone ?? 'mixed']}><strong>{r.spt.label}</strong></span>
+                </span>
+              </td>
+              <td class="px-5 py-4" style="color: var(--text-muted)">{r.custom.label}</td>
+              <td class="px-5 py-4" style="color: var(--text-muted)">{r.magento.label}</td>
+              <td class="px-5 py-4" style="color: var(--text-muted)">{r.bigcommerce.label}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="mt-4 text-sm" style="color: var(--text-subtle)">
+      Ranges reflect typical projects in the automotive parts vertical. Replatforming projects and headless setups
+      bend these numbers in both directions.
+    </p>
+  </section>
+
+  <!-- WHERE SHOPIFY ISN'T BEST -->
+  <section style="background: var(--surface-2)">
+    <div class="section">
+      <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Where Shopify isn't the best fit</h2>
+      <p class="lede mt-3 max-w-3xl">
+        We'd rather you pick the platform that actually wins for your business than win a demo and lose a year. A few
+        scenarios where the answer is honestly something else:
+      </p>
+      <div class="mt-8 grid gap-5 lg:grid-cols-3">
+        {honestCallouts.map((c) => (
+          <article class="card" style="border-left: 3px solid var(--text-subtle)">
+            <h3 class="text-lg font-bold leading-tight" style="color: var(--text)">{c.title}</h3>
+            <p class="mt-3 text-sm" style="color: var(--text-muted)">{c.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- WHERE SPT FITS -->
+  <section class="section">
+    <div class="grid items-center gap-10 lg:grid-cols-12">
+      <div class="lg:col-span-7">
+        <p class="text-xs font-semibold uppercase tracking-[0.18em]" style="color: var(--action)">
+          Where SPT fits in
+        </p>
+        <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+          Shopify is the platform. SPT is the parts-aware layer on top of it.
+        </h2>
+        <p class="lede mt-4 max-w-2xl">
+          Shopify gives you a world-class storefront platform. What it doesn't ship with is fitment search,
+          ACES/PIES ingestion, in-cart vehicle handoff, or order-export plumbing tuned to the way parts merchants
+          actually run. SPT adds exactly those things — without leaving the Shopify ecosystem that the rest of the
+          comparison above is about.
+        </p>
+        <p class="mt-4" style="color: var(--text-muted)">
+          One install per store. Picks up your data from ACES/PIES, ShowMeTheParts, or CSV. Configurable from the
+          theme editor like any well-behaved Shopify app.
+        </p>
+        <div class="mt-7"><DualCTA variant="inline" /></div>
+      </div>
+      <aside class="lg:col-span-5">
+        <div class="card" style="background: var(--primary-soft); border-color: color-mix(in srgb, var(--primary) 25%, transparent)">
+          <span class="tag tag-primary">Shopify + SPT, plain English</span>
+          <ul class="mt-4 space-y-3 text-sm" style="color: var(--text)">
+            <li class="flex gap-3">
+              <span class="mt-1 inline-block h-2 w-2 flex-none rounded-full" style="background: var(--primary)"></span>
+              <span>Shopify handles the storefront, the checkout, the hosting, the security, the apps marketplace, and the AI tools.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="mt-1 inline-block h-2 w-2 flex-none rounded-full" style="background: var(--primary)"></span>
+              <span>SPT handles fitment search, catalog sync, PDP enrichment, in-cart fitment, P&amp;I sync, and order export.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="mt-1 inline-block h-2 w-2 flex-none rounded-full" style="background: var(--primary)"></span>
+              <span>You handle running the business. Neither of us shows up at your warehouse to pick parts.</span>
+            </li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <DualCTA />
+
+</BaseLayout>

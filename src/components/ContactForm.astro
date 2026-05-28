@@ -1,0 +1,151 @@
+---
+interface Field {
+  name: string;
+  label: string;
+  type?: 'text' | 'email' | 'url' | 'number' | 'textarea' | 'select';
+  required?: boolean;
+  placeholder?: string;
+  options?: string[]; // for select
+  span?: 1 | 2;
+}
+
+interface Props {
+  formId: string;          // Formspree form ID (e.g. import.meta.env.PUBLIC_FORMSPREE_CONTACT_ID)
+  submitLabel: string;
+  successMessage: string;
+  reassurance?: string;
+  fields: Field[];
+}
+
+const { formId, submitLabel, successMessage, reassurance, fields } = Astro.props;
+const configured = !!formId && formId !== 'xxxxxxxx';
+const action = configured ? `https://formspree.io/f/${formId}` : '#';
+---
+
+{!configured && (
+  <div
+    class="mb-6 rounded-xl border px-4 py-3 text-sm"
+    style="border-color: color-mix(in srgb, var(--spark) 35%, transparent); background: var(--spark-soft); color: var(--text)"
+  >
+    <strong>Form not configured yet.</strong> Set
+    <code>PUBLIC_FORMSPREE_*</code> environment variables before publish. Submissions will not deliver.
+  </div>
+)}
+
+<form
+  action={action}
+  method="POST"
+  class="space-y-5"
+  data-contact-form
+>
+  <!-- honeypot -->
+  <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
+
+  <div class="grid gap-5 sm:grid-cols-2">
+    {fields.map((f) => (
+      <div class={f.span === 2 ? 'sm:col-span-2' : undefined}>
+        <label for={f.name} class="block text-sm font-semibold" style="color: var(--text)">
+          {f.label}{f.required && <span aria-hidden="true" style="color: var(--action)"> *</span>}
+        </label>
+        {f.type === 'textarea' ? (
+          <textarea
+            id={f.name}
+            name={f.name}
+            required={f.required}
+            placeholder={f.placeholder}
+            rows={5}
+            class="focus-ring mt-1.5 block w-full rounded-lg border px-3 py-2 text-sm"
+            style="border-color: var(--border-strong); background: var(--bg); color: var(--text)"
+          ></textarea>
+        ) : f.type === 'select' ? (
+          <select
+            id={f.name}
+            name={f.name}
+            required={f.required}
+            class="focus-ring mt-1.5 block w-full rounded-lg border px-3 py-2 text-sm"
+            style="border-color: var(--border-strong); background: var(--bg); color: var(--text)"
+          >
+            <option value="">Choose one…</option>
+            {(f.options ?? []).map((o) => (<option value={o}>{o}</option>))}
+          </select>
+        ) : (
+          <input
+            id={f.name}
+            name={f.name}
+            type={f.type ?? 'text'}
+            required={f.required}
+            placeholder={f.placeholder}
+            class="focus-ring mt-1.5 block w-full rounded-lg border px-3 py-2 text-sm"
+            style="border-color: var(--border-strong); background: var(--bg); color: var(--text)"
+          />
+        )}
+      </div>
+    ))}
+  </div>
+
+  <div class="flex items-center justify-between gap-4">
+    <button type="submit" class="btn btn-primary" data-submit-button>
+      <span data-label-idle>{submitLabel}</span>
+      <span data-label-busy class="hidden">Sending…</span>
+    </button>
+    {reassurance && (
+      <p class="text-xs" style="color: var(--text-subtle)">{reassurance}</p>
+    )}
+  </div>
+
+  <div
+    data-success
+    class="hidden rounded-xl border px-4 py-3 text-sm"
+    style="border-color: color-mix(in srgb, var(--primary) 35%, transparent); background: var(--primary-soft); color: var(--text)"
+    role="status"
+  >
+    {successMessage}
+  </div>
+
+  <div
+    data-error
+    class="hidden rounded-xl border px-4 py-3 text-sm"
+    style="border-color: color-mix(in srgb, #dc2626 35%, transparent); background: color-mix(in srgb, #dc2626 12%, transparent); color: var(--text)"
+    role="alert"
+  >
+    Something went wrong. Email <a href="mailto:hello@standardpartstoolkit.com" class="underline">hello@standardpartstoolkit.com</a> and we'll sort it out.
+  </div>
+</form>
+
+<script is:inline>
+  document.querySelectorAll('[data-contact-form]').forEach((form) => {
+    if (form.action === window.location.href + '#' || form.getAttribute('action') === '#') return; // not configured
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn  = form.querySelector('[data-submit-button]');
+      const idle = form.querySelector('[data-label-idle]');
+      const busy = form.querySelector('[data-label-busy]');
+      const okMsg = form.querySelector('[data-success]');
+      const errMsg = form.querySelector('[data-error]');
+      btn.disabled = true;
+      idle?.classList.add('hidden');
+      busy?.classList.remove('hidden');
+      okMsg?.classList.add('hidden');
+      errMsg?.classList.add('hidden');
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' },
+        });
+        if (res.ok) {
+          form.reset();
+          okMsg?.classList.remove('hidden');
+        } else {
+          errMsg?.classList.remove('hidden');
+        }
+      } catch (_) {
+        errMsg?.classList.remove('hidden');
+      } finally {
+        btn.disabled = false;
+        busy?.classList.add('hidden');
+        idle?.classList.remove('hidden');
+      }
+    });
+  });
+</script>

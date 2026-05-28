@@ -1,0 +1,142 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import DualCTA from '../components/DualCTA.astro';
+import JsonLd from '../components/JsonLd.astro';
+
+const service = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'SPT Merchant of Record',
+  description: 'SPT acts as the seller of record on your Shopify store, collecting and remitting US sales tax on your behalf. Sold separately from the SPT Shopify app, priced per transaction.',
+  serviceType: 'Sales tax compliance / Merchant of Record',
+  areaServed: { '@type': 'Country', name: 'United States' },
+  provider: {
+    '@type': 'Organization',
+    name: 'No Fixed Plans',
+    url: 'https://nofixedplans.xyz/',
+  },
+};
+
+const benefits = [
+  {
+    title: 'Tracking & Reporting',
+    body: 'We monitor sales-tax-rule changes and keep collection up to date. Reports are generated to match state requirements.',
+  },
+  {
+    title: 'Simplicity',
+    body: 'We pay state sales taxes on behalf of our entity, ensuring timely and accurate remittance. You receive recurring payments — less fees and sales tax — with no reporting obligations, from a single customer: us.',
+  },
+  {
+    title: 'Reduced Liability',
+    body: "Your existing businesses and services remain isolated from additional tax obligations you'd incur by selling online directly. Internal processes and accounts stay the same.",
+  },
+];
+
+const faqs = [
+  { q: 'Who is providing the merchant services when using your Merchant of Record service?', a: 'We use Shopify (via Shop Pay). If any third parties are involved, we\'ll confirm.' },
+  { q: 'What payment methods are available?',                                                a: 'Credit cards are enabled by default. Additional Shopify-supported payment methods can be added.' },
+  { q: 'Will there be reports on payments made to my store?',                                a: 'Yes. We provide a monthly reconciliation report that details sales, sales tax, and fees.' },
+  { q: 'Who do customers actually pay?',                                                     a: 'Customers pay us, SPT, directly. We then remit one consolidated payment to you along with the reconciliation report. Similar to how eBay works if you sell through eBay.' },
+  { q: 'Who collects and remits payments?',                                                  a: 'We handle collection, processing fees, and sales tax — then remit a single monthly payment to you along with a reconciliation report.' },
+  { q: 'Will customers receive an invoice for their purchase?',                              a: 'Customers receive an order receipt by email from Shopify.' },
+];
+---
+
+<BaseLayout
+  title="Merchant of Record — SPT"
+  description="SPT can act as the seller of record on your Shopify store, collecting and remitting US sales tax on your behalf. Sold as a separate service from the SPT app."
+>
+  <JsonLd slot="head" data={service} />
+
+
+  <section class="section pt-12 sm:pt-20">
+    <p class="text-xs font-semibold uppercase tracking-[0.18em]" style="color: var(--action)">
+      Merchant of Record
+    </p>
+    <h1 class="mt-3 max-w-4xl text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl" style="color: var(--text)">
+      Sales tax, simplified.
+    </h1>
+    <p class="lede mt-5 max-w-3xl">
+      Reduce sales tax headaches so you can focus on growing your automotive parts business. SPT becomes the seller
+      of record on your store — we collect, remit, and report sales tax across US jurisdictions; you receive
+      consolidated monthly payouts.
+    </p>
+    <div class="mt-8">
+      <a href="/demo/" class="btn btn-primary">Book a Demo</a>
+    </div>
+  </section>
+
+  <section style="background: var(--surface-2)">
+    <div class="section">
+      <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">What is a Merchant of Record?</h2>
+      <p class="lede mt-4 max-w-3xl">
+        Using a Merchant of Record service effectively outsources the transaction process. Your customer purchases
+        from us; we then pay you as the supplier, minus our fees. The entire customer experience stays branded as
+        your company.
+      </p>
+
+      <h3 class="mt-10 text-lg font-semibold uppercase tracking-wider" style="color: var(--text-subtle)">Three-step flow</h3>
+      <ol class="mt-4 grid gap-5 sm:grid-cols-3">
+        {[
+          ['Collection',  'We facilitate the checkout process, calculating and collecting the necessary sales tax.'],
+          ['Remittance',  'We remit the sales tax owed through our own entity. Your business remains free of any sales tax reporting and payment obligations.'],
+          ['Payment',     'We send you order payouts, minus any payment processing and service fees.'],
+        ].map(([step, body], i) => (
+          <li class="card">
+            <div
+              class="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-full text-sm font-bold"
+              style="background: var(--primary); color: var(--primary-fg)"
+            >{i + 1}</div>
+            <div class="text-base font-semibold" style="color: var(--text)">{step}</div>
+            <p class="mt-2 text-sm" style="color: var(--text-muted)">{body}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">Benefits</h2>
+    <div class="mt-6 grid gap-5 sm:grid-cols-3">
+      {benefits.map((b, i) => (
+        <div class="card">
+          <div class="font-display text-3xl font-extrabold tracking-tight" style="color: var(--primary)">{String(i + 1).padStart(2, '0')}</div>
+          <h3 class="mt-3 text-lg font-bold" style="color: var(--text)">{b.title}</h3>
+          <p class="mt-2 text-sm" style="color: var(--text-muted)">{b.body}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section pt-0">
+    <h3 class="text-xs font-semibold uppercase tracking-wider" style="color: var(--text-subtle)">Powered by</h3>
+    <div class="mt-4 grid gap-5 sm:grid-cols-3">
+      {['Shopify', 'BigCommerce', 'Stripe'].map((p) => (
+        <div class="card text-center">
+          <span class="font-display text-lg font-bold" style="color: var(--text)">{p}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section style="background: var(--surface-2)">
+    <div class="section">
+      <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">Frequently asked questions</h2>
+      <dl class="mt-8 grid gap-4 sm:grid-cols-2">
+        {faqs.map((f) => (
+          <div class="card">
+            <dt class="text-base font-semibold" style="color: var(--text)">{f.q}</dt>
+            <dd class="mt-2 text-sm" style="color: var(--text-muted)">{f.a}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </section>
+
+  <DualCTA
+    headline="Talk to us about taking sales tax off your plate."
+    subhead="Pricing is transaction-based and quoted per merchant. We'll learn your volume, your jurisdictions, and your expectations — then propose terms."
+    showDemoLink={false}
+  />
+
+</BaseLayout>

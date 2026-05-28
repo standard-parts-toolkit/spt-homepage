@@ -1,0 +1,93 @@
+---
+import Logo from './Logo.astro';
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t" style="border-color: var(--border); background: var(--surface)">
+  <div class="mx-auto max-w-7xl px-6 py-16 sm:px-8">
+
+    <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
+      <div class="lg:col-span-2">
+        <Logo variant="full" />
+        <p class="mt-4 max-w-sm text-sm" style="color: var(--text-muted)">
+          The all-in-one Shopify toolkit for selling automotive parts. Fitment search, catalog sync, PDP enrichment, in-cart fitment, P&amp;I sync, and order export — driven by one data layer.
+        </p>
+
+        <form class="mt-6 max-w-sm" action="#" method="post">
+          <label for="footer-email" class="text-xs font-semibold uppercase tracking-wider" style="color: var(--text-subtle)">
+            The toolkit changelog, monthly
+          </label>
+          <div class="mt-2 flex gap-2">
+            <input
+              id="footer-email"
+              type="email"
+              required
+              placeholder="you@company.com"
+              class="focus-ring w-full rounded-lg border px-3 py-2 text-sm"
+              style="border-color: var(--border-strong); background: var(--bg); color: var(--text)"
+            />
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+          </div>
+        </form>
+      </div>
+
+      <nav aria-label="Product">
+        <h3 class="text-xs font-semibold uppercase tracking-wider" style="color: var(--text-subtle)">Product</h3>
+        <ul class="mt-4 space-y-2 text-sm">
+          {[
+            ['/features/ymm-search/',           'YMM Fitment Search'],
+            ['/features/catalog-sync/',         'Catalog Parts Sync'],
+            ['/features/pdp-enrichment/',       'PDP Enrichment'],
+            ['/features/in-cart-fitment/',      'In-Cart Fitment'],
+            ['/features/price-inventory-sync/', 'Price & Inventory Sync'],
+            ['/features/order-export/',         'Order Export'],
+            ['/merchant-of-record/',            'Merchant of Record'],
+          ].map(([href, label]) => (
+            <li><a href={href} style="color: var(--text-muted)" class="hover:underline">{label}</a></li>
+          ))}
+        </ul>
+      </nav>
+
+      <nav aria-label="Integrations">
+        <h3 class="text-xs font-semibold uppercase tracking-wider" style="color: var(--text-subtle)">Integrations</h3>
+        <ul class="mt-4 space-y-2 text-sm">
+          {[
+            ['/integrations/',                 'All data sources'],
+            ['/integrations/aces-pies/',       'ACES / PIES'],
+            ['/integrations/showmetheparts/',  'ShowMeTheParts'],
+            ['/integrations/csv/',             'CSV'],
+          ].map(([href, label]) => (
+            <li><a href={href} style="color: var(--text-muted)" class="hover:underline">{label}</a></li>
+          ))}
+        </ul>
+      </nav>
+
+      <nav aria-label="Company">
+        <h3 class="text-xs font-semibold uppercase tracking-wider" style="color: var(--text-subtle)">Company</h3>
+        <ul class="mt-4 space-y-2 text-sm">
+          <li><a href="/about/"        style="color: var(--text-muted)" class="hover:underline">About</a></li>
+          <li><a href="/why-shopify/"  style="color: var(--text-muted)" class="hover:underline">Why Shopify</a></li>
+          <li><a href="/customers/"    style="color: var(--text-muted)" class="hover:underline">Customers</a></li>
+          <li><a href="/blog/"         style="color: var(--text-muted)" class="hover:underline">Blog</a></li>
+          <li><a href="/changelog/"    style="color: var(--text-muted)" class="hover:underline">Changelog</a></li>
+          <li><a href="/contact/"   style="color: var(--text-muted)" class="hover:underline">Contact</a></li>
+          <li><a href="https://kb.standardpartstoolkit.com" target="_blank" rel="noopener" style="color: var(--text-muted)" class="hover:underline">Knowledge Base ↗</a></li>
+          <li><a href="/legal/privacy/"  style="color: var(--text-muted)" class="hover:underline">Privacy</a></li>
+          <li><a href="/legal/terms/"    style="color: var(--text-muted)" class="hover:underline">Terms</a></li>
+          <li><a href="/legal/security/" style="color: var(--text-muted)" class="hover:underline">Security</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="mt-12 flex flex-col gap-3 border-t pt-6 text-sm sm:flex-row sm:items-center sm:justify-between" style="border-color: var(--border); color: var(--text-subtle)">
+      <p>
+        SPT is a product of <a href="https://nofixedplans.xyz/" target="_blank" rel="noopener" class="underline">No Fixed Plans</a>.
+        <span class="mx-2">·</span>
+        1449 S Michigan Ave STE 13288, Chicago, IL 60605
+      </p>
+      <p>
+        © {year} No Fixed Plans. SPT and Standard Parts Toolkit are trademarks of No Fixed Plans. Not affiliated with Shopify.
+      </p>
+    </div>
+  </div>
+</footer>

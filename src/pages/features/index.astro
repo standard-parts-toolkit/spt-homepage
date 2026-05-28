@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import DualCTA from '../../components/DualCTA.astro';
+
+const features = [
+  { href: '/features/ymm-search/',           title: 'YMM Fitment Search + VIN Lookup', body: 'Year-Make-Model dropdowns, persistent garage, VIN lookup, and license-plate lookup (where supported by your data source).' },
+  { href: '/features/catalog-sync/',         title: 'Catalog Parts Sync',              body: "Push parts, variants, attributes, and fitment into Shopify products and metafields. Includes Description, Specs, Buyer's Guide, and Item Attributes." },
+  { href: '/features/pdp-enrichment/',       title: 'PDP Product Information',         body: "Fitment tables, attributes, specs, notes, and Buyer's Guide content rendered on every product page — themed to match your store." },
+  { href: '/features/in-cart-fitment/',      title: 'In-Cart Fitment & Fulfillment Handoff', body: "The shopper's vehicle follows them through cart and checkout — and lands on the order for your fulfillment team to see.", isNew: true },
+  { href: '/features/price-inventory-sync/', title: 'Price & Inventory Sync',          body: 'Pull P&I updates from FTP drops or email attachments on the schedule you already use.' },
+  { href: '/features/order-export/',         title: 'Order Export',                    body: 'Push orders to Email, FTP, or API destinations. Same format your warehouse, ERP, or 3PL already expects.' },
+];
+---
+
+<BaseLayout
+  title="SPT for Shopify — Features"
+  description="The six modules that turn a generic Shopify store into a real automotive parts store. Fitment search, catalog sync, PDP enrichment, in-cart fitment, P&I sync, order export."
+>
+
+  <section class="section pt-12 sm:pt-20">
+    <p class="text-xs font-semibold uppercase tracking-[0.18em]" style="color: var(--action)">
+      SPT for Shopify
+    </p>
+    <h1 class="mt-3 max-w-4xl text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl" style="color: var(--text)">
+      Everything a parts store on Shopify needs, in one toolkit.
+    </h1>
+    <p class="lede mt-5 max-w-3xl">
+      SPT covers the six jobs that turn a generic Shopify store into a real automotive parts store — fitment search,
+      catalog sync, product detail enrichment, in-cart fitment, price/inventory ingestion, and order export. Use the
+      whole toolkit or pick the modules you need. One install per store.
+    </p>
+    <div class="mt-8"><DualCTA variant="inline" /></div>
+  </section>
+
+  <section class="section pt-0">
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {features.map((f) => (
+        <a
+          href={f.href}
+          class="card focus-ring group block transition-shadow hover:shadow-lg"
+          style={f.isNew ? 'border-left: 3px solid var(--action)' : undefined}
+        >
+          <div class="flex items-start justify-between gap-3">
+            <h2 class="text-lg font-bold" style="color: var(--text)">{f.title}</h2>
+            {f.isNew && <span class="tag tag-action flex-none">New</span>}
+          </div>
+          <p class="mt-3 text-sm" style="color: var(--text-muted)">{f.body}</p>
+          <span class="mt-5 inline-flex items-center gap-1 text-sm font-semibold transition-colors group-hover:gap-2" style="color: var(--primary)">
+            Learn more <span aria-hidden="true">→</span>
+          </span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="section pt-0">
+    <div
+      class="overflow-hidden rounded-3xl p-8 sm:p-12"
+      style="background: var(--primary-soft); border: 1px solid color-mix(in srgb, var(--primary) 25%, transparent)"
+    >
+      <div class="flex flex-wrap items-center justify-between gap-6">
+        <div class="max-w-2xl">
+          <h2 class="text-2xl font-bold sm:text-3xl" style="color: var(--primary)">
+            Configurable down to the dropdown.
+          </h2>
+          <p class="mt-3" style="color: var(--text)">
+            Every module exposes settings for layout, styling, behavior, and data mapping — so the toolkit fits your
+            store rather than the other way around.
+          </p>
+        </div>
+        <a href="/integrations/" class="btn btn-secondary">See data sources →</a>
+      </div>
+    </div>
+  </section>
+
+  <DualCTA />
+
+</BaseLayout>

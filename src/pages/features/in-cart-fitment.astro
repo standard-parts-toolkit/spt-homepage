@@ -1,0 +1,31 @@
+---
+import FeaturePageLayout from '../../layouts/FeaturePageLayout.astro';
+---
+
+<FeaturePageLayout
+  title="In-Cart Fitment & Fulfillment Handoff — SPT"
+  description="The shopper's vehicle travels through cart and checkout and lands on the order for your fulfillment team. Ship the right part the first time."
+  eyebrow="In-cart fitment"
+  headline="The shopper's vehicle follows the order all the way to the warehouse."
+  subhead="The vehicle a shopper selected in YMM search travels with them through the product page, the cart, and the checkout — and lands on the order so your fulfillment team can see it before they pick and pack. Ship the right part the first time."
+  isNew={true}
+  heroCaption="Cart with fitment block + Shopify admin order detail with fitment record highlighted."
+  howItWorks={[
+    { step: 'Capture at search',       body: 'When a shopper picks a vehicle in YMM search, that selection is bound to the session.' },
+    { step: 'Persist through checkout', body: 'Vehicle info is attached as Shopify line-item properties and order metafields, so it shows up in cart, on the order summary, and in the Shopify admin.' },
+    { step: 'Hand off to fulfillment',  body: 'Your fulfillment team sees the exact vehicle on the order — visible in the admin and (optionally) rendered on the packing slip via a theme app extension.' },
+  ]}
+  configurable={[
+    'Which fitment qualifiers travel with the order (vehicle only, or vehicle + engine + sub-model + notes)',
+    'Whether the fitment record renders on the customer-facing order confirmation',
+    'Whether the fitment record renders on the printed packing slip',
+    'Whether shoppers can edit the captured vehicle from the cart',
+    'Whether the captured vehicle blocks checkout if the cart contains non-fitting items (or just warns)',
+  ]}
+  dataSources="The same data layer as YMM Search and Catalog Sync. Configure once."
+  faqs={[
+    { q: 'Does this work with Shopify\'s standard checkout?', a: 'Yes. Fitment data is attached as line-item properties and order metafields — standard Shopify primitives, no checkout customization required.' },
+    { q: 'Will my 3PL see it on order export?', a: 'Yes. Order Export carries the fitment record through to any destination you configure.' },
+    { q: 'What if a shopper changes their mind in cart?', a: 'Configurable — you can let them edit the captured vehicle in place, or require them to clear the cart and re-search.' },
+  ]}
+/>

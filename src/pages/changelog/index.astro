@@ -1,0 +1,58 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import DualCTA from '../../components/DualCTA.astro';
+
+const entries = (await getCollection('changelog'))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const dateFormatter = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+---
+
+<BaseLayout
+  title="Changelog — SPT"
+  description="Release notes for SPT — what shipped and when. Subscribe via RSS."
+>
+
+  <section class="section pt-12 sm:pt-20">
+    <p class="text-xs font-semibold uppercase tracking-[0.18em]" style="color: var(--action)">Changelog</p>
+    <h1 class="mt-3 max-w-4xl text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl" style="color: var(--text)">
+      What's new in SPT.
+    </h1>
+    <p class="lede mt-5 max-w-3xl">
+      Release notes, in plain language.
+    </p>
+    <p class="mt-5 text-sm" style="color: var(--text-subtle)">
+      Subscribe via <a href="/changelog/rss.xml" class="underline" style="color: var(--primary)">RSS</a>.
+    </p>
+  </section>
+
+  <section class="section pt-0">
+    <ol class="relative ml-3 border-l-2" style="border-color: var(--border)">
+      {entries.map((e) => (
+        <li class="relative mb-12 pl-8">
+          <span
+            class="absolute -left-[7px] top-2 inline-block h-3 w-3 rounded-full ring-4"
+            style="background: var(--primary); --tw-ring-color: var(--bg)"
+            aria-hidden="true"
+          ></span>
+          <div class="flex flex-wrap items-baseline gap-3">
+            <a href={`/changelog/${e.id}/`} class="font-display text-2xl font-bold tracking-tight" style="color: var(--text)">
+              v{e.data.version}
+            </a>
+            <time class="text-sm" style="color: var(--text-subtle)" datetime={e.data.date.toISOString()}>
+              {dateFormatter.format(e.data.date)}
+            </time>
+          </div>
+          <h2 class="mt-1 text-base font-semibold" style="color: var(--text-muted)">{e.data.title}</h2>
+          <a href={`/changelog/${e.id}/`} class="mt-3 inline-flex items-center gap-1 text-sm font-semibold" style="color: var(--primary)">
+            Read release notes <span aria-hidden="true">→</span>
+          </a>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <DualCTA />
+
+</BaseLayout>

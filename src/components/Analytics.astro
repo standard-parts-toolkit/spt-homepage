@@ -1,0 +1,40 @@
+---
+const GA_ID = import.meta.env.PUBLIC_GA4_ID;
+---
+
+{GA_ID && (
+  <>
+    <!--
+      GA4 boot. We pre-init the queue immediately so calls work, but
+      defer loading the actual GA script until the visitor has accepted
+      the cookie banner. Loaded via Partytown so it runs off the main thread.
+    -->
+    <script is:inline define:vars={{ GA_ID }}>
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { window.dataLayer.push(arguments); };
+      window.SPT_GA_ID = GA_ID;
+
+      (function () {
+        const accepted = (() => {
+          try { return localStorage.getItem('spt-consent') === 'accepted'; } catch (_) { return false; }
+        })();
+
+        const load = () => {
+          if (window.__sptGaLoaded) return;
+          window.__sptGaLoaded = true;
+          const s = document.createElement('script');
+          s.async = true;
+          s.type = 'text/partytown';
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+          document.head.appendChild(s);
+          window.gtag('js', new Date());
+          window.gtag('config', GA_ID, { anonymize_ip: true });
+        };
+
+        if (accepted) load();
+        // Re-check after the consent banner accepts
+        window.addEventListener('spt:consent-accepted', load);
+      })();
+    </script>
+  </>
+)}

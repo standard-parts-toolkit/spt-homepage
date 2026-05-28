@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import DualCTA from '../../components/DualCTA.astro';
+---
+
+<BaseLayout
+  title="CSV data source on Shopify — SPT"
+  description="A spreadsheet of parts, vehicles, and fitment is enough to power SPT's YMM search, catalog sync, and PDP enrichment."
+>
+
+  <section class="section pt-12 sm:pt-20">
+    <p class="text-xs font-semibold uppercase tracking-[0.18em]" style="color: var(--action)">Integration · CSV</p>
+    <h1 class="mt-3 max-w-4xl text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl" style="color: var(--text)">
+      A spreadsheet is enough to get started.
+    </h1>
+    <p class="lede mt-5 max-w-3xl">
+      If you have a CSV of parts, vehicles, and fitment, you have everything SPT needs to power YMM search, catalog
+      sync, and PDP enrichment.
+    </p>
+    <div class="mt-8"><DualCTA variant="inline" /></div>
+  </section>
+
+  <section style="background: var(--surface-2)">
+    <div class="section">
+      <div class="grid gap-10 lg:grid-cols-12">
+        <div class="lg:col-span-7">
+          <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">What's supported</h2>
+          <ul class="mt-6 space-y-3">
+            {[
+              'Separate or combined files for parts, vehicles, and fitment',
+              'Configurable column mapping',
+              'Re-upload to update; full or partial replacement',
+              'Validation report on each upload',
+            ].map((s) => (
+              <li class="flex items-start gap-3">
+                <span class="mt-1 inline-block h-2 w-2 flex-none rounded-full" style="background: var(--primary)"></span>
+                <span style="color: var(--text)">{s}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <aside class="lg:col-span-5">
+          <div class="card" style="background: var(--primary-soft); border-color: color-mix(in srgb, var(--primary) 25%, transparent)">
+            <span class="tag tag-primary">Who this fits</span>
+            <p class="mt-3 text-sm" style="color: var(--text)">
+              Single-store retailers, niche/specialty sellers, and anyone piloting before investing in ACES/PIES
+              feeds. Start here, graduate to ACES/PIES or ShowMeTheParts later if you outgrow it.
+            </p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <DualCTA headline="Book a demo with your CSV." />
+
+</BaseLayout>

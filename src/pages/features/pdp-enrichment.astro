@@ -1,0 +1,34 @@
+---
+import FeaturePageLayout from '../../layouts/FeaturePageLayout.astro';
+---
+
+<FeaturePageLayout
+  title="PDP Enrichment — SPT"
+  description="Fitment tables, item attributes, specs, notes, and Buyer's Guide content rendered on every Shopify product page."
+  eyebrow="Product detail pages"
+  headline="Every product page, fully informed. Fewer 'didn't fit' returns."
+  subhead="Fitment tables, item attributes, specs, notes, and Buyer's Guide content rendered on the product detail page — themed to match your store and driven by the same data that powers your YMM search. Real-time product data means shoppers see the most accurate fitment info, so they buy with confidence and you process fewer returns."
+  heroCaption="PDP with fitment block, attribute table, Buyer's Guide, and notes."
+  howItWorks={[
+    { step: 'Sync your data',     body: 'Once via Catalog Sync, every PDP gets the same enrichment.' },
+    { step: 'Choose your blocks', body: 'Fitment table, Product Item Attributes, Buyer\'s Guide, notes, related fitment.' },
+    { step: 'Style to match',     body: 'Blocks read from theme tokens and expose their own settings.' },
+  ]}
+  configurable={[
+    'Which blocks appear, and in what order',
+    '<strong>Buyer\'s Guide block</strong> — render the manufacturer\'s buying guidance directly on the PDP',
+    '<strong>Product Item Attributes</strong> — structured attributes grouped and styled per product type',
+    'Fitment table grouping (by vehicle, by engine, collapsed-by-default, etc.)',
+    'Attribute templates per product type',
+    'Notes display: inline, footnoted, or expandable',
+    '"Other vehicles this fits" cross-sell block',
+    'Show/hide behavior based on whether a shopper has selected a vehicle',
+  ]}
+  dataSources="The same connector and catalog sync that feed YMM Search. Configure once."
+  faqs={[
+    { q: 'Does this require a custom theme?', a: 'No. Blocks install through Shopify\'s theme editor.' },
+    { q: 'What about theme upgrades?', a: 'Blocks are app-managed and survive theme version changes.' },
+    { q: 'Can I show fitment for the shopper\'s selected vehicle only?', a: 'Yes. With a vehicle selected from YMM search, the fitment block can collapse to the matching rows and surface a "see all fitment" toggle.' },
+    { q: 'How does this reduce returns?', a: 'Most "didn\'t fit" returns come from incomplete product data. PDP enrichment fixes that by rendering the manufacturer\'s authoritative fitment, attributes, and Buyer\'s Guide — kept current automatically because it reads from the same data feed that powers your search. No manual updates. No "data went stale a year ago" PDPs.' },
+  ]}
+/>

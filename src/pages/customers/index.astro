@@ -1,0 +1,79 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import DualCTA from '../../components/DualCTA.astro';
+
+const cases = (await getCollection('caseStudies', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+---
+
+<BaseLayout
+  title="Customers — SPT"
+  description="Manufacturers and retailers running on SPT. From catalog-of-record sync to single-store fitment search."
+>
+
+  <section class="section pt-12 sm:pt-20">
+    <p class="text-xs font-semibold uppercase tracking-[0.18em]" style="color: var(--action)">Customers</p>
+    <h1 class="mt-3 max-w-4xl text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl" style="color: var(--text)">
+      Manufacturers and retailers running on SPT.
+    </h1>
+    <p class="lede mt-5 max-w-3xl">
+      From catalog-of-record sync to single-store fitment search, here's how teams are using the toolkit.
+    </p>
+  </section>
+
+  <section class="section pt-0">
+    <p class="text-center text-xs font-semibold uppercase tracking-wider" style="color: var(--text-subtle)">
+      Trusted by manufacturers and retailers selling automotive parts on Shopify
+    </p>
+    <ul class="mt-6 grid grid-cols-2 items-center justify-items-center gap-6 opacity-50 sm:grid-cols-4 lg:grid-cols-8">
+      {Array.from({ length: 8 }).map((_, i) => (
+        <li
+          class="h-8 w-24 rounded"
+          style="background: linear-gradient(90deg, var(--border-strong), var(--border))"
+          aria-label={`Customer logo placeholder ${i + 1}`}
+        ></li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="section pt-0">
+    <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">Case studies</h2>
+    <div class="mt-6 grid gap-6 sm:grid-cols-2">
+      {cases.map((c) => (
+        <article class="card">
+          <span class={c.data.customerType === 'Manufacturer' ? 'tag tag-primary' : 'tag'}>{c.data.customerType}</span>
+          <h3 class="mt-3 text-xl font-bold leading-tight tracking-tight" style="color: var(--text)">
+            <a href={`/customers/${c.id}/`}>{c.data.title}</a>
+          </h3>
+          <p class="mt-3 text-sm" style="color: var(--text-muted)">{c.data.subhead}</p>
+          <dl class="mt-4 grid grid-cols-2 gap-2 text-xs" style="color: var(--text-subtle)">
+            <div><dt class="font-semibold uppercase tracking-wider">Industry</dt><dd style="color: var(--text)">{c.data.industry}</dd></div>
+            <div><dt class="font-semibold uppercase tracking-wider">Data source</dt><dd style="color: var(--text)">{c.data.dataSource}</dd></div>
+            <div><dt class="font-semibold uppercase tracking-wider">Catalog</dt><dd style="color: var(--text)">{c.data.catalogSize}</dd></div>
+            <div><dt class="font-semibold uppercase tracking-wider">Outcome</dt><dd style="color: var(--text)">{c.data.outcome}</dd></div>
+          </dl>
+          <a href={`/customers/${c.id}/`} class="mt-4 inline-flex items-center gap-1 text-sm font-semibold" style="color: var(--primary)">
+            Read the case study <span aria-hidden="true">→</span>
+          </a>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- Featured real testimonial -->
+  <section class="section pt-0">
+    <figure class="mx-auto max-w-3xl text-center">
+      <blockquote class="relative text-xl font-medium leading-snug sm:text-2xl" style="color: var(--text)">
+        <span aria-hidden="true" class="absolute -left-2 -top-4 text-7xl leading-none" style="color: var(--spark)">"</span>
+        Vertical Development has been ingesting and publishing my content for years. Plugging their ShowMeTheParts API service directly into Shopify via Standard Parts Toolkit is a brilliant way to leverage the strengths of both worlds — like chocolate and peanut butter.
+      </blockquote>
+      <figcaption class="mt-6 text-sm" style="color: var(--text-muted)">
+        <span class="font-semibold" style="color: var(--text)">Luke Smith</span>, CEO, Momentum USA, Inc.
+      </figcaption>
+    </figure>
+  </section>
+
+  <DualCTA />
+
+</BaseLayout>

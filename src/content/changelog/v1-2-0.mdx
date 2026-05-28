@@ -1,0 +1,21 @@
+---
+version: "1.2.0"
+title: "ShowMeTheParts API connector + multi-destination order export"
+date: 2026-05-10
+---
+
+import Section from '../../components/release/Section.astro';
+
+<Section type="new">
+- **ShowMeTheParts as a primary data source.** Connect your ShowMeTheParts account, and catalog sync, YMM search, and PDP enrichment all read from it.
+- **Multi-destination order export.** Send a single Shopify order to multiple destinations (Email + FTP + API in any combination), with per-line-item routing rules.
+</Section>
+
+<Section type="improved">
+- Sync run logs now show per-field diffs on updated SKUs.
+- YMM widget loads ~30% faster on first paint via deferred dropdown hydration.
+</Section>
+
+<Section type="fixed">
+- Resolved an edge case where ACES `BaseVehicle` records without engine qualifiers were skipped during incremental sync.
+</Section>

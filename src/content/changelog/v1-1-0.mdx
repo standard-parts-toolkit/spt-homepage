@@ -1,0 +1,21 @@
+---
+version: "1.1.0"
+title: "Inbound email for P&I + multi-vehicle garage"
+date: 2026-04-05
+---
+
+import Section from '../../components/release/Section.astro';
+
+<Section type="new">
+- **Inbound email channel for P&I sync.** Dedicated inbound address per store; attachments are picked up and processed automatically.
+- **Multi-vehicle garage.** Shoppers can save more than one vehicle and switch between them from the header.
+</Section>
+
+<Section type="improved">
+- CSV upload validator now flags duplicate fitment rows before sync.
+- Admin sync log adds a "replay" action on failed runs.
+</Section>
+
+<Section type="fixed">
+- Corrected an off-by-one in the year-range expansion when ACES `MinYear == MaxYear`.
+</Section>

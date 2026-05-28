@@ -1,0 +1,53 @@
+---
+type Kind = 'new' | 'improved' | 'fixed';
+interface Props { type: Kind; }
+const { type } = Astro.props;
+
+const labels: Record<Kind, string> = { new: 'New', improved: 'Improved', fixed: 'Fixed' };
+const colors: Record<Kind, string> = {
+  new:      'var(--primary)',
+  improved: 'var(--action)',
+  fixed:    'var(--text-muted)',
+};
+---
+
+<div class="release-section">
+  <h3
+    class="text-xs font-bold uppercase tracking-[0.18em]"
+    style={`color: ${colors[type]}`}
+  >{labels[type]}</h3>
+  <div class="prose mt-3">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .release-section { margin-top: 1.5rem; }
+  .release-section:first-child { margin-top: 0; }
+  .release-section .prose :global(ul) {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .release-section .prose :global(li) {
+    padding-left: 1.25rem;
+    position: relative;
+    margin-top: 0.5rem;
+    color: var(--text);
+  }
+  .release-section .prose :global(li::before) {
+    content: "·";
+    position: absolute;
+    left: 0;
+    color: var(--text-subtle);
+    font-weight: bold;
+  }
+  .release-section .prose :global(code) {
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    padding: 0.1em 0.4em;
+    border-radius: 4px;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+  }
+</style>

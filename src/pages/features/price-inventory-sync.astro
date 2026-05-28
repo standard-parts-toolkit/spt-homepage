@@ -1,0 +1,33 @@
+---
+import FeaturePageLayout from '../../layouts/FeaturePageLayout.astro';
+---
+
+<FeaturePageLayout
+  title="Price & Inventory Sync — SPT"
+  description="Pull price and inventory updates from FTP drops or inbound email attachments on the cadence you choose."
+  eyebrow="Price & inventory"
+  headline="Price and inventory updates from the channels your suppliers already use."
+  subhead="Drop a file on FTP. Send an email with an attachment. SPT picks it up, validates it, and updates Shopify on the cadence you choose."
+  heroCaption="P&I run log with timestamps, file source, and updated SKU count."
+  howItWorks={[
+    { step: 'Pick a channel',                    body: 'SFTP/FTP or a dedicated inbound email address.' },
+    { step: 'Map the format',                    body: 'CSV columns or a fixed-width template to Shopify price and inventory fields.' },
+    { step: 'Schedule or trigger on arrival',    body: 'Your call.' },
+  ]}
+  configurable={[
+    'Source: SFTP, FTP, or email attachment',
+    'Pickup schedule, or trigger-on-arrival for email',
+    'File format mapping (CSV, fixed-width, tab-delimited)',
+    'Multi-location inventory destination',
+    'Cost vs price vs compare-at price fields',
+    'Error reporting: email digest, webhook, or both',
+    'Held-back updates: thresholds for "too big a change" to apply automatically',
+  ]}
+  dataSources="Independent of your catalog data source. P&I can come from a different supplier than your fitment data."
+  faqs={[
+    { q: 'What if the file format changes mid-week?', a: 'Mappings are versioned; you can pin a mapping or roll back.' },
+    { q: 'What about line-level errors?', a: 'Errors are isolated per row — a malformed line does not block the rest of the file.' },
+    { q: 'Can I dry-run a new mapping?', a: 'Yes. Upload once in dry-run mode, review the diff, then enable.' },
+    { q: 'Which tier includes this?', a: 'Automatic Price & Inventory sync is part of the Pro tier ($300/month). The Free tier does not include automatic P&I.' },
+  ]}
+/>

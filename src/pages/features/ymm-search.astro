@@ -1,0 +1,35 @@
+---
+import FeaturePageLayout from '../../layouts/FeaturePageLayout.astro';
+---
+
+<FeaturePageLayout
+  title="YMM Fitment Search + VIN Lookup — SPT"
+  description="Year-Make-Model search, persistent garage, VIN lookup, and license-plate lookup for your Shopify automotive parts store."
+  eyebrow="Fitment search"
+  headline="A fitment search shoppers actually finish."
+  subhead="Year, Make, Model — plus Sub-Model, Engine, and the other qualifiers your catalog needs. Configurable order, configurable styling, persistent garage. Built to be fast on storefronts with hundreds of thousands of SKUs."
+  heroCaption="YMM widget — empty, mid-selection, and with results."
+  howItWorks={[
+    { step: 'Connect your data',     body: 'ACES/PIES, ShowMeTheParts, or CSV.' },
+    { step: 'Choose the qualifiers', body: 'Pick which attributes appear as dropdowns and in what order.' },
+    { step: 'Drop the widget in',    body: 'Install on category pages, the home page, or any block your theme supports.' },
+  ]}
+  configurable={[
+    '<strong>Year-Make-Model dropdowns</strong> — the standard. Predictable order, persistent garage.',
+    '<strong>VIN Lookup</strong> — shoppers paste a VIN and we resolve it to the right vehicle (data-source dependent — ShowMeTheParts and most ACES/PIES vendor feeds support VIN decoding).',
+    '<strong>License-plate lookup</strong> — even faster, where the underlying data source supports plate-to-VIN.',
+    'Garage: save vehicles, restore on return, multi-vehicle support',
+    'Layout: inline, modal, sidebar, sticky',
+    'Styling driven by your theme tokens',
+    'Result behavior: filter current collection, redirect to a fitment-aware results page, or both',
+    '"No fit" handling: hide, dim, or label products that don\'t match',
+  ]}
+  dataSources="ACES/PIES XML · ShowMeTheParts API · CSV. Switch sources later — your storefront configuration carries over."
+  faqs={[
+    { q: 'How fast is it on a large catalog?', a: 'The search index is precomputed at sync time, so dropdown population and result filtering are constant-time regardless of catalog size.' },
+    { q: 'Can shoppers save more than one vehicle?', a: 'Yes. Multi-vehicle garage is built in and persists across sessions for signed-in customers.' },
+    { q: 'Does it work with my existing theme?', a: 'Yes. The widget is a Shopify block; it inherits theme tokens by default and exposes its own settings for any overrides.' },
+    { q: 'What happens when a shopper picks a vehicle and lands on a product that doesn\'t fit?', a: 'Configurable: hide, dim with a fitment warning, or surface a "shop for this vehicle" link.' },
+    { q: 'Does it support VIN decoding?', a: 'Yes, when your underlying data source provides VIN-to-vehicle resolution (ShowMeTheParts and ACES/PIES vendor feeds typically do; pure CSV does not).' },
+  ]}
+/>

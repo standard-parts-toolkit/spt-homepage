@@ -1,0 +1,68 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import DualCTA from '../../components/DualCTA.astro';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+
+const dateFormatter = new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+---
+
+<BaseLayout
+  title="Blog — SPT"
+  description="Notes from the parts-on-Shopify trenches. Practical writing for parts manufacturers and automotive retailers selling on Shopify."
+>
+
+  <section class="section pt-12 sm:pt-20">
+    <p class="text-xs font-semibold uppercase tracking-[0.18em]" style="color: var(--action)">Blog</p>
+    <h1 class="mt-3 max-w-4xl text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl" style="color: var(--text)">
+      Notes from the parts-on-Shopify trenches.
+    </h1>
+    <p class="lede mt-5 max-w-3xl">
+      Practical writing for parts manufacturers and automotive retailers selling on Shopify. Fitment, data,
+      operations, and the occasional opinion.
+    </p>
+    <p class="mt-5 text-sm" style="color: var(--text-subtle)">
+      Subscribe via <a href="/blog/rss.xml" class="underline" style="color: var(--primary)">RSS</a>.
+    </p>
+  </section>
+
+  <section class="section pt-0">
+    {posts.length === 0 ? (
+      <p style="color: var(--text-muted)">No posts yet — check back soon.</p>
+    ) : (
+      <div class="grid gap-8 sm:grid-cols-2">
+        {posts.map((post) => (
+          <article class="card">
+            <div class="flex flex-wrap items-center gap-2 text-xs" style="color: var(--text-subtle)">
+              <time datetime={post.data.publishDate.toISOString()}>{dateFormatter.format(post.data.publishDate)}</time>
+              <span aria-hidden="true">·</span>
+              <span>{post.data.author}</span>
+              {post.data.tags.length > 0 && (
+                <>
+                  <span aria-hidden="true">·</span>
+                  <span class="flex flex-wrap gap-1">
+                    {post.data.tags.map((t) => (
+                      <a href={`/blog/tags/${t}/`} class="tag" style="font-size: 0.7rem">#{t}</a>
+                    ))}
+                  </span>
+                </>
+              )}
+            </div>
+            <h2 class="mt-3 text-2xl font-bold leading-tight tracking-tight" style="color: var(--text)">
+              <a href={`/blog/${post.id}/`}>{post.data.title}</a>
+            </h2>
+            <p class="mt-3" style="color: var(--text-muted)">{post.data.description}</p>
+            <a href={`/blog/${post.id}/`} class="mt-4 inline-flex items-center gap-1 text-sm font-semibold" style="color: var(--primary)">
+              Read post <span aria-hidden="true">→</span>
+            </a>
+          </article>
+        ))}
+      </div>
+    )}
+  </section>
+
+  <DualCTA />
+
+</BaseLayout>

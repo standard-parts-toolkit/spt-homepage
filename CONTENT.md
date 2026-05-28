@@ -15,7 +15,15 @@
 - Tertiary / inline links: **See how it works** · **Knowledge Base** · **Talk to sales** · **See pricing**
 
 ### Top nav order
-Features ▾ · Integrations · Merchant of Record · Pricing · Customers · Blog · Knowledge Base ↗ · About
+Products ▾ · Features ▾ · Integrations · Why Shopify · Pricing · Blog · About
+
+**Products dropdown:**
+- **SPT for Shopify** — YMM search, catalog sync, PDP enrichment, in-cart fitment, P&I sync, order export. → `/features/`
+- **Merchant of Record** — Sales tax collected, remitted, and reported on your behalf. → `/merchant-of-record/`
+
+**Features dropdown** (modules within SPT for Shopify): YMM Fitment Search + VIN Lookup · Catalog Parts Sync · PDP Enrichment · In-Cart Fitment & Fulfillment Handoff · Price & Inventory Sync · Order Export
+
+**Customers and Knowledge Base are intentionally NOT in the top nav** — both live in the footer only.
 
 ### Form button states
 - Idle: **Send message** / **Request a demo** / **Subscribe**
@@ -41,10 +49,10 @@ Features ▾ · Integrations · Merchant of Record · Pricing · Customers · Bl
 **Eyebrow:** Built for automotive parts on Shopify
 
 **Headline:**
-**Your fitment data, live on every Shopify storefront that sells your parts.**
+**Run a real automotive parts store on Shopify.**
 
 **Subhead:**
-**SPT** — the Standard Parts Toolkit — turns ACES/PIES, ShowMeTheParts, or CSV data into a fast, configurable Year-Make-Model search, an enriched product catalog, in-cart fitment that follows the shopper to checkout, and the price, inventory, and order plumbing your business already runs on. Built for parts manufacturers. Friendly to single-store retailers. Built to reduce "didn't fit" returns and increase buyer confidence.
+**SPT** — the Standard Parts Toolkit — gives *your* Shopify store the fitment search, catalog sync, PDP enrichment, in-cart fitment, and order plumbing it needs to sell auto parts the way buyers actually shop for them. One install, one store, your data — whether that's ACES/PIES, ShowMeTheParts, or CSV. Built for parts manufacturers selling direct-to-consumer and for automotive retailers alike. Built to reduce "didn't fit" returns and increase buyer confidence.
 
 **CTAs:** [Book a Demo]  [Install on Shopify]  [View Demo Site →]
 
@@ -52,7 +60,9 @@ Features ▾ · Integrations · Merchant of Record · Pricing · Customers · Bl
 
 ### Compatibility badge row
 *A single thin band immediately under the hero:*
-**Shopify Online Store 2.0 compatible · No custom dev work required · Powered by ShowMeTheParts (1,000+ supplier brands)**
+**Shopify Online Store 2.0 compatible · No custom dev work required · One install per store — yours**
+
+> Do NOT name ShowMeTheParts in this badge row. The homepage positions SPT as data-source agnostic; ShowMeTheParts is one of three supported sources, called out alongside ACES/PIES and CSV in the dedicated Data Sources section below.
 
 ### Trust strip
 *Trusted by manufacturers and retailers selling automotive parts on Shopify.*
@@ -80,9 +90,34 @@ Features ▾ · Integrations · Merchant of Record · Pricing · Customers · Bl
 6. **Order Export**
    Push orders to Email, FTP, or API destinations. Same format your warehouse, ERP, or 3PL already expects.
 
-### Data-source row
-**Bring the data you already have.**
-ACES/PIES XML · ShowMeTheParts API · CSV upload. Swap sources later without rebuilding your storefront.
+### Data Sources section (dedicated, three equally-weighted cards)
+*Tag:* Data-source agnostic
+*Headline:* **Bring the data you already have.**
+*Subhead:* SPT speaks three industry-standard parts-data formats. Pick the one that matches how you already operate today — switch later without rebuilding your storefront.
+
+**Card 1 — ACES / PIES XML** *(tag: Manufacturer-grade)*
+The industry-standard XML formats from the AutoCare Association. ACES describes which vehicles each part fits; PIES describes the parts themselves. Drop files onto FTP and SPT parses, validates, and syncs.
+- ACES 3.x and 4.x fitment
+- PIES 6.x and 7.x product information
+- Full + incremental updates
+*Link:* ACES/PIES details → /integrations/aces-pies/
+
+**Card 2 — ShowMeTheParts** *(tag: API-driven)*
+Connect your ShowMeTheParts account and SPT will sync the parts, vehicles, and fitment your store needs — without maintaining an ACES/PIES feed of your own.
+- Daily incremental sync
+- VIN + license-plate lookup
+- On-demand re-sync
+*Link:* ShowMeTheParts details → /integrations/showmetheparts/
+
+**Card 3 — CSV** *(tag: Lightweight)*
+A spreadsheet is enough to get started. If you have a CSV of parts, vehicles, and fitment, you have everything SPT needs to power YMM search, catalog sync, and PDP enrichment.
+- Combined or separate files
+- Configurable column mapping
+- Validation report on each upload
+*Link:* CSV details → /integrations/csv/
+
+*Closing line under the three cards:*
+All three connect into the same configuration — your YMM widget, PDP blocks, and admin settings carry over if you switch sources later.
 
 ### Reduce-returns band
 > Section heading: **Stop refunding parts that didn't fit.**
@@ -93,7 +128,7 @@ ACES/PIES XML · ShowMeTheParts API · CSV upload. Swap sources later without re
 > Section heading: **Two audiences, one toolkit.**
 
 **For parts manufacturers**
-You already maintain a clean catalog in ACES/PIES. SPT gets it onto Shopify — yours or your dealers' — without a custom development project. Sync at the cadence you control, syndicate to multiple stores from one source, and export orders back to the systems you already run.
+You already maintain a clean catalog in ACES/PIES. SPT gets that catalog onto your own direct-to-consumer Shopify store — accurately, on the cadence you control, with orders exported back to the systems you already run. Sell direct without a custom build and without rebuilding your data infrastructure.
 *CTA:* See it for manufacturers → /features/catalog-sync
 
 **For automotive retailers**
@@ -107,7 +142,9 @@ Three captioned product screenshots (placeholders), plus a "View the live demo s
 3. *Order detail in Shopify admin showing the fulfillment-team fitment record.*
 
 ### By the numbers
-**1,000+** part brands available · **24/7** updates · **0 hours** spent managing your own fitment data.
+**3** data sources, your choice · **24/7** updates from your data feed · **0 hours** managing fitment data.
+
+> The "1,000+ part brands" stat from the current site is ShowMeTheParts-specific; we don't use it on the homepage to preserve the data-source-agnostic positioning. It belongs on the `/integrations/showmetheparts/` sub-page instead.
 
 ### Testimonial (real)
 > "Vertical Development has been ingesting and publishing my content for years. Plugging their ShowMeTheParts API service directly into Shopify via Standard Parts Toolkit is a brilliant way to leverage the strengths of both worlds — like chocolate and peanut butter."
@@ -216,7 +253,7 @@ ACES/PIES XML · ShowMeTheParts API · CSV. The same connector that drives YMM s
 - **Will it overwrite manual edits I make in Shopify?** Only fields you've configured as source-wins. Anything not under sync control is left alone.
 - **What if a SKU disappears from the source?** Configurable: archive, draft, mark out-of-stock, or no-op.
 - **Can I run sync against a development store first?** Yes — install on a dev store, dry-run against your file, review the diff, then promote.
-- **Do you support multi-store / Shopify Plus deployments?** Yes. One source can drive multiple stores with per-store overrides.
+- **Does SPT work on Shopify Plus?** Yes. SPT runs on Shopify, Advanced Shopify, and Shopify Plus stores — one install per store. SPT is purchased per merchant, per store; there's no multi-store sync.
 
 **Final CTA:** Same band.
 
@@ -484,49 +521,65 @@ Shopify · BigCommerce · Stripe
 
 ## Pricing (`/pricing/`)
 
-> Confirm with owner whether to publish tiers or use "Contact for pricing." Draft below assumes a three-tier published model, with a manufacturer/enterprise tier as the largest. Replace `$[X]` with confirmed prices.
+> Two published tiers — Free and Pro ($300/month). No "Contact for pricing" tier for the app modules. Merchant of Record is sold separately.
 
 ### Hero
-**Headline:** **Pricing that scales with your catalog, not with your sales.**
-**Subhead:** Pick the plan that matches your data source and catalog size. Switch any time. All plans include the full toolkit — modules aren't sold separately.
+**Headline:** **Two tiers. No surprises.**
+**Subhead:** Start free, upgrade when you need automatic price/inventory sync and order export. Every plan includes the same YMM search, catalog sync, PDP enrichment, and in-cart fitment.
 
-### Tier 1 — Starter
-**$[X] / month**
-For single-store retailers piloting YMM search.
-- CSV data source
-- YMM Fitment Search
-- Catalog sync (manual + scheduled)
-- PDP enrichment
-- Up to [N] SKUs
+### Tier 1 — Free
+**$0 / month**
+For trying SPT, piloting a small catalog, or a low-traffic store.
+- YMM Fitment Search + VIN Lookup
+- Catalog Parts Sync (manual)
+- PDP Enrichment (incl. Buyer's Guide)
+- In-Cart Fitment & Fulfillment Handoff
+- ACES/PIES, ShowMeTheParts, or CSV data source
+- **Capped at 100 searches/month**
+- **No automatic Price & Inventory sync**
+- **No Order Export**
 - Email support
 
-### Tier 2 — Growth
-**$[X] / month** *(Most popular)*
-For multi-channel retailers and small manufacturers.
-- ShowMeTheParts or CSV data source
-- Everything in Starter
-- Price & inventory sync
-- Order export (1 destination)
-- Up to [N] SKUs
-- Priority email support
+*CTA:* Install on Shopify (free)
 
-### Tier 3 — Manufacturer
-**Contact us**
-For parts manufacturers and large multi-store operations.
-- ACES/PIES data source
-- Everything in Growth
-- Multi-store / multi-destination order export
-- Unlimited SKUs
-- Dedicated onboarding
-- SLA, named contact, and security review
+### Tier 2 — Pro
+**$300 / month** *(All features)*
+For stores that need automation and run any real volume.
+- Everything in Free
+- **Unlimited searches**
+- **Automatic Price & Inventory sync** (FTP / email)
+- **Order Export** (Email / FTP / API destinations)
+- Priority support
+- Unlimited order-export destinations (Email + FTP + API in any combination)
 
-### FAQ band
-- **Do you charge per SKU?** No. SKU counts gate tiers but there is no per-SKU usage fee.
-- **What's included in onboarding?** Configuration of your data source, dry-run of catalog sync, and a working YMM search on a staging store before you go live.
-- **Can I switch tiers?** Yes, at any time, prorated.
-- **Is there a free trial?** Yes, on Starter and Growth. The Manufacturer tier is sold with an onboarding engagement.
+*CTA:* Book a Demo · Install on Shopify
 
-**Final CTA:** [Book a Demo] [Install on Shopify]
+### Side-by-side comparison table
+| Feature | Free | Pro ($300/mo) |
+|---|---|---|
+| YMM Fitment Search + VIN Lookup | ✓ | ✓ |
+| Catalog Parts Sync | ✓ | ✓ |
+| PDP Enrichment (incl. Buyer's Guide) | ✓ | ✓ |
+| In-Cart Fitment & Fulfillment Handoff | ✓ | ✓ |
+| Data sources (ACES/PIES, ShowMeTheParts, CSV) | ✓ | ✓ |
+| Monthly searches | 100 cap | Unlimited |
+| Automatic Price & Inventory sync | — | ✓ |
+| Order Export (Email / FTP / API) | — | ✓ |
+| Multiple order-export destinations | — | ✓ |
+| Support | Email | Priority |
+
+### Merchant of Record callout
+**Need sales tax handled, too?** The SPT Merchant of Record service is sold separately — pricing is transaction-based and quoted per merchant.
+*CTA:* Talk to us → /merchant-of-record
+
+### Pricing FAQ
+- **What counts as a "search"?** Every Year-Make-Model, VIN, or license-plate lookup performed by a shopper on your store. Page loads don't count.
+- **What happens if I hit 100 searches?** Search continues to work, but we'll prompt you to upgrade. We never silently break your store.
+- **Is there a free trial of Pro?** Pro is straightforward — install and go. If you want to test the automation features before committing, book a demo and we'll run a Pro trial on a development store.
+- **Do you charge per SKU?** No. SKU counts don't gate either tier.
+- **Can I switch tiers?** Yes, any time. Pro is prorated.
+
+**Final CTA:** [Book a Demo]  [Install on Shopify]
 
 ---
 
@@ -958,8 +1011,8 @@ Before this content goes live, the owner should resolve:
 2. **Organizational wording** — confirm "a product of No Fixed Plans" as the canonical phrase for the About page and footer. ShowMeTheParts (operated by Vertical Development) appears only as one of the supported data sources, not as a partner or co-operator of SPT.
 3. **Real domain** — used throughout `[standardpartstoolkit.com]` placeholders. Assumes the new site replaces the current site at the same domain (migration plan needed).
 4. **Email addresses** — `hello@`, `support@`, `privacy@`, `legal@`, `security@`.
-5. **Pricing model and dollar figures** — or switch the pricing page to "Contact for pricing." Also: Merchant of Record pricing.
-6. **Capability alignment** — every module beyond what the current site advertises (CSV, direct ACES/PIES, multi-vehicle garage, P&I sync, order export, multi-store) must be operational at launch or framed as "coming soon." Misalignment between copy and reality is the biggest risk.
+5. **Pricing confirmed:** Free (100 searches/month, no P&I/Order Export) and $300/month (everything). MoR pricing remains "Talk to us" — transaction-based.
+6. **Capability alignment confirmed:** Everything ships at launch. No "coming soon" labels. Owner committed to closing operational gaps within the launch window.
 7. **BigCommerce mention on the MoR page** — confirm whether MoR supports BigCommerce stores while the app is Shopify-only.
 8. **Real testimonial usage rights** — Luke Smith / Momentum USA quote is on the current site; confirm it can carry into the new site.
 9. **Live demo store** — confirm `https://carmenspartdepot.com` stays accessible and is OK to link as a "View Demo Site" CTA.

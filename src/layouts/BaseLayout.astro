@@ -1,0 +1,109 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Analytics from '../components/Analytics.astro';
+import ConsentBanner from '../components/ConsentBanner.astro';
+import JsonLd from '../components/JsonLd.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const {
+  title = 'SPT — The all-in-one Shopify toolkit for automotive parts',
+  description = 'SPT (Standard Parts Toolkit) turns ACES/PIES, ShowMeTheParts, or CSV data into fast Year-Make-Model search, enriched product pages, in-cart fitment, and the order plumbing your business already runs on.',
+  ogImage = '/og-default.png',
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+
+// Site-wide Organization markup
+const organization = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'SPT (Standard Parts Toolkit)',
+  alternateName: 'Standard Parts Toolkit',
+  url: Astro.site?.toString(),
+  logo: new URL('/favicon.svg', Astro.site).toString(),
+  parentOrganization: {
+    '@type': 'Organization',
+    name: 'No Fixed Plans',
+    url: 'https://nofixedplans.xyz/',
+  },
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '1449 S Michigan Ave STE 13288',
+    addressLocality: 'Chicago',
+    addressRegion: 'IL',
+    postalCode: '60605',
+    addressCountry: 'US',
+  },
+  email: 'hello@standardpartstoolkit.com',
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL(ogImage, Astro.site).toString()} />
+    <meta property="og:site_name" content="SPT — Standard Parts Toolkit" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(ogImage, Astro.site).toString()} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#15803d" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="alternate" type="application/rss+xml" title="SPT Blog" href="/blog/rss.xml" />
+    <link rel="alternate" type="application/rss+xml" title="SPT Releases" href="/changelog/rss.xml" />
+
+    <!-- Theme bootstrap — runs before paint to avoid flash -->
+    <script is:inline>
+      (function () {
+        try {
+          const saved = localStorage.getItem('spt-theme');
+          if (saved === 'light' || saved === 'dark') {
+            document.documentElement.dataset.theme = saved;
+          }
+        } catch (_) {}
+      })();
+    </script>
+
+    <!-- Site-wide Organization JSON-LD -->
+    <JsonLd data={organization} />
+
+    <!-- Per-page JSON-LD slot -->
+    <slot name="head" />
+
+    <!-- Analytics (deferred until consent) -->
+    <Analytics />
+  </head>
+
+  <body>
+    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-3 focus:top-3 focus:z-50 focus:rounded-lg focus:bg-[var(--surface)] focus:px-3 focus:py-2 focus:text-sm">Skip to content</a>
+
+    <Header />
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <Footer />
+    <ConsentBanner />
+  </body>
+</html>

@@ -1,0 +1,35 @@
+---
+import FeaturePageLayout from '../../layouts/FeaturePageLayout.astro';
+---
+
+<FeaturePageLayout
+  title="Catalog Parts Sync — SPT"
+  description="Sync ACES/PIES, ShowMeTheParts, or CSV catalogs into Shopify products and metafields. Full or incremental, scheduled or on demand."
+  eyebrow="Catalog sync"
+  headline="Your authoritative catalog, faithfully reproduced in Shopify."
+  subhead="Push parts, variants, attributes, and fitment from the system of record into Shopify products and metafields — on a schedule, on demand, or driven by changes in the source. Includes Product Description, Product Specs, Buyer's Guide, and Item Attributes."
+  heroCaption="Admin sync run with counts: created, updated, skipped, errored."
+  howItWorks={[
+    { step: 'Point at the source', body: 'ACES/PIES file, ShowMeTheParts account, or CSV.' },
+    { step: 'Map fields',          body: 'Choose how source attributes land in Shopify products, variants, and metafields.' },
+    { step: 'Run it',              body: 'Full first sync, then incremental on the cadence you choose.' },
+  ]}
+  configurable={[
+    'Full vs incremental sync',
+    'Schedule (hourly, daily, weekly) and on-demand runs',
+    'Field mapping: any source attribute to any Shopify field or metafield',
+    'Conflict resolution: source-wins, Shopify-wins, or per-field rules',
+    'Tagging and collection rules driven by source attributes',
+    'Image handling: source URLs, hosted assets, or skip',
+    'Dry-run mode for previewing diffs before write',
+    '<strong>Data brought in:</strong> Product Description, Product Specs, Buyer\'s Guide, Item Attributes',
+  ]}
+  dataSources="ACES/PIES XML · ShowMeTheParts API · CSV. The same connector that drives YMM Search drives catalog sync — one source of truth."
+  faqs={[
+    { q: 'How long does a first sync take?', a: 'Depends on catalog size and image policy. As a rough guide, a 100,000-SKU catalog without image hosting completes in under an hour; with image hosting it is bound by Shopify\'s image upload throughput.' },
+    { q: 'Will it overwrite manual edits I make in Shopify?', a: 'Only fields you\'ve configured as source-wins. Anything not under sync control is left alone.' },
+    { q: 'What if a SKU disappears from the source?', a: 'Configurable: archive, draft, mark out-of-stock, or no-op.' },
+    { q: 'Can I run sync against a development store first?', a: 'Yes — install on a dev store, dry-run against your file, review the diff, then promote.' },
+    { q: 'Does SPT work on Shopify Plus?', a: 'Yes. SPT runs on Shopify, Advanced Shopify, and Shopify Plus — one install per store. SPT is sold per merchant, per store.' },
+  ]}
+/>

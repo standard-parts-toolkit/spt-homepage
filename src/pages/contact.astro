@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.astro';
+
+const formId = import.meta.env.PUBLIC_FORMSPREE_CONTACT_ID || '';
+---
+
+<BaseLayout
+  title="Contact — SPT"
+  description="Questions about the toolkit, your data, or whether we're a fit? Send us a note and we'll respond within one business day."
+>
+
+  <section class="section pt-12 sm:pt-20">
+    <p class="text-xs font-semibold uppercase tracking-[0.18em]" style="color: var(--action)">Contact</p>
+    <h1 class="mt-3 max-w-4xl text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl" style="color: var(--text)">
+      Get in touch.
+    </h1>
+    <p class="lede mt-5 max-w-3xl">
+      Questions about the toolkit, your data, or whether we're a fit? Send a message and we'll respond within one
+      business day.
+    </p>
+  </section>
+
+  <section class="section pt-0">
+    <div class="grid gap-10 lg:grid-cols-12">
+      <div class="lg:col-span-7">
+        <ContactForm
+          formId={formId}
+          submitLabel="Send message"
+          successMessage="Thanks — we'll be in touch within one business day."
+          fields={[
+            { name: 'name',    label: 'Name',    required: true },
+            { name: 'company', label: 'Company', required: true },
+            { name: 'email',   label: 'Email',   type: 'email', required: true, span: 2 },
+            { name: 'message', label: 'Message', type: 'textarea', required: true, span: 2 },
+          ]}
+        />
+      </div>
+      <aside class="lg:col-span-5">
+        <div class="card">
+          <h2 class="text-base font-bold" style="color: var(--text)">Other ways to reach us</h2>
+          <ul class="mt-4 space-y-3 text-sm">
+            <li>
+              <div class="text-xs font-semibold uppercase tracking-wider" style="color: var(--text-subtle)">General</div>
+              <a href="mailto:hello@standardpartstoolkit.com" class="underline" style="color: var(--primary)">hello@standardpartstoolkit.com</a>
+            </li>
+            <li>
+              <div class="text-xs font-semibold uppercase tracking-wider" style="color: var(--text-subtle)">Support</div>
+              <a href="mailto:support@standardpartstoolkit.com" class="underline" style="color: var(--primary)">support@standardpartstoolkit.com</a>
+            </li>
+            <li>
+              <div class="text-xs font-semibold uppercase tracking-wider" style="color: var(--text-subtle)">Mailing</div>
+              <span style="color: var(--text)">1449 S Michigan Ave STE 13288<br/>Chicago, IL 60605</span>
+            </li>
+            <li>
+              <div class="text-xs font-semibold uppercase tracking-wider" style="color: var(--text-subtle)">Knowledge Base</div>
+              <a href="https://kb.standardpartstoolkit.com" target="_blank" rel="noopener" class="underline" style="color: var(--primary)">kb.standardpartstoolkit.com ↗</a>
+            </li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+</BaseLayout>

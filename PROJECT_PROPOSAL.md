@@ -24,9 +24,11 @@
 
 ### 1.1 Positioning shift from the current site
 
-The current `standardpartstoolkit.com` positions the product as **a Shopify integration powered by ShowMeTheParts** (1,000+ supplier brands, ShowMeTheParts as the canonical data layer). The new site repositions the product as **data-source agnostic** — ACES/PIES files, ShowMeTheParts, or CSV — and adds modules that don't appear on the current site (P&I sync, order export, multi-vehicle garage, multi-store sync). This is a deliberate expansion narrative the new site is announcing.
+The current `standardpartstoolkit.com` positions the product as **a Shopify integration powered by ShowMeTheParts** (1,000+ supplier brands, ShowMeTheParts as the canonical data layer). The new site repositions the product as **data-source agnostic** — ACES/PIES files, ShowMeTheParts, or CSV — and adds modules that don't appear on the current site (P&I sync, order export, multi-vehicle garage).
 
-> ⚠️ **Confirm with owner before publishing:** every capability beyond what is on the current site must be operational at launch, or explicitly framed as "coming soon" / "roadmap." Misalignment between marketing copy and shipping capability is the single biggest risk. See §10 open items.
+**Single-store model — important.** SPT is purchased and installed per merchant, per Shopify store. One install = one store. The product is store-side, not a data-syndication platform. The manufacturer audience pitch is **direct-to-consumer Shopify** (a manufacturer building their own D2C store on their authoritative catalog data), NOT pushing data into dealer storefronts. Do not use "syndicate to multiple stores" or "multi-store" language anywhere in copy.
+
+**Capability scope at launch: everything ships.** All six Shopify-app modules plus the Merchant of Record service are claimed as live. The owner has committed to closing any operational gap within the launch window.
 
 ---
 
@@ -34,7 +36,7 @@ The current `standardpartstoolkit.com` positions the product as **a Shopify inte
 
 **Primary audience: Enterprise Shopify merchants in automotive — leaning toward parts manufacturers, with retailer support as a secondary path.**
 
-- Hero / homepage messaging should lead with manufacturer-relevant value props (catalog scale, ACES/PIES, multi-channel data syndication, P&I sync from upstream feeds, order export to downstream systems).
+- Hero / homepage messaging should lead with manufacturer-relevant value props for the direct-to-consumer case: ACES/PIES catalog → faithful Shopify storefront without a custom build, P&I sync from upstream feeds, order export to downstream systems. Do not pitch data syndication or multi-store — SPT is one install per store.
 - A clearly visible secondary path / page for retailers (single-store ecom merchants) so they don't bounce.
 - Tone: confident, technically credible, plain-English benefits-led copy. Avoid pure dev jargon on marketing pages — keep that for an "Integrations" deep-dive.
 
@@ -92,11 +94,15 @@ Place the two primary CTAs in the global header, the homepage hero, the end of e
 
 ### Global Header
 ```
-Logo | Features ▼ | Integrations | Merchant of Record | Pricing | Customers | Blog | Knowledge Base ↗ | About    [Book a Demo] [Install on Shopify]
+Logo | Products ▼ | Features ▼ | Integrations | Why Shopify | Pricing | Blog | About    [Book a Demo] [Install on Shopify]
 ```
-- The `Features` dropdown lists **six** service sub-pages (YMM Search, Catalog Sync, PDP, In-Cart Fitment, P&I Sync, Order Export).
-- **Merchant of Record** is its own top-nav item — it is a distinct service, not a Shopify-app module.
-- **Knowledge Base** is an external link (`↗`) to `https://kb.standardpartstoolkit.com` — the existing customer-facing KB is preserved as-is.
+- The **Products** dropdown lists the two distinct product offerings:
+  - **SPT for Shopify** (the toolkit app) → `/features/`
+  - **Merchant of Record** (the sales-tax service) → `/merchant-of-record/`
+  Items render with a short tagline beneath each name.
+- The **Features** dropdown lists the **six** modules within SPT for Shopify (YMM Search, Catalog Sync, PDP, In-Cart Fitment, P&I Sync, Order Export).
+- **Customers** is intentionally NOT in the top nav (deferred until enough case studies exist to merit prominence). The `/customers/` URL remains; the link lives in the footer.
+- **Knowledge Base** is intentionally NOT in the top nav. Link lives in the footer only — an external link (`↗`) to `https://kb.standardpartstoolkit.com`.
 - **Docs is NOT in the launch nav as a built page** — we link to the external KB instead. See §6.
 
 ### Page Inventory
@@ -112,6 +118,7 @@ Logo | Features ▼ | Integrations | Merchant of Record | Pricing | Customers | 
 | `/features/price-inventory-sync/` | Inbound P&I sync (FTP / email) | Astro page |
 | `/features/order-export/` | Outbound order export (Email / FTP / API) | Astro page |
 | `/merchant-of-record/` | Merchant of Record service (sales tax) | Astro page |
+| `/why-shopify/` | Comparison vs custom builds, Adobe Commerce, BigCommerce | Astro page |
 | `/integrations/` | Data sources index — ACES/PIES, ShowMeTheParts, CSV, FTP, email, API | Astro page |
 | `/integrations/aces-pies/` | ACES/PIES detail | Astro page |
 | `/integrations/showmetheparts/` | ShowMeTheParts API detail | Astro page |
@@ -144,16 +151,16 @@ Logo | Features ▼ | Integrations | Merchant of Record | Pricing | Customers | 
 Each page below should be drafted with placeholder copy by the implementer, ready for the owner to refine. Voice: confident, manufacturer-aware, retailer-inclusive.
 
 ### 5.1 Homepage (`/`)
-1. **Hero** — Manufacturer-led headline, subhead acknowledging retailers, with a "reduce returns / increase conversions" value angle. Triple CTA (Book a Demo · Install on Shopify · View Demo Site).
-2. **Compatibility badge row** — "Shopify Online Store 2.0 compatible · No custom dev work required · Powered by ShowMeTheParts (1,000+ supplier brands)."
+1. **Hero** — Single-store-ownership headline ("Run a real automotive parts store on Shopify"), subhead naming the modules and audiences (manufacturers selling D2C, retailers), with the reduce-returns angle. Triple CTA (Book a Demo · Install on Shopify · View Demo Site).
+2. **Compatibility badge row** — "Shopify Online Store 2.0 compatible · No custom dev work required · One install per store — yours." (Do NOT name ShowMeTheParts here — the homepage positions SPT as data-source agnostic; ShowMeTheParts is one of three sources.)
 3. **Trust strip** — Placeholder "trusted by" logo wall (grey silhouettes until real logos exist).
-4. **Six-feature grid** — One card per module: YMM Fitment Search, VIN Lookup, Catalog Sync, PDP & Buyer's Guide, In-Cart Fitment, Price & Inventory + Order Export (paired card). Each with name, 2-line description, "Learn more" link.
-5. **Data-source row** — "Bring your own data: ACES/PIES, ShowMeTheParts, or CSV."
-6. **Reduce-returns band** — A focused mini-section: "Stop refunding parts that didn't fit. Real-time fitment verification reduces 'didn't fit' returns and increases buyer confidence."
-7. **Manufacturer vs Retailer split** — Two parallel mini-sections speaking to each persona, each with its own CTA.
-8. **Screenshots row** — Annotated product screenshots (placeholders for now), plus a link to the live demo store at carmenspartdepot.com.
-9. **By-the-numbers** — "1,000+ part brands available · 24/7 updates · 0 hours spent managing your own fitment data." (Real claims from the current site.)
-10. **Real testimonial** — Luke Smith, CEO, Momentum USA, Inc. (replace placeholder; quote pulled from current site — see §10 for usage-rights confirmation).
+4. **Six-feature grid** — One card per module: YMM Fitment Search + VIN, Catalog Sync, PDP Enrichment, In-Cart Fitment, P&I Sync, Order Export. Each with name, 2-line description, "Learn more" link.
+5. **Data Sources section** — Three equally-weighted cards for ACES/PIES, ShowMeTheParts, and CSV — each with a tag (Manufacturer-grade / API-driven / Lightweight), a short paragraph, a feature bullet list, and a link to the integration sub-page. Headed "Bring the data you already have."
+6. **Reduce-returns band** — "Stop refunding parts that didn't fit," with a 4-step ladder (Search → Product page → Cart → Fulfillment).
+7. **Manufacturer vs Retailer split** — Two parallel cards. Manufacturer pitch is direct-to-consumer (NOT syndication / dealer push); retailer pitch is single-store fitment search.
+8. **Screenshots row** — Annotated product screenshots (placeholders for now), plus a "View Demo Site" link to `https://carmenspartdepot.com`.
+9. **By-the-numbers** — "3 data sources, your choice · 24/7 updates from your data feed · 0 hours managing fitment data." (Data-source-agnostic stats. Do NOT use ShowMeTheParts-specific claims like "1,000+ part brands" here.)
+10. **Real testimonial** — Luke Smith, CEO, Momentum USA, Inc. (quote pulled from current site — see §10 for usage-rights confirmation).
 11. **Merchant of Record callout** — One-line band linking to `/merchant-of-record/`: "Selling across state lines? We can be your merchant of record."
 12. **Final CTA band** — "See it on your data — book a demo." With "View Demo Site" as a secondary link.
 13. **Footer.**
@@ -201,7 +208,12 @@ A standalone service page describing the Merchant of Record offering — distinc
 - Primary CTA: Book a Demo.
 
 ### 5.6 Pricing (`/pricing/`)
-Confirm with owner whether to publish tiers or use "Contact for pricing." Default to **a 3-tier table with manufacturer-scale tier as the largest**, plus a "Talk to sales for enterprise/manufacturer plans" callout. Pricing page should also reference the Merchant of Record service as a separate offering with its own pricing model (likely percentage-of-transaction; confirm).
+**Two-tier published pricing.** No "Contact for pricing" tier for the Shopify-app modules.
+
+- **Free** — capped at **100 searches/month**. Includes YMM Search + VIN Lookup, Catalog Sync, PDP Enrichment, In-Cart Fitment. **Does NOT include** automatic Price & Inventory sync or Order Export.
+- **$300/month** — all features unlocked, no search cap, includes automatic Price & Inventory sync and Order Export.
+
+Page layout: two cards side-by-side, "$300/month" marked as the primary/recommended tier. Feature comparison table below. The Merchant of Record service is referenced as a separately priced offering with a "Contact us" CTA (MoR pricing is transaction-based and quoted per merchant).
 
 ### 5.7 Customers (`/customers/`)
 Logo wall + grid of case study cards. **One real testimonial is already available** and must be wired in:
@@ -260,12 +272,16 @@ The owner has no logo, color palette, typography, or screenshots yet. The implem
 - Provide SVG sources (light + dark variants).
 
 ### 7.2 Color System
-Propose a palette evoking precision, industry, and trust. Suggested direction (implementer free to refine):
-- **Primary** — A confident industrial blue (e.g. `#1E3A8A` family) or graphite-and-amber pairing referencing automotive workshops.
-- **Accent** — A warm amber/safety-orange for CTAs to feel "tool-like."
-- **Neutrals** — Graphite/steel grey scale, off-white background.
-- **Semantic** — Standard success/warning/error.
+**Confirmed palette: green / orange / yellow** — evoking automotive workshops, tool brands, and heavy-equipment industries (think John Deere, Caterpillar, Snap-on energy). Implementer to refine specific shades, but the directional weights:
+
+- **Primary — Green.** A deep, confident industrial green (Tailwind `green-700`–`green-800` range, e.g. `#15803D` / `#166534`, or an olive-leaning forest green). Used for the brand mark, headings accents, links, primary surfaces.
+- **Secondary — Orange.** A warm safety/construction orange (Tailwind `orange-500`–`orange-600`, e.g. `#F97316` / `#EA580C`). Used for primary CTAs ("Book a Demo" buttons) — orange-on-green is high-contrast and reads as urgent/actionable.
+- **Tertiary — Yellow.** A muted amber/mustard yellow used sparingly (badge highlights, accent strokes, "new" tags). NOT at equal weight to green and orange — too much yellow reads juvenile.
+- **Neutrals** — Warm greys (Tailwind `stone` scale) rather than cool greys, to harmonize with the green/orange warmth. Off-white background.
+- **Semantic** — Reserve standard red for error states (don't reuse orange for errors); use a brighter green for success; yellow for warnings.
 - Implement as Tailwind theme tokens; mirror them as CSS variables so the dark-mode toggle can swap them cleanly.
+
+**Avoid:** flat primary green + flat primary orange + flat primary yellow at equal sizes — reads like a fast-food chain. Lead with green as the dominant brand color, orange as the action color, yellow as the spice.
 
 ### 7.3 Typography
 - **Headings** — A geometric/industrial sans (e.g. Inter Tight, Space Grotesk, or Manrope) for confidence.
@@ -348,17 +364,18 @@ Confirmed:
 
 Before kicking off implementation, the owner should confirm or override these:
 
-**Infrastructure & accounts**
-1. **Final domain name** for CNAME (e.g. `standardpartstoolkit.com` — assumes the new site replaces the current site at the same domain).
-2. **Migration plan** for cutting over from the current Wix-style site to the new Astro site on the same domain (DNS swap, redirect map for any deep links).
-3. **Shopify App Store install URL** (placeholder until app is listed).
-4. **Formspree project / endpoint IDs** for Contact, Demo, Newsletter forms.
-5. **GA4 measurement ID**.
+**Confirmed at kickoff**
+- **Capability scope:** Everything ships at launch — no "coming soon" labels. Owner committed to closing operational gaps within the launch window.
+- **Deployment:** Preview URL first (GitHub Pages on `*.github.io` or staging subdomain), DNS cutover to `standardpartstoolkit.com` after owner review.
+- **Pricing:** Two tiers — Free (100 searches/month, no P&I/Order Export) and $300/month (everything).
+- **Brand palette:** Green (primary) / Orange (CTAs) / Yellow (accent). Implementer chooses specific shades.
 
-**Product positioning & capability**
-6. **Capability alignment** — every module beyond what is on the current site (CSV, direct ACES/PIES, P&I sync, order export, multi-vehicle garage, multi-store) must be operational at launch or framed as "coming soon." Confirm what ships vs. what is roadmap.
-7. **BigCommerce support** — the current MoR page lists BigCommerce alongside Shopify. Is the MoR service multi-platform while the app is Shopify-only? Confirm the wording.
-8. **Pricing model** — published tiers or "Contact for pricing"? Also: MoR pricing model (likely % of transaction).
+**Still needed (can be supplied during the build)**
+1. **Shopify App Store install URL** (placeholder until app is listed).
+2. **Formspree project / endpoint IDs** for Contact, Demo, Newsletter forms.
+3. **GA4 measurement ID**.
+4. **BigCommerce support** — the current MoR page lists BigCommerce alongside Shopify. Is the MoR service multi-platform while the app is Shopify-only? Confirm the wording.
+5. **Redirect map** for any deep links from the current site that don't map 1:1 (current `/blog` posts, current `/merchant-of-record`, current `/privacy-policy`).
 
 **Brand, identity & assets**
 9. **Organizational wording** — confirm "a product of No Fixed Plans" as the canonical phrase for footer and About. ShowMeTheParts (operated by Vertical Development) appears in copy only as one of the supported data sources, not as a partner or operator.
