@@ -68,6 +68,39 @@ Products ▾ · Features ▾ · Integrations · Why Shopify · Pricing · Blog �
 *Trusted by manufacturers and retailers selling automotive parts on Shopify.*
 *Logo wall: 8 placeholder logos (grayscale silhouettes until real ones land).*
 
+> **Merchant logo asset spec (for whoever supplies the real logos)**
+>
+> **Current state:** No real logo files exist yet. `src/pages/index.astro:108-125` renders 8 hardcoded gray gradient placeholder boxes via `Array.from({ length: 8 })` — there is no logo array, CMS, or image import behind them. The same placeholder pattern is duplicated at `src/pages/customers/index.astro:34`. `public/` currently holds only `favicon.svg`, `favicon.ico`, and `og-default.png`.
+>
+> **Slot size:** The placeholder box is `h-8 w-24 rounded` = **96 × 32 px** display slot (3:1 aspect). The strip applies `opacity-50` to mute all logos into a uniform trust row.
+>
+> **Format / dimensions:**
+> - **Format:** SVG preferred (sharp at any size, tiny, recolorable). Transparent PNG as fallback.
+> - **Display size:** ~96 × 32 px (the `w-24 h-8` box).
+> - **Raster export (if not SVG):** 2×–3× for retina → ~288 × 96 px PNG.
+> - **Aspect:** Keep horizontal/wide. Constrain by height (`h-8`) with `w-auto` rather than forcing `w-24`, so varied-width logos aren't squashed.
+> - **Color:** Monochrome / single-tone works best (the strip mutes them anyway).
+> - **Background:** Transparent.
+>
+> **Where the files go:** `public/logos/` (create it). Files in `public/` are served as-is at the root URL, so `public/logos/acme.svg` → referenced as `/logos/acme.svg`. This matches the existing convention (favicon, og-default all live in `public/`). The repo has no `src/assets/` dir and does not use Astro's `astro:assets` image pipeline anywhere, so `public/` is the consistent choice over `src/assets/logos/`.
+>
+> **How they'd be populated:** Replace the placeholder loop with a data array + real images:
+> ```astro
+> ---
+> const logos = [
+>   { src: '/logos/acme.svg', alt: 'Acme Auto Parts' },
+>   { src: '/logos/brand-co.svg', alt: 'Brand Co' },
+>   // ...
+> ];
+> ---
+> <ul class="mt-6 grid grid-cols-2 items-center justify-items-center gap-6 opacity-50 sm:grid-cols-4 lg:grid-cols-8">
+>   {logos.map((logo) => (
+>     <li><img src={logo.src} alt={logo.alt} class="h-8 w-auto" loading="lazy" /></li>
+>   ))}
+> </ul>
+> ```
+> Apply the same data-driven swap to both `src/pages/index.astro` and `src/pages/customers/index.astro` (the `/customers` logo wall, line 592 of this doc).
+
 ### Six-feature grid
 > Section heading: **One toolkit, six jobs done right.**
 > Subheading: Every module is configurable on its own, and every module reads from the same source of truth.
@@ -104,7 +137,6 @@ The industry-standard XML formats from the AutoCare Association. ACES describes 
 
 **Card 2 — ShowMeTheParts** *(tag: API-driven)*
 Connect your ShowMeTheParts account and SPT will sync the parts, vehicles, and fitment your store needs — without maintaining an ACES/PIES feed of your own.
-- Daily incremental sync
 - VIN + license-plate lookup
 - On-demand re-sync
 *Link:* ShowMeTheParts details → /integrations/showmetheparts/
@@ -453,7 +485,7 @@ Parts manufacturers and large retailers who already maintain ACES/PIES feeds. If
 **What's supported**
 - Parts and fitment sync via API
 - VIN and license-plate lookup, where ShowMeTheParts provides it
-- Daily incremental updates by default; on-demand sync available
+- on-demand sync available
 
 **Who this fits**
 Retailers and aftermarket sellers who don't maintain their own catalog data but want manufacturer-grade fitment.
