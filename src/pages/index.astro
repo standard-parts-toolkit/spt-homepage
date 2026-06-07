@@ -12,7 +12,7 @@ const softwareApp = {
   description: "SPT turns ACES/PIES, ShowMeTheParts, or CSV data into fast Year-Make-Model search, enriched product pages, in-cart fitment, and order plumbing for Shopify automotive parts stores.",
   url: 'https://www.standardpartstoolkit.com/',
   offers: [
-    { '@type': 'Offer', name: 'Free',  price: '0',   priceCurrency: 'USD', description: 'Capped at 100 searches/month. No automatic P&I sync or Order Export.' },
+    { '@type': 'Offer', name: 'Free',  price: '0',   priceCurrency: 'USD', description: 'Capped at 100 searches total. No automatic P&I sync or Order Export.' },
     { '@type': 'Offer', name: 'Pro',   price: '300', priceCurrency: 'USD', description: 'All features. Unlimited searches. Automatic P&I sync and Order Export included.' },
   ],
   provider: {
@@ -25,7 +25,7 @@ const softwareApp = {
 const features = [
   {
     title: 'YMM Fitment Search + VIN Lookup',
-    body: 'Year-Make-Model dropdowns, persistent garage, VIN lookup, and license-plate lookup (where supported).',
+    body: 'Year-Make-Model dropdowns, a multi-vehicle garage, VIN lookup, and license-plate lookup (where supported), with in-stock and vendor-priority result sorting.',
     href: '/features/ymm-search/',
   },
   {
@@ -46,12 +46,12 @@ const features = [
   },
   {
     title: 'Price & Inventory Sync',
-    body: 'Pull updates from FTP or email on the schedule you already use.',
+    body: 'Pull price and inventory updates from supplier FTP/SFTP or email, and auto-hide out-of-stock products.',
     href: '/features/price-inventory-sync/',
   },
   {
     title: 'Order Export',
-    body: 'Push orders to Email, FTP, or API destinations. Customize the format for what your warehouse, ERP, or 3PL expects.',
+    body: 'Route orders to Email, FTP/SFTP, or API destinations by SKU pattern. Customize the format for what your warehouse, ERP, or 3PL expects.',
     href: '/features/order-export/',
   },
 ];
@@ -234,8 +234,8 @@ const features = [
           <p class="lede mt-4 max-w-2xl">
           Generic Shopify search doesn't know which cataltyic converter fits a 2014 Silverado. SPT does, and it carries
             that knowledge from the search box, to the product page, to the cart, to the order your warehouse pulls.
-            Real fitment verification at every step means fewer returns, fewer chargebacks, and shoppers who trust your
-            store the second time.
+            Fitment verified on the product page and the selected vehicle following the order means fewer returns,
+            fewer chargebacks, and shoppers who trust your store the second time.
           </p>
         </div>
         <div class="lg:col-span-5">

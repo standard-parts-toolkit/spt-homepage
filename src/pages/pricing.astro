@@ -8,7 +8,7 @@ const compareRows = [
   ["PDP Enrichment (incl. Buyer's Guide)",    '✓',    '✓'],
   ['In-Cart Fitment & Fulfillment Handoff',   '✓',    '✓'],
   ['Data sources (ACES/PIES, ShowMeTheParts, CSV)', '✓', '✓'],
-  ['Monthly searches',                        '100 cap', 'Unlimited'],
+  ['Free searches (lifetime)',                '100 total', 'Unlimited'],
   ['Automatic Price & Inventory sync',        '—',    '✓'],
   ['Order Export (Email / FTP / API)',        '—',    '✓'],
   ['Multiple order-export destinations',      '—',    '✓'],
@@ -17,7 +17,7 @@ const compareRows = [
 
 const faqs = [
   { q: 'What counts as a "search"?',          a: 'Every Year-Make-Model, VIN, or license-plate lookup performed by a shopper on your store. Page loads don\'t count.' },
-  { q: 'What happens if I hit 100 searches?', a: 'Search continues to work, but we\'ll prompt you to upgrade. We never silently break your store.' },
+  { q: 'What happens when I reach the 100-search lifetime cap?', a: 'Once the free allotment is used up, the search endpoint returns an upgrade prompt and your admin nudges you to move to Pro, which restores unlimited searches. The free allotment is a lifetime total, not a monthly reset.' },
   { q: 'Is there a free trial of Pro?',       a: 'Pro is straightforward — install and go. If you want to test the automation features before committing, book a demo and we\'ll run a Pro trial on a development store.' },
   { q: 'Do you charge per SKU?',              a: 'No. SKU counts don\'t gate either tier.' },
   { q: 'Can I switch tiers?',                 a: 'Yes, any time. Pro is prorated.' },
@@ -27,7 +27,7 @@ const faqs = [
 
 <BaseLayout
   title="Pricing — SPT"
-  description="Two tiers. Free with a 100-search/month cap, or Pro at $300/month for unlimited searches, P&I sync, and order export. No tiers in between."
+  description="Two tiers. Free with a 100-search lifetime cap, or Pro at $300/month for unlimited searches, P&I sync, and order export. No tiers in between."
 >
 
   <section class="section pt-12 sm:pt-20">
@@ -63,7 +63,7 @@ const faqs = [
             ['inc', "PDP Enrichment (incl. Buyer's Guide)"],
             ['inc', 'In-Cart Fitment & Fulfillment Handoff'],
             ['inc', 'ACES/PIES, ShowMeTheParts, or CSV data source'],
-            ['lim', 'Capped at 100 searches/month'],
+            ['lim', 'Capped at 100 searches total (lifetime)'],
             ['no',  'No automatic Price & Inventory sync'],
             ['no',  'No Order Export'],
             ['inc', 'Email support'],
@@ -98,7 +98,7 @@ const faqs = [
           {[
             'Everything in Free',
             'Unlimited searches',
-            'Automatic Price & Inventory sync (FTP / email)',
+            'Automatic Price & Inventory sync (FTP/SFTP or email)',
             'Order Export (Email / FTP / API)',
             'Multiple order-export destinations',
             'Priority support',

@@ -7,21 +7,22 @@ import FeaturePageLayout from '../../layouts/FeaturePageLayout.astro';
   description="Fitment tables, item attributes, specs, notes, and Buyer's Guide content rendered on every Shopify product page."
   eyebrow="Product detail pages"
   headline="Every product page, fully informed. Fewer 'didn't fit' returns."
-  subhead="Fitment tables, item attributes, specs, notes, and Buyer's Guide content rendered on the product detail page — themed to match your store and driven by the same data that powers your YMM search. Real-time product data means shoppers see the most accurate fitment info, so they buy with confidence and you process fewer returns."
-  heroCaption="PDP with fitment block, attribute table, Buyer's Guide, and notes."
+  subhead="A fitment status banner, item attributes, specs, notes, and Buyer's Guide content rendered on the product detail page — themed to match your store and driven by the same data that powers your YMM search. Always-current product data means shoppers see accurate fitment info, so they buy with confidence and you process fewer returns."
+  heroCaption="PDP with fitment banner, attribute table, Buyer's Guide, and specs tabs."
   howItWorks={[
     { step: 'Sync your data',     body: 'Once via Catalog Sync, every PDP gets the same enrichment.' },
-    { step: 'Choose your blocks', body: 'Fitment table, Product Item Attributes, Buyer\'s Guide, notes, related fitment.' },
+    { step: 'Choose your blocks', body: 'Fitment status banner, Description / Specs / Buyer\'s Guide tabs, Item Attributes, Features & Benefits, and interchange numbers.' },
     { step: 'Style to match',     body: 'Blocks read from theme tokens and expose their own settings.' },
   ]}
   configurable={[
     'Which blocks appear, and in what order',
-    '<strong>Buyer\'s Guide block</strong> — render the manufacturer\'s buying guidance directly on the PDP',
-    '<strong>Product Item Attributes</strong> — structured attributes grouped and styled per product type',
-    'Fitment table grouping (by vehicle, by engine, collapsed-by-default, etc.)',
-    'Attribute templates per product type',
-    'Notes display: inline, footnoted, or expandable',
-    '"Other vehicles this fits" cross-sell block',
+    '<strong>Fitment status banner</strong> — confirms "fits" or "does not fit" for the shopper\'s selected vehicle',
+    '<strong>Buyer\'s Guide tab</strong> — every vehicle the part fits, filterable by part type, year, and engine',
+    '<strong>Product Specs tab</strong> — structured part attributes pulled from the product data',
+    '<strong>Item Attributes</strong> — fitment attributes (location, brand, application, notes) grouped and styled',
+    '<strong>Features &amp; Benefits block</strong> — the part\'s key selling points pulled from product data',
+    '<strong>Interchange / cross-reference part numbers</strong> — OE and competitor numbers in their own tab',
+    'Tabs vs. accordion layout, ordering, labels, and theme-token styling',
     'Show/hide behavior based on whether a shopper has selected a vehicle',
   ]}
   dataSources="The same connector and catalog sync that feed YMM Search. Configure once."

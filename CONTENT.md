@@ -106,22 +106,22 @@ Products ▾ · Features ▾ · Integrations · Why Shopify · Pricing · Blog �
 > Subheading: Every module is configurable on its own, and every module reads from the same source of truth.
 
 1. **YMM Fitment Search + VIN Lookup**
-   Let shoppers narrow to parts that fit their vehicle. Year-Make-Model dropdowns, persistent garage, VIN lookup, and license-plate lookup (where supported).
+   Let shoppers narrow to parts that fit their vehicle. Year-Make-Model dropdowns, a multi-vehicle garage, VIN lookup, and license-plate lookup (where supported), with in-stock and vendor-priority result sorting.
 
 2. **Catalog Parts Sync**
-   Push your authoritative catalog into Shopify products, variants, and metafields. Includes Product Description, Product Specs, Buyer's Guide, and Item Attributes. Full or incremental. Scheduled or on demand.
+   Push your authoritative catalog into Shopify products, variants, and metafields. Includes Product Description, Product Specs, Buyer's Guide, and Item Attributes. Full or incremental, run on demand.
 
 3. **PDP Product Information**
-   Render fitment, attributes, specs, notes, and Buyer's Guide content on every product page — themed to match your store.
+   Render a fitment status banner, attributes, specs, notes, and Buyer's Guide content on every product page — themed to match your store.
 
 4. **In-Cart Fitment & Fulfillment Handoff**
-   The shopper's vehicle and fitment selection follow them through cart and checkout, and surface to your fulfillment team on the order — so you ship the right part the first time.
+   The shopper's selected vehicle follows them through cart and checkout as a line-item property, and surfaces to your fulfillment team on the order — so you ship the right part the first time.
 
 5. **Price & Inventory Sync**
-   Pull P&I updates from FTP drops or email attachments on the schedule you already use.
+   Pull price and inventory updates from supplier FTP/SFTP or email, and auto-hide out-of-stock products.
 
 6. **Order Export**
-   Push orders to Email, FTP, or API destinations. Same format your warehouse, ERP, or 3PL already expects.
+   Route orders to Email, FTP/SFTP, or API destinations by SKU pattern. Same format your warehouse, ERP, or 3PL already expects.
 
 ### Data Sources section (dedicated, three equally-weighted cards)
 *Tag:* Data-source agnostic
@@ -216,7 +216,7 @@ Repeat the five-feature grid from the homepage, but each card is expanded to a s
 **Hero**
 *Eyebrow:* Fitment search
 *Headline:* **A fitment search shoppers actually finish.**
-*Subhead:* Year, Make, Model — plus Sub-Model, Engine, and the other qualifiers your catalog needs. Configurable order, configurable styling, persistent garage. Built to be fast on storefronts with hundreds of thousands of SKUs.
+*Subhead:* Year, Make, Model — plus Sub-Model, Engine, Part Type, and the other qualifiers your catalog needs. Configurable order, configurable styling, a persistent multi-vehicle garage, and result sorting that surfaces in-stock and priority-vendor parts first. Built to be fast on storefronts with hundreds of thousands of SKUs.
 *CTAs:* [Book a Demo]  [Install on Shopify]  [View Demo Site →]
 *Visual:* Annotated screenshot of the YMM widget in three states (empty, mid-selection, with results).
 
@@ -226,29 +226,35 @@ Repeat the five-feature grid from the homepage, but each card is expanded to a s
 3. **Drop the widget in** — install on category pages, the home page, or any block your theme supports.
 
 **Three ways to find the right part**
-- **Year-Make-Model dropdowns.** The standard. Predictable order, fast filtering, persistent garage.
-- **VIN Lookup.** Worried shoppers won't know their year, make, or model? They can paste in a VIN and we'll resolve it to the right vehicle automatically (where the underlying data source supports VIN decoding — ShowMeTheParts and most ACES/PIES vendor feeds do).
-- **License-plate lookup.** Even faster for shoppers who only know the state and plate. Data-source dependent — available where your data source provides a plate-to-VIN service.
+- **Year-Make-Model dropdowns.** The standard. Predictable, configurable order with optional Part Type and Engine qualifiers, fast filtering, and persistent vehicle selection across pages.
+- **VIN Lookup.** Worried shoppers won't know their year, make, or model? They can paste in a VIN and we'll resolve it to the right vehicle automatically (available today through ShowMeTheParts).
+- **License-plate lookup.** Even faster for shoppers who only know the state and plate. Available where your data source provides a plate-to-vehicle service (ShowMeTheParts today).
 
 **What you can configure**
 - Dropdown order, labels, and required vs optional qualifiers
-- Garage: save vehicles, restore on return, multi-vehicle support
+- My Garage: shoppers save multiple vehicles, switch between them, and the selection persists across visits
+- Catalog (non-fitment) search as an alternate tab
+- Result sorting — surface in-stock parts, preferred vendors, or specific warehouse locations first
+- In-selector shopping — show pricing and let shoppers add parts to cart directly from the results
+- Custom category labels and ordering for the part-type lists
 - VIN entry: visible by default, behind a toggle, or hidden
 - License-plate entry: visible by default, behind a toggle, or hidden
-- Layout: inline, modal, sidebar, sticky
+- Layout: inline or modal trigger, with an optional sticky bar
 - Styling: colors, typography, spacing — driven by your theme tokens
-- Result behavior: filter the current collection, redirect to a fitment-aware results page, or both
+- Result behavior: filter the current collection or redirect to a fitment-aware results page
 - "No fit" handling: hide, dim, or label products that don't match
 
 **Powered by your data source of choice**
 ACES/PIES XML · ShowMeTheParts API · CSV. Switch sources later — your storefront configuration carries over.
 
 **FAQ**
-- **How fast is it on a large catalog?** The search index is precomputed at sync time, so dropdown population and result filtering are constant-time on the storefront regardless of catalog size.
-- **Can shoppers save more than one vehicle?** Yes. Multi-vehicle garage is built in and persists across sessions for signed-in customers.
-- **Does it work with my existing theme?** Yes. The widget is a Shopify block; it inherits theme tokens by default and exposes its own settings for any overrides.
-- **What happens when a shopper picks a vehicle and lands on a product that doesn't fit?** Configurable: hide, dim with a fitment warning, or surface a "shop for this vehicle" link.
-- **Does it support VIN decoding?** Yes, when your underlying data source provides VIN-to-vehicle resolution (ShowMeTheParts and ACES/PIES vendor feeds typically do; pure CSV does not).
+- **How fast is it on a large catalog?** Vehicle dropdowns and fitment lookups are served from indexed data — a local ACES/PIES store, or cached ShowMeTheParts responses — so they stay fast on storefronts with hundreds of thousands of SKUs.
+- **Can shoppers save more than one vehicle?** Yes. The selector includes a "My Garage" that saves multiple vehicles and lets shoppers switch between them, with the selection persisting across visits.
+- **Can I control which parts show up first?** Yes. Results can be sorted to surface in-stock parts first, then preferred vendors or specific warehouse locations.
+- **Can shoppers buy without leaving the search?** Yes. The selector can show pricing and an add-to-cart action on results, so a shopper can add a fitting part to the cart directly from the search.
+- **Does it work with my existing theme?** Yes. The widget is a Shopify theme app block; it inherits theme tokens by default and exposes its own settings for any overrides.
+- **What happens when a shopper picks a vehicle and lands on a product that doesn't fit?** The product page shows a clear fitment status, and you can configure non-matching products to be hidden, dimmed with a warning, or labeled.
+- **Does it support VIN decoding?** Yes — VIN and license-plate decoding are available today through ShowMeTheParts. Availability for other sources depends on whether the source provides VIN-to-vehicle resolution.
 
 **Final CTA:** Same band as homepage.
 
@@ -259,32 +265,34 @@ ACES/PIES XML · ShowMeTheParts API · CSV. Switch sources later — your storef
 **Hero**
 *Eyebrow:* Catalog sync
 *Headline:* **Your authoritative catalog, faithfully reproduced in Shopify.**
-*Subhead:* Push parts, variants, attributes, and fitment from the system of record into Shopify products and metafields — on a schedule, on demand, or driven by changes in the source.
+*Subhead:* Turn parts, variants, attributes, and fitment from your system of record into Shopify products and metafields — run on demand and kept current as your source data changes.
 *CTAs:* [Book a Demo] [Install on Shopify]
 *Visual:* Admin screenshot of a sync run with counts (created / updated / skipped / errored).
 
 **How it works**
 1. **Point at the source** — ACES/PIES file, ShowMeTheParts account, or CSV.
-2. **Map fields** — choose how source attributes land in Shopify products, variants, and metafields.
-3. **Run it** — full first sync, then incremental on the cadence you choose.
+2. **Build the products** — source attributes are mapped into Shopify products, variants, and metafields, with images and SEO-ready titles.
+3. **Run it** — full first sync, then incremental updates as your data changes.
 
 **What you can configure**
-- Full vs incremental sync
-- Schedule (hourly, daily, weekly) and on-demand runs
-- Field mapping: any source attribute to any Shopify field or metafield
-- Conflict resolution: source-wins, Shopify-wins, or per-field rules
-- Tagging and collection rules driven by source attributes
-- Image handling: source URLs, hosted assets, or skip
-- Dry-run mode for previewing diffs before write
+- Full first sync, then incremental updates
+- Source attributes mapped into Shopify products, variants, and metafields
+- SEO-optimized product titles generated from fitment data
+- Multi-market pricing (e.g. US, CA, AU, MX) carried onto variants
+- Per-locale product translation sync into Shopify for the languages you enable
+- Tags generated from source attributes
+- Product images brought in from source URLs
+- Per-shop include/exclude SKU lists to control exactly what publishes
 
 **Powered by**
 ACES/PIES XML · ShowMeTheParts API · CSV. The same connector that drives YMM search drives catalog sync — one source of truth.
 
 **FAQ**
 - **How long does a first sync take?** Depends on catalog size and image policy. As a rough guide, a [100,000-SKU] catalog without image hosting completes in [under an hour]; with image hosting it is bound by Shopify's image upload throughput.
-- **Will it overwrite manual edits I make in Shopify?** Only fields you've configured as source-wins. Anything not under sync control is left alone.
-- **What if a SKU disappears from the source?** Configurable: archive, draft, mark out-of-stock, or no-op.
-- **Can I run sync against a development store first?** Yes — install on a dev store, dry-run against your file, review the diff, then promote.
+- **Will it overwrite manual edits I make in Shopify?** SPT manages the fields it syncs — titles, descriptions, specs, fitment metafields, images, price, and inventory. Fields outside that set are left alone.
+- **What if a SKU disappears from the source?** Products can be unpublished or archived when they leave the source or go out of stock.
+- **Can I run sync against a development store first?** Yes — install on a development store and run a sync against a sample of your data before going live.
+- **Does it support multiple languages?** Yes. When you enable target locales, localized product content is synced into Shopify per language, so your storefront can present translated titles, descriptions, and attributes.
 - **Does SPT work on Shopify Plus?** Yes. SPT runs on Shopify, Advanced Shopify, and Shopify Plus stores — one install per store. SPT is purchased per merchant, per store; there's no multi-store sync.
 
 **Final CTA:** Same band.
@@ -296,23 +304,24 @@ ACES/PIES XML · ShowMeTheParts API · CSV. The same connector that drives YMM s
 **Hero**
 *Eyebrow:* Product detail pages
 *Headline:* **Every product page, fully informed. Fewer "didn't fit" returns.**
-*Subhead:* Fitment tables, item attributes, specs, notes, and Buyer's Guide content rendered on the product detail page — themed to match your store and driven by the same data that powers your YMM search. Real-time product data means shoppers see the most accurate fitment info, so they buy with confidence and you process fewer returns.
+*Subhead:* A fitment status banner, item attributes, specs, notes, and Buyer's Guide content rendered on the product detail page — themed to match your store and driven by the same data that powers your YMM search. Always-current product data means shoppers see accurate fitment info, so they buy with confidence and you process fewer returns.
 *CTAs:* [Book a Demo]  [Install on Shopify]
-*Visual:* Annotated PDP screenshot highlighting the fitment block, attribute table, Buyer's Guide, and notes.
+*Visual:* Annotated PDP screenshot highlighting the fitment banner, attribute table, Buyer's Guide, and specs tabs.
 
 **How it works**
 1. **Sync your data** — once via Catalog Sync, every PDP gets the same enrichment.
-2. **Choose your blocks** — fitment table, Product Item Attributes, Buyer's Guide, notes, related fitment.
+2. **Choose your blocks** — fitment status banner, Description / Specs / Buyer's Guide tabs, Item Attributes, Features & Benefits, interchange numbers.
 3. **Style to match** — blocks read from theme tokens and expose their own settings.
 
 **What you can configure**
 - Which blocks appear, and in what order
-- **Buyer's Guide block** — render the manufacturer's buying guidance directly on the PDP
-- **Product Item Attributes** — structured attributes grouped and styled per product type
-- Fitment table grouping (by vehicle, by engine, collapsed-by-default, etc.)
-- Attribute templates per product type
-- Notes display: inline, footnoted, or expandable
-- "Other vehicles this fits" cross-sell block
+- **Fitment status banner** — confirms "fits" or "does not fit" for the shopper's selected vehicle
+- **Buyer's Guide tab** — every vehicle the part fits, filterable by part type, year, and engine
+- **Product Specs tab** — structured part attributes pulled from the product data
+- **Item Attributes** — fitment attributes (location, brand, application, notes) grouped and styled
+- **Features & Benefits block** — the part's key selling points pulled from product data
+- **Interchange / cross-reference part numbers** — OE and competitor numbers in their own tab
+- Tabs vs. accordion layout, ordering, labels, and theme-token styling
 - Show/hide behavior based on whether a shopper has selected a vehicle
 
 **The returns angle**
@@ -340,24 +349,22 @@ The same connector and catalog sync that feed YMM search. Configure once.
 *Visual:* Annotated screenshot showing the fitment block in cart, plus a Shopify admin order detail with the fitment record highlighted.
 
 **How it works**
-1. **Capture at search.** When a shopper picks a vehicle in YMM search, that selection is bound to the session.
-2. **Persist through checkout.** Vehicle info is attached as Shopify line-item properties and order metafields, so it shows up in cart, on the order summary, and in the Shopify admin.
-3. **Hand off to fulfillment.** Your fulfillment team sees the exact vehicle on the order — visible in the admin and (optionally) rendered on the packing slip via a theme app extension.
+1. **Capture at search.** When a shopper picks a vehicle in YMM search, that selection is saved in their session.
+2. **Persist onto the order.** The vehicle is attached as a Shopify line-item property when the item is added to cart, so it shows up in the cart, on the order summary, and on the order in your Shopify admin.
+3. **Hand off to fulfillment.** Your fulfillment team sees the exact vehicle on the order line item in the Shopify admin before they pick and pack.
 
 **What you can configure**
-- Which fitment qualifiers travel with the order (vehicle only, or vehicle + engine + sub-model + notes)
-- Whether the fitment record renders on the customer-facing order confirmation
-- Whether the fitment record renders on the printed packing slip
-- Whether shoppers can edit the captured vehicle from the cart
-- Whether the captured vehicle blocks checkout if the cart contains non-fitting items (or just warns)
+- Whether the engine is included in the vehicle label that travels with the order
+- The label format and which add-to-cart element the fitment field attaches to
+- On the product page, whether non-fitting items are hidden, dimmed, or labeled before they reach the cart
 
 **Powered by**
 The same data layer as YMM Search and Catalog Sync.
 
 **FAQ**
-- **Does this work with Shopify's standard checkout?** Yes. Fitment data is attached as line-item properties and order metafields — standard Shopify primitives, no checkout customization required.
-- **Will my 3PL see it on order export?** Yes. Order Export carries the fitment record through to any destination you configure.
-- **What if a shopper changes their mind in cart?** Configurable — you can let them edit the captured vehicle in place, or require them to clear the cart and re-search.
+- **Does this work with Shopify's standard checkout?** Yes. The vehicle is attached as a standard Shopify line-item property — no checkout customization required.
+- **Will my 3PL see it on order export?** The selected vehicle is always visible on the order in your Shopify admin. Carrying it into an exported order file isn't automatic — Order Export sends the fields your destination's format maps, so we configure that per destination when a feed needs it.
+- **What if a shopper changes their mind in cart?** They can start a new vehicle search at any time, and the new selection is used for items added to the cart after that.
 
 **Final CTA:** Same band.
 
@@ -368,31 +375,30 @@ The same data layer as YMM Search and Catalog Sync.
 **Hero**
 *Eyebrow:* Price & inventory
 *Headline:* **Price and inventory updates from the channels your suppliers already use.**
-*Subhead:* Drop a file on FTP. Send an email with an attachment. SPT picks it up, validates it, and updates Shopify on the cadence you choose.
+*Subhead:* Your supplier drops a price and inventory file on FTP/SFTP, or sends it by email. SPT picks it up, transforms it to match your catalog, and bulk-updates Shopify prices and stock levels — then optionally hides anything that just went out of stock.
 *CTAs:* [Book a Demo] [Install on Shopify]
 *Visual:* Admin screenshot of a P&I run log with timestamps, file source, and updated SKU count.
 
 **How it works**
-1. **Pick a channel** — FTP/SFTP or a dedicated inbound email address.
-2. **Map the format** — CSV columns or a fixed-width template to Shopify price and inventory fields.
-3. **Schedule or trigger on arrival** — your call.
+1. **Point at the source** — a supplier SFTP/FTP drop or inbound email, with files matched to the right product set by filename template.
+2. **Map the format** — a per-supplier transformer maps the file's columns to Shopify price and inventory fields.
+3. **Process on arrival** — files are processed as they land, rate-limited to stay within Shopify API limits.
 
 **What you can configure**
-- Source: SFTP, FTP, or email attachment
-- Pickup schedule, or trigger-on-arrival for email
-- File format mapping (CSV, fixed-width, tab-delimited)
-- Multi-location inventory destination
-- Cost vs price vs compare-at price fields
-- Error reporting: email digest, webhook, or both
-- Held-back updates: thresholds for "too big a change" to apply automatically
+- Source: one or more supplier SFTP/FTP drops or inbound email, matched by filename template
+- Per-supplier file transformers — different column layouts, delimiters, and zipped or password-protected archives
+- Bulk price and inventory-quantity updates via Shopify bulk operations
+- Inventory written to your configured Shopify location
+- Auto-publish and auto-unpublish products as they come into and go out of stock
+- Per-row processing so a single bad line does not block the rest of the file
 
 **Powered by**
 Independent of your catalog data source. P&I can come from a different supplier than your fitment data.
 
 **FAQ**
-- **What if the file format changes mid-week?** Mappings are versioned; you can pin a mapping or roll back.
-- **What about line-level errors?** Errors are isolated per row — a malformed line does not block the rest of the file.
-- **Can I dry-run a new mapping?** Yes. Upload once in dry-run mode, review the diff, then enable.
+- **My suppliers all send different formats — is that a problem?** No. Each supplier source has its own transformer, so different column layouts, delimiters, and even zipped or password-protected files are all handled.
+- **What about line-level errors?** Rows are processed individually — a malformed line does not block the rest of the file.
+- **Can products hide themselves when they sell out?** Yes. When enabled, products are automatically unpublished when their available quantity drops below one and re-published when stock returns.
 
 **Final CTA:** Same band.
 
@@ -403,30 +409,31 @@ Independent of your catalog data source. P&I can come from a different supplier 
 **Hero**
 *Eyebrow:* Order export
 *Headline:* **Send orders to the warehouse, ERP, or 3PL the way they already expect them.**
-*Subhead:* Push every paid order to Email, FTP/SFTP, or an HTTP API endpoint, formatted to match the system on the other side. Retries, deduplication, and an audit trail included.
+*Subhead:* As orders come in, SPT routes them to Email, FTP/SFTP, or an HTTP API endpoint — by SKU pattern, so different product lines can go to different suppliers — formatted to match the system on the other side. Background retries and a per-order processing log included.
 *CTAs:* [Book a Demo] [Install on Shopify]
-*Visual:* Admin screenshot of the export destinations list and a sample exported file/payload.
+*Visual:* Admin screenshot of the export destinations list and a sample exported file.
 
 **How it works**
-1. **Define destinations** — one or more Email, FTP, or API endpoints.
-2. **Map the payload** — Shopify order fields to your destination's format.
-3. **Choose triggers** — on paid, on fulfilled, on tag, or scheduled.
+1. **Define destinations** — one or more Email, FTP/SFTP, or HTTP API destinations, each with its own routing rule.
+2. **Map the payload** — a transformer maps Shopify order fields to your destination's format (CSV or XML).
+3. **Route by SKU** — each rule matches line items by SKU pattern; a default rule catches everything else.
 
 **What you can configure**
-- Destination type: Email, FTP/SFTP, HTTP API
-- Format: CSV, XML, JSON, or fixed-width
-- Trigger condition: order paid, fulfilled, tagged, in a specific channel
-- Per-line-item routing (split a single order to multiple destinations)
-- Retry policy and backoff
-- Manual replay from the run log
+- Destination type: Email, FTP/SFTP, or HTTP API
+- Format: CSV or XML, via a per-destination transformer
+- Routing rules matched by SKU pattern, with a default fallback rule
+- Per-line-item routing — split a single order across destinations by SKU
+- CC addresses and an admin copy of each export
+- A testing mode that runs the rules without delivering, plus structured per-order logs
+- Automatic retries on delivery failure via background jobs
 
 **Powered by**
 Independent of catalog and P&I. Use any combination of modules you need.
 
 **FAQ**
-- **Will it retry if my endpoint is down?** Yes, with exponential backoff and a manual replay option.
-- **Can I split one Shopify order across two destinations?** Yes, by line item, vendor, location, or any tag rule you define.
-- **Do you keep an audit trail?** Every export attempt is logged with the rendered payload, response, and timestamp.
+- **Will it retry if delivery fails?** Yes. Delivery runs as a background job and retries automatically on failure.
+- **Can I split one Shopify order across two destinations?** Yes. Routing rules match line items by SKU pattern, so different product lines on a single order can go to different suppliers.
+- **Do you keep a record of what was sent?** Order processing is logged per order, including which rules matched and the outcome of each delivery.
 
 **Final CTA:** Same band.
 
@@ -451,9 +458,10 @@ Independent of catalog and P&I. Use any combination of modules you need.
    *Link:* See CSV details → /integrations/csv
 
 ### Ingestion & export channels (row)
-- **SFTP / FTP** — drops for catalog, P&I, and orders
-- **Inbound email** — attachment pickup for P&I
+- **SFTP / FTP** — supplier file drops for catalog and price/inventory, plus outbound order files
+- **Inbound email** — attachment pickup for price & inventory, plus order delivery
 - **HTTP API** — outbound order delivery to ERPs, 3PLs, and homegrown systems
+- **ShowMeTheParts API** — inbound parts, vehicle, and fitment data, served live to your storefront
 
 ### Closing line
 Switch sources later without rebuilding your storefront. The configuration that drives your YMM search, PDP, and catalog sync is decoupled from the underlying connector.
@@ -567,7 +575,7 @@ For trying SPT, piloting a small catalog, or a low-traffic store.
 - PDP Enrichment (incl. Buyer's Guide)
 - In-Cart Fitment & Fulfillment Handoff
 - ACES/PIES, ShowMeTheParts, or CSV data source
-- **Capped at 100 searches/month**
+- **Capped at 100 searches total (lifetime)**
 - **No automatic Price & Inventory sync**
 - **No Order Export**
 - Email support
@@ -579,10 +587,10 @@ For trying SPT, piloting a small catalog, or a low-traffic store.
 For stores that need automation and run any real volume.
 - Everything in Free
 - **Unlimited searches**
-- **Automatic Price & Inventory sync** (FTP / email)
+- **Automatic Price & Inventory sync** (FTP/SFTP or email)
 - **Order Export** (Email / FTP / API destinations)
 - Priority support
-- Unlimited order-export destinations (Email + FTP + API in any combination)
+- Multiple order-export destinations, routed by SKU pattern (Email, FTP/SFTP, or API)
 
 *CTA:* Book a Demo · Install on Shopify
 
@@ -594,7 +602,7 @@ For stores that need automation and run any real volume.
 | PDP Enrichment (incl. Buyer's Guide) | ✓ | ✓ |
 | In-Cart Fitment & Fulfillment Handoff | ✓ | ✓ |
 | Data sources (ACES/PIES, ShowMeTheParts, CSV) | ✓ | ✓ |
-| Monthly searches | 100 cap | Unlimited |
+| Free searches (lifetime) | 100 total | Unlimited |
 | Automatic Price & Inventory sync | — | ✓ |
 | Order Export (Email / FTP / API) | — | ✓ |
 | Multiple order-export destinations | — | ✓ |
@@ -731,7 +739,7 @@ General-purpose ecommerce search is built around words: titles, descriptions, ta
 
 **What good YMM looks like**
 - **Predictable order.** Year → Make → Model → Sub-model → Engine, in the order shoppers expect.
-- **Persistent garage.** Once a shopper picks their vehicle, every page knows it.
+- **Persistent garage.** Once a shopper picks their vehicle, every page knows it — and they can save more than one and switch between them.
 - **Honest "no fit" handling.** If a product doesn't fit, say so clearly. Don't hide it silently and don't show it without warning.
 - **Fast.** Dropdowns populating in a quarter-second is the bar. Anything slower and shoppers will second-guess their selection.
 
@@ -762,15 +770,15 @@ title: "ShowMeTheParts API connector + multi-destination order export"
 ```
 
 **New**
-- **ShowMeTheParts as a primary data source.** Connect your ShowMeTheParts account, and catalog sync, YMM search, and PDP enrichment all read from it.
-- **Multi-destination order export.** Send a single Shopify order to multiple destinations (Email + FTP + API in any combination), with per-line-item routing rules.
+- **ShowMeTheParts as a primary data source.** Connect your ShowMeTheParts account, and YMM search and PDP enrichment read from it live.
+- **Multi-destination order export.** Route a single Shopify order to Email, FTP/SFTP, or an HTTP API endpoint by SKU pattern, so different product lines reach different suppliers — with a default rule for everything else.
 
 **Improved**
-- Sync run logs now show per-field diffs on updated SKUs.
+- PDP gains Buyer's Guide, Product Specs, interchange part numbers, and Features & Benefits blocks.
 - YMM widget loads ~30% faster on first paint via deferred dropdown hydration.
 
 **Fixed**
-- Resolved an edge case where ACES `BaseVehicle` records without engine qualifiers were skipped during incremental sync.
+- Resolved an edge case where ACES `BaseVehicle` records without engine qualifiers were skipped during ingestion.
 
 ---
 
@@ -785,12 +793,13 @@ title: "Inbound email for price & inventory + multi-vehicle garage"
 ```
 
 **New**
-- **Inbound email channel for P&I sync.** Dedicated inbound address per store; attachments are picked up and processed automatically.
-- **Multi-vehicle garage.** Shoppers can save more than one vehicle and switch between them from the header.
+- **Inbound email channel for P&I sync.** Suppliers can send price and inventory files by email; they're picked up and processed automatically.
+- **Multi-vehicle garage.** Shoppers can save more than one vehicle and switch between them from the selector.
+- **VIN & license-plate lookup.** Resolve a vehicle from a VIN, or a plate and state (available today through ShowMeTheParts).
 
 **Improved**
-- CSV upload validator now flags duplicate fitment rows before sync.
-- Admin sync log adds a "replay" action on failed runs.
+- Auto out-of-stock hiding: products are unpublished when they sell out and re-published when stock returns.
+- Search results can be sorted to surface in-stock parts, preferred vendors, or specific warehouse locations first.
 
 **Fixed**
 - Corrected an off-by-one in the year-range expansion when ACES `MinYear == MaxYear`.
@@ -1043,7 +1052,7 @@ Before this content goes live, the owner should resolve:
 2. **Organizational wording** — confirm "a product of No Fixed Plans" as the canonical phrase for the About page and footer. ShowMeTheParts (operated by Vertical Development) appears only as one of the supported data sources, not as a partner or co-operator of SPT.
 3. **Real domain** — used throughout `[standardpartstoolkit.com]` placeholders. Assumes the new site replaces the current site at the same domain (migration plan needed).
 4. **Email addresses** — `hello@`, `support@`, `privacy@`, `legal@`, `security@`.
-5. **Pricing confirmed:** Free (100 searches/month, no P&I/Order Export) and $300/month (everything). MoR pricing remains "Talk to us" — transaction-based.
+5. **Pricing confirmed:** Free (100 searches total/lifetime, no P&I/Order Export) and $300/month (everything). MoR pricing remains "Talk to us" — transaction-based.
 6. **Capability alignment confirmed:** Everything ships at launch. No "coming soon" labels. Owner committed to closing operational gaps within the launch window.
 7. **BigCommerce mention on the MoR page** — confirm whether MoR supports BigCommerce stores while the app is Shopify-only.
 8. **Real testimonial usage rights** — Luke Smith / Momentum USA quote is on the current site; confirm it can carry into the new site.

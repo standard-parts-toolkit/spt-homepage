@@ -4,10 +4,10 @@ import FeaturePageLayout from '../../layouts/FeaturePageLayout.astro';
 
 <FeaturePageLayout
   title="YMM Fitment Search + VIN Lookup — SPT"
-  description="Year-Make-Model search, persistent garage, VIN lookup, and license-plate lookup for your Shopify automotive parts store."
+  description="Year-Make-Model search, a multi-vehicle garage, VIN lookup, and license-plate lookup with in-stock and vendor-priority result sorting for your Shopify automotive parts store."
   eyebrow="Fitment search"
   headline="A fitment search shoppers actually finish."
-  subhead="Year, Make, Model — plus Sub-Model, Engine, and the other qualifiers your catalog needs. Configurable order, configurable styling, persistent garage. Built to be fast on storefronts with hundreds of thousands of SKUs."
+  subhead="Year, Make, Model — plus Sub-Model, Engine, Part Type, and the other qualifiers your catalog needs. Configurable order, configurable styling, a persistent multi-vehicle garage, and result sorting that surfaces in-stock and priority-vendor parts first. Built to be fast on storefronts with hundreds of thousands of SKUs."
   heroCaption="YMM widget — empty, mid-selection, and with results."
   howItWorks={[
     { step: 'Connect your data',     body: 'ACES/PIES, ShowMeTheParts, or CSV.' },
@@ -15,21 +15,26 @@ import FeaturePageLayout from '../../layouts/FeaturePageLayout.astro';
     { step: 'Drop the widget in',    body: 'Install on category pages, the home page, or any block your theme supports.' },
   ]}
   configurable={[
-    '<strong>Year-Make-Model dropdowns</strong> — the standard. Predictable order, persistent garage.',
-    '<strong>VIN Lookup</strong> — shoppers paste a VIN and we resolve it to the right vehicle (data-source dependent — ShowMeTheParts and most ACES/PIES vendor feeds support VIN decoding).',
-    '<strong>License-plate lookup</strong> — even faster, where the underlying data source supports plate-to-VIN.',
-    'Garage: save vehicles, restore on return, multi-vehicle support',
-    'Layout: inline, modal, sidebar, sticky',
-    'Styling driven by your theme tokens',
-    'Result behavior: filter current collection, redirect to a fitment-aware results page, or both',
-    '"No fit" handling: hide, dim, or label products that don\'t match',
+    '<strong>Year-Make-Model dropdowns</strong> — the standard, in a predictable, configurable order, with optional Part Type and Engine qualifiers.',
+    '<strong>VIN Lookup</strong> — shoppers paste a VIN and we resolve it to the right vehicle (available today through ShowMeTheParts).',
+    '<strong>License-plate lookup</strong> — even faster, where the underlying data source supports plate-to-vehicle resolution (ShowMeTheParts today).',
+    '<strong>My Garage</strong> — shoppers save multiple vehicles and switch between them; the selection persists across visits.',
+    '<strong>Catalog search</strong> — an alternate, non-fitment search tab for stores that want category browsing alongside YMM.',
+    'Result sorting — surface in-stock parts, preferred vendors, or specific warehouse locations first',
+    'In-selector shopping — show pricing and let shoppers add parts to cart directly from the results',
+    'Custom category labels and ordering for the part-type lists',
+    'Layout: inline or modal trigger, with an optional sticky bar; styling driven by your theme tokens',
+    'Result behavior: filter the current collection or redirect to a fitment-aware results page',
+    '"No fit" handling: hide, dim, or label products that don\'t match the selected vehicle',
   ]}
   dataSources="ACES/PIES XML · ShowMeTheParts API · CSV. Switch sources later — your storefront configuration carries over."
   faqs={[
-    { q: 'How fast is it on a large catalog?', a: 'The search index is precomputed at sync time, so dropdown population and result filtering are constant-time regardless of catalog size.' },
-    { q: 'Can shoppers save more than one vehicle?', a: 'Yes. Multi-vehicle garage is built in and persists across sessions for signed-in customers.' },
-    { q: 'Does it work with my existing theme?', a: 'Yes. The widget is a Shopify block; it inherits theme tokens by default and exposes its own settings for any overrides.' },
-    { q: 'What happens when a shopper picks a vehicle and lands on a product that doesn\'t fit?', a: 'Configurable: hide, dim with a fitment warning, or surface a "shop for this vehicle" link.' },
-    { q: 'Does it support VIN decoding?', a: 'Yes, when your underlying data source provides VIN-to-vehicle resolution (ShowMeTheParts and ACES/PIES vendor feeds typically do; pure CSV does not).' },
+    { q: 'How fast is it on a large catalog?', a: 'Vehicle dropdowns and fitment lookups are served from indexed data — a local ACES/PIES store, or cached ShowMeTheParts responses — so they stay fast on storefronts with hundreds of thousands of SKUs.' },
+    { q: 'Can shoppers save more than one vehicle?', a: 'Yes. The selector includes a "My Garage" that saves multiple vehicles and lets shoppers switch between them, with the selection persisting across visits.' },
+    { q: 'Can I control which parts show up first?', a: 'Yes. Results can be sorted to surface in-stock parts first, then preferred vendors or specific warehouse locations, so the most relevant options lead.' },
+    { q: 'Can shoppers buy without leaving the search?', a: 'Yes. The selector can show pricing and an add-to-cart action on results, so a shopper can add a fitting part to the cart directly from the search.' },
+    { q: 'Does it work with my existing theme?', a: 'Yes. The widget is a Shopify theme app block; it inherits theme tokens by default and exposes its own settings for any overrides.' },
+    { q: 'What happens when a shopper picks a vehicle and lands on a product that doesn\'t fit?', a: 'The product page shows a clear fitment status, and you can configure non-matching products to be hidden, dimmed with a warning, or labeled.' },
+    { q: 'Does it support VIN decoding?', a: 'Yes — VIN and license-plate decoding are available today through ShowMeTheParts. Availability for other sources depends on whether the source provides VIN-to-vehicle resolution.' },
   ]}
 />

@@ -7,13 +7,14 @@ date: 2026-04-05
 import Section from '../../components/release/Section.astro';
 
 <Section type="new">
-- **Inbound email channel for P&I sync.** Dedicated inbound address per store; attachments are picked up and processed automatically.
-- **Multi-vehicle garage.** Shoppers can save more than one vehicle and switch between them from the header.
+- **Inbound email channel for P&I sync.** Suppliers can send price and inventory files by email; they're picked up and processed automatically.
+- **Multi-vehicle garage.** Shoppers can save more than one vehicle and switch between them from the selector.
+- **VIN & license-plate lookup.** Resolve a vehicle from a VIN, or a plate and state (available today through ShowMeTheParts).
 </Section>
 
 <Section type="improved">
-- CSV upload validator now flags duplicate fitment rows before sync.
-- Admin sync log adds a "replay" action on failed runs.
+- Auto out-of-stock hiding: products are unpublished when they sell out and re-published when stock returns.
+- Search results can be sorted to surface in-stock parts, preferred vendors, or specific warehouse locations first.
 </Section>
 
 <Section type="fixed">

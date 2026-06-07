@@ -27,15 +27,16 @@ const sources = [
 ];
 
 const channels = [
-  { title: 'SFTP / FTP',     body: 'Drops for catalog, P&I, and orders.' },
-  { title: 'Inbound email',  body: 'Attachment pickup for P&I.' },
-  { title: 'HTTP API',       body: 'Outbound order delivery to ERPs, 3PLs, and homegrown systems.' },
+  { title: 'SFTP / FTP',         body: 'Supplier file drops for catalog and price/inventory, plus outbound order files.' },
+  { title: 'Inbound email',      body: 'Attachment pickup for price & inventory, plus order delivery.' },
+  { title: 'HTTP API',           body: 'Outbound order delivery to ERPs, 3PLs, and homegrown systems.' },
+  { title: 'ShowMeTheParts API', body: 'Inbound parts, vehicle, and fitment data, served live to your storefront.' },
 ];
 ---
 
 <BaseLayout
   title="Integrations — SPT"
-  description="ACES/PIES, ShowMeTheParts, or CSV catalog data. SFTP, FTP, email, or HTTP API channels. SPT plugs into the systems your supply chain already speaks."
+  description="ACES/PIES, ShowMeTheParts, or CSV catalog data. SFTP, FTP, email, HTTP API, and ShowMeTheParts API channels. SPT plugs into the systems your supply chain already speaks."
 >
 
   <section class="section pt-12 sm:pt-20">
