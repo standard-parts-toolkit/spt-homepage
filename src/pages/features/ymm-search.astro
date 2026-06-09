@@ -7,7 +7,7 @@ import FeaturePageLayout from '../../layouts/FeaturePageLayout.astro';
   description="Year-Make-Model search, a multi-vehicle garage, VIN lookup, and license-plate lookup with in-stock and vendor-priority result sorting for your Shopify automotive parts store."
   eyebrow="Fitment search"
   headline="A fitment search shoppers actually finish."
-  subhead="Year, Make, Model — plus Sub-Model, Engine, Part Type, and the other qualifiers your catalog needs. Configurable order, configurable styling, a persistent multi-vehicle garage, and result sorting that surfaces in-stock and priority-vendor parts first. Built to be fast on storefronts with hundreds of thousands of SKUs."
+  subhead="Year, Make, Model — plus Sub-Model, Engine, Part Type, and the other qualifiers your catalog needs. Configurable order, configurable styling, a persistent multi-vehicle garage, and result sorting that surfaces in-stock and priority-vendor parts first. Built to be fast on storefronts with up to hundreds of thousands of SKUs."
   heroImage="/screenshots/ymm_category_search.png"
   heroImageAlt="SPT Year-Make-Model fitment search on a Shopify category page."
   heroCaption="YMM fitment search on a category page."
@@ -17,25 +17,25 @@ import FeaturePageLayout from '../../layouts/FeaturePageLayout.astro';
     { step: 'Drop the widget in',    body: 'Install on category pages, the home page, or any block your theme supports.' },
   ]}
   configurable={[
-    '<strong>Year-Make-Model dropdowns</strong> — the standard, in a predictable, configurable order, with optional Part Type and Engine qualifiers.',
-    '<strong>VIN Lookup</strong> — shoppers paste a VIN and we resolve it to the right vehicle (available today through ShowMeTheParts).',
-    '<strong>License-plate lookup</strong> — even faster, where the underlying data source supports plate-to-vehicle resolution (ShowMeTheParts today).',
-    '<strong>My Garage</strong> — shoppers save multiple vehicles and switch between them; the selection persists across visits.',
-    '<strong>Catalog search</strong> — an alternate, non-fitment search tab for stores that want category browsing alongside YMM.',
-    'Result sorting — surface in-stock parts, preferred vendors, or specific warehouse locations first',
-    'In-selector shopping — show pricing and let shoppers add parts to cart directly from the results',
-    'Custom category labels and ordering for the part-type lists',
-    'Layout: inline or modal trigger, with an optional sticky bar; styling driven by your theme tokens',
-    'Result behavior: filter the current collection or redirect to a fitment-aware results page',
-    '"No fit" handling: hide, dim, or label products that don\'t match the selected vehicle',
+  '<strong>Year-Make-Model dropdowns</strong> - the standard, in a predictable, configurable order, with optional Part Type, Category and Engine qualifiers.',
+    '<strong>VIN Lookup</strong> - shoppers paste a VIN and we resolve it to the right vehicle (available today with ShowMeTheParts data source).',
+    '<strong>License-plate lookup</strong> - even faster, where the underlying data source supports plate-to-vehicle resolution (available today with ShowMeTheParts data source).',
+    '<strong>My Garage</strong> - shoppers save multiple vehicles and switch between them; the selection persists across visits.',
+    '<strong>Catalog search</strong> - an alternate, non-fitment search tab for stores that want category browsing alongside YMM.',
+  '<strong>Result sorting</strong> - surface in-stock parts, preferred vendors, or specific warehouse locations first',
+  '<strong>In-selector shopping</strong> - show pricing and let shoppers add parts to cart directly from the results',
+  '<strong>Custom category</strong> - labels and ordering for the part-type lists',
+  '<strong>Layout</strong> - inline or modal trigger, with an optional sticky bar; styling driven by your theme tokens',
+  '<strong>Result behavior</strong> - filter the current collection or redirect to a fitment-aware results page',
+  '<strong>"No fit" handling</strong> - label products that don\'t match the selected vehicle',
   ]}
-  dataSources="ACES/PIES XML · ShowMeTheParts API · CSV. Switch sources later — your storefront configuration carries over."
+  dataSources="ACES/PIES XML · ShowMeTheParts API · CSV. Switch sources later and your storefront configuration carries over."
   faqs={[
-    { q: 'How fast is it on a large catalog?', a: 'Vehicle dropdowns and fitment lookups are served from indexed data — a local ACES/PIES store, or cached ShowMeTheParts responses — so they stay fast on storefronts with hundreds of thousands of SKUs.' },
+    { q: 'How fast is it on a large catalog?', a: 'Vehicle dropdowns and fitment lookups are served from indexed data so they stay fast on storefronts with hundreds of thousands of SKUs.' },
     { q: 'Can shoppers save more than one vehicle?', a: 'Yes. The selector includes a "My Garage" that saves multiple vehicles and lets shoppers switch between them, with the selection persisting across visits.' },
-    { q: 'Can I control which parts show up first?', a: 'Yes. Results can be sorted to surface in-stock parts first, then preferred vendors or specific warehouse locations, so the most relevant options lead.' },
+  { q: 'Can I control which parts show up first?', a: 'Yes. Results can be sorted to surface in-stock parts and/or preferred vendors so the most relevant options lead.' },
     { q: 'Can shoppers buy without leaving the search?', a: 'Yes. The selector can show pricing and an add-to-cart action on results, so a shopper can add a fitting part to the cart directly from the search.' },
-    { q: 'Does it work with my existing theme?', a: 'Yes. The widget is a Shopify theme app block; it inherits theme tokens by default and exposes its own settings for any overrides.' },
+    { q: 'Does it work with my existing theme?', a: 'The toolkit works with Shopify 2.0 compliant themes. Reach out to our team to confirm compatbility.' },
     { q: 'What happens when a shopper picks a vehicle and lands on a product that doesn\'t fit?', a: 'The product page shows a clear fitment status, and you can configure non-matching products to be hidden, dimmed with a warning, or labeled.' },
     { q: 'Does it support VIN decoding?', a: 'Yes — VIN and license-plate decoding are available today through ShowMeTheParts. Availability for other sources depends on whether the source provides VIN-to-vehicle resolution.' },
   ]}

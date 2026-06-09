@@ -25,34 +25,34 @@ const softwareApp = {
 
 const features = [
   {
-    title: 'YMM Fitment Search + VIN Lookup',
-    body: 'Year-Make-Model dropdowns, a multi-vehicle garage, VIN lookup, and license-plate lookup (where supported), with in-stock and vendor-priority result sorting.',
+    title: 'YMM Fitment Search',
+    body: 'Year-Make-Model dropdowns, a multi-vehicle garage, VIN lookup (where supported), and license-plate lookup (where supported), with in-stock and vendor-priority result sorting.',
     href: '/features/ymm-search/',
   },
   {
     title: 'Catalog Parts Sync',
-    body: "Push your catalog into Shopify products and metafields — Description, Specs, Buyer's Guide, and Item Attributes.",
+    body: "Push your catalog into Shopify products - Description, Specifications, Buyer's Guide, and Interchanges.",
     href: '/features/catalog-sync/',
   },
   {
     title: 'PDP Product Information',
-    body: "Fitment, attributes, specs, notes, and Buyer's Guide content on every product page — themed to match your store.",
+    body: "Fitment, attributes, specs, notes, and Buyer's Guide content on every product page, themed to match your store.",
     href: '/features/pdp-enrichment/',
   },
   {
     title: 'In-Cart Fitment & Fulfillment Handoff',
-    body: "The shopper's vehicle follows them to checkout and to your fulfillment team — ship the right part the first time.",
+    body: "The shopper's selected vehicle follows them to checkout and to your fulfillment team. Ship the right part the first time.",
     href: '/features/in-cart-fitment/',
     isNew: true,
   },
   {
     title: 'Price & Inventory Sync',
-    body: 'Pull price and inventory updates from supplier FTP/SFTP or email, and auto-hide out-of-stock products.',
+    body: 'Pull price and inventory updates from FTP/SFTP or email and auto-hide out-of-stock products.',
     href: '/features/price-inventory-sync/',
   },
   {
     title: 'Order Export',
-    body: 'Route orders to Email, FTP/SFTP, or API destinations by SKU pattern. Customize the format for what your warehouse, ERP, or 3PL expects.',
+    body: 'Route orders to Email, FTP/SFTP, or API destinations by brand or SKU pattern. Customize the format for what your warehouse, ERP, or 3PL expects.',
     href: '/features/order-export/',
   },
 ];
@@ -75,7 +75,7 @@ const features = [
       class="mt-3 max-w-4xl text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl"
       style="color: var(--text)"
     >
-    Zero-Touch Fitment / Catalog Management on Shopify.
+    Zero-Touch Fitment Search / Catalog Management on Shopify.
     </h1>
 
     <p class="lede mt-5 max-w-3xl">
@@ -101,7 +101,7 @@ const features = [
       </li>
       <li class="inline-flex items-center gap-2">
         <span class="inline-block h-2 w-2 rounded-full" style="background: var(--primary)"></span>
-        <strong style="color: var(--text)">One install per store</strong> — yours
+        <strong style="color: var(--text)">One click install
       </li>
     </ul>
   </section>
@@ -153,7 +153,7 @@ const features = [
       <h2 class="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">Bring the data you already have.</h2>
       <p class="lede mt-3">
         SPT speaks three industry-standard parts-data formats. Pick the one that matches how you already operate
-        today — switch later without rebuilding your storefront.
+        today. Switch later without rebuilding your storefront.
       </p>
     </div>
 
@@ -163,7 +163,7 @@ const features = [
         <h3 class="mt-3 text-lg font-bold" style="color: var(--text)">ACES / PIES XML</h3>
         <p class="mt-2 text-sm" style="color: var(--text-muted)">
           The industry-standard XML formats from the AutoCare Association. ACES describes which vehicles each part
-          fits; PIES describes the parts themselves. Drop files onto FTP and SPT parses, validates, and syncs.
+          fits; PIES describes the parts themselves. Send files to us and we'll parses, validate, and sync them with your store.
         </p>
         <ul class="mt-4 space-y-1.5 text-xs" style="color: var(--text-subtle)">
           <li>· ACES 3.x and 4.x fitment</li>
@@ -179,7 +179,7 @@ const features = [
         <span class="tag">API-driven</span>
         <h3 class="mt-3 text-lg font-bold" style="color: var(--text)">ShowMeTheParts</h3>
         <p class="mt-2 text-sm" style="color: var(--text-muted)">
-          Connect your ShowMeTheParts account and SPT will sync the parts, vehicles, and fitment your store needs —
+          Connect your ShowMeTheParts account and SPT will sync the parts, vehicles, and fitment your store needs
           without maintaining an ACES/PIES feed of your own.
         </p>
         <ul class="mt-4 space-y-1.5 text-xs" style="color: var(--text-subtle)">
@@ -210,7 +210,7 @@ const features = [
     </div>
 
     <p class="mt-6 text-sm" style="color: var(--text-subtle)">
-      All three connect into the same configuration — your YMM widget, PDP blocks, and admin settings carry over if
+      All three connect into the same configuration:your YMM widget, PDP blocks, and admin settings carry over if
       you switch sources later.
     </p>
   </section>
@@ -234,7 +234,7 @@ const features = [
         <div class="lg:col-span-5">
           <ol class="space-y-3">
             {[
-              ['Search', 'Shopper picks a vehicle. We save it to the session.'],
+              ['Search', 'Shopper picks a vehicle. It\'s saved to their session.'],
               ['Product page', 'Fitment, Buyer\'s Guide, and notes render from the same data feed.'],
               ['Cart', 'The vehicle travels as line-item properties, visible in the cart and order summary.'],
               ['Fulfillment', 'Your team sees the exact vehicle on the order before pick and pack.'],
@@ -291,10 +291,6 @@ const features = [
       <div class="flex flex-wrap items-end justify-between gap-4">
         <div class="max-w-2xl">
           <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">See it in production.</h2>
-          <p class="lede mt-3">
-            Annotated screenshots while we wait for your data. Or skip the slides and browse a real Shopify storefront
-            running SPT.
-          </p>
         </div>
         <a href="https://carmenspartdepot.com" target="_blank" rel="noopener" class="btn btn-secondary">
           View Demo Site <span aria-hidden="true">→</span>
@@ -345,10 +341,8 @@ const features = [
         class="relative text-xl font-medium leading-snug sm:text-2xl"
         style="color: var(--text)"
       >
-        <span aria-hidden="true" class="absolute -left-2 -top-4 text-7xl leading-none" style="color: var(--spark)">“</span>
-        Vertical Development has been ingesting and publishing my content for years. Plugging their ShowMeTheParts
-        API service directly into Shopify via Standard Parts Toolkit is a brilliant way to leverage the strengths of
-        both worlds — like chocolate and peanut butter.
+        <span aria-hidden="true" class="absolute -left-6 -top-4 text-7xl leading-none sm:-left-10" style="color: var(--spark)">“</span>
+        Been working with Standard Parts Toolkit for a few years now and couldn't be happier. Their fitment toolbar has been a game changer for us. Our customers appreciate the ease in finding the right parts for their vehicle. We've really appreciated how easy it is to work with SPT and how responsive they are. Definitely recommend!
       </blockquote>
       <figcaption class="mt-6 text-sm" style="color: var(--text-muted)">
         <span class="font-semibold" style="color: var(--text)">Luke Smith</span>, CEO, Momentum USA, Inc.
@@ -366,7 +360,7 @@ const features = [
         <div class="max-w-2xl">
           <span class="tag tag-action">Sales Tax Solution</span>
           <h2 class="mt-3 text-2xl font-bold sm:text-3xl" style="color: var(--text)">
-            First time selling online? We can be your merchant of record.
+            Worried about how to handle sales tax? We can be your merchant of record.
           </h2>
           <p class="mt-3" style="color: var(--text-muted)">
             Outsource sales tax collection, remittance, and reporting so you can focus on growing your parts business.
